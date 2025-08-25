@@ -1,0 +1,2850 @@
+[
+    {
+        "text_chunk": "24 de jul. de 2025\nProcesso BeautyColor - Beestock\nConvidados José Fidalgo De Siqueira Vitor Pellense Wagner Tabordas Ribas Fabio Mazon Renan Fernandes Dias Jeferson Moraes Carlos Alberto Bertling Junior Ramon SZ\nAnexos Processo BeautyColor - Beestock \nRegistros da reunião Transcrição Gravação \nResumo\nFabio Mazon, Ramon Mendes e José Fidalgo De Siqueira detalharam o fluxo de trabalho da Beauty Color com a Bip Plus, explicando que o processo logístico envolve caixas fechadas e fracionadas, controladas por etiquetas seriadas e agrupadoras. Fabio Mazon demonstrou a geração de etiquetas, a integração com o ERP e a movimentação entre filiais, onde as etiquetas agrupadoras são bipadas para gerar documentos de saída e controlar o estoque, além de explicar o processo de inventário por etiqueta e a separação de pedidos. Carlos Alberto Bertling Junior e Renan Fernandes Dias também participaram da discussão sobre os depósitos e tipos de documentos.\nDetalhes\nFluxo de trabalho da Beauty Color Fabio Mazon apresentou o fluxo de trabalho da empresa Beauty Color com o cliente Bip Plus, explicando que o processo logístico deles difere do padrão usual visto em outros clientes, especialmente por trabalharem com caixas fechadas e fracionadas (00:00:00). O controle é feito por meio de etiquetas seriadas, as quais são rastreadas desde o recebimento até a saída dos produtos (00:03:59).\nEtiquetas Seriadas e Agrupadoras Ramon Mendes e Fabio Mazon detalharam que as etiquetas seriadas são únicas, identificando cada produto, enquanto as etiquetas agrupadoras (etiquetas \"pai\") representam o saldo total em um palete (00:05:18) (00:15:57). Fabio Mazon explicou que o sistema Bstock calcula a quantidade de etiquetas necessárias com base no fator do produto, garantindo que as etiquetas agrupadoras recebam apenas etiquetas seriadas da mesma ordem de produção, produto, lote e validade (00:07:39) (00:17:12).\nGeração de Etiquetas Fabio Mazon demonstrou o processo de geração de etiquetas seriadas, que começa com a ordem de produção no RP e é integrada ao Bstock no módulo de indústria (00:06:19). Ele também explicou que o sistema gera um sequencial único para cada etiqueta, contendo informações como ano, mês, dia e quantidade do produto, e que os usuários podem imprimir etiquetas adicionais em caso de erros ou produção extra (00:09:20).\nIntegração com o ERP Fabio Mazon explicou que, após a geração das etiquetas seriadas, o saldo é registrado no Bstock e integrado ao ERP, que armazena os dados e os utiliza para a geração de etiquetas agrupadoras por meio de um aplicativo externo (Six app) (00:11:02) (00:14:35). Ele detalhou que o Bstock só aceita etiquetas agrupadoras se todas as etiquetas seriadas vinculadas pertencerem à mesma ordem de produção, produto, lote e validade (00:17:12).\nMovimentação entre Filiais Fabio Mazon descreveu o processo de movimentação de materiais da filial de indústria (2011) para a filial de distribuição (301), onde as etiquetas agrupadoras são bipadas no coletor para gerar documentos de saída (00:20:17). Ele explicou que o ERP é notificado para criar o documento de expedição, e, após o faturamento, o Bstock registra a baixa do saldo na filial de origem e a entrada na filial de destino, automatizando o processo (00:28:34).\nConferência e Armazenamento na Distribuidora Fabio Mazon explicou que, na filial de distribuição (301), a conferência dos produtos é feita por meio das etiquetas agrupadoras, que funcionam como uma \"unidade\" para cada palete, garantindo que o sistema valide as etiquetas recebidas com as que saíram da indústria (00:33:38). Ele também destacou que o armazenamento é feito bipando a etiqueta agrupadora, o que automaticamente calcula a quantidade total do item, simplificando o processo (00:36:42).\nDepósitos de Saldo e Fracionamento Fabio Mazon explicou que a filial 301 possui depósitos específicos para controle de estoque, como o EXL, para caixas fechadas, e o EXF e o Eco, que permitem o fracionamento de etiquetas (00:43:10). Ele detalhou que o sistema diferencia esses depósitos para controlar se a separação deve ser feita com a quantidade total da caixa ou com quantidades parciais (00:44:51).\nTransferência por Onda Fabio Mazon descreveu que, em caso de transferência por onda entre depósitos, uma etiqueta seriada pode se tornar uma etiqueta agrupadora própria se for desvinculada de sua agrupadora original, ao contrário das transferências de endereço, onde o palete inteiro (e sua agrupadora) deve ser movimentado (00:49:37). Ele ressaltou que esse cenário ocorre apenas em transferências por onda, pois o vínculo da seriada com a agrupadora é desfeito (00:51:03).\nSeparação de Pedidos Fabio Mazon demonstrou como a separação de pedidos é realizada, onde o sistema Bstock, em cenários de depósitos que não fracionam, aloca o saldo pela etiqueta, e em depósitos que permitem fracionamento, o usuário pode informar a quantidade parcial retirada da caixa. Ele explicou que, ao bipar a etiqueta, o sistema já define a quantidade exata do item contida nela, automatizando a baixa do estoque (00:52:39) (00:56:41).\nAlocação e Atribuição de Separação Fabio Mazon explicou o processo de alocação de documentos e atribuição de separadores no sistema. Ele demonstrou que, para que um usuário possa realizar a separação em um determinado range, ele deve estar vinculado a este range. Se o usuário não estiver vinculado, o documento não aparecerá para atribuição nem no coletor (01:00:25).\nFluxo de Separação e Fracionamento Fabio Mazon detalhou o fluxo de separação, indicando que o usuário precisa bipar a etiqueta do produto no endereço de locação e informar a quantidade a ser separada, diferente de quando a quantidade é pré-definida (01:02:09). Ele explicou que o sistema permite o fracionamento de materiais, como caixas que podem ser abertas para separar apenas uma unidade. José Fidalgo De Siqueira questionou sobre a quantidade solicitada no documento, e Fabio Mazon esclareceu que, para itens de e-commerce, o documento sempre solicita uma quantidade fracionada, não a quantidade total da etiqueta (01:04:20).\nInventário por Etiqueta Fabio Mazon apresentou o processo de inventário por etiqueta desenvolvido para a Built Color, onde o usuário pode escolher qual item será inventariado. Ele ressaltou que o inventário é feito apenas para o saldo total da etiqueta em depósitos que não fracionam, e não para etiquetas que permitem fracionamento. Existem dois fluxos de inventário: o de picking e o de endereço pulmão (01:06:16).\nDiferenças nos Fluxos de Inventário Fabio Mazon descreveu as particularidades do inventário de picking, onde o usuário informa a quantidade de caixas, e se houver divergência, um segundo usuário bipa cada etiqueta seriada para validação (01:08:13). Para o inventário de pulmão, se o usuário encontrar divergência, ele mesmo realiza a bipagem de todas as seriadas no endereço. José Fidalgo De Siqueira confirmou que, no inventário de picking, se a contagem estiver correta, o processo finaliza na primeira contagem (01:09:49).\nProcesso de Separação e Agrupadora Carlos Alberto Bertling Junior perguntou sobre o fracionamento no e-commerce versus outras ocasiões, e Fabio Mazon esclareceu que, fora do e-commerce, o sistema automaticamente baixa o saldo da etiqueta sem pop-ups, a menos que haja divergência (01:10:58). Renan Fernandes Dias solicitou uma explicação sobre a etiqueta agrupadora, e Fabio Mazon detalhou que a etiqueta seriada é gerada a partir de uma ordem de produção e é reportada no RP, enquanto a agrupadora é a \"etiqueta pai\" que soma o saldo total das seriadas e é colada no palete (01:13:35).\nDepósitos e Tipos de Documentos José Fidalgo De Siqueira perguntou sobre o depósito \"eco\" e Fabio Mazon confirmou que este é um depósito fracionado. Fabio Mazon explicou os tipos de documentos, como EXC e XF, que definem se o material será direcionado para um depósito de fracionado ou não fracionado, e detalhou as regras de fracionamento para cada tipo de depósito (e.g., XF fraciona em múltiplos de seis, \"eco\" fraciona unidade por unidade) (01:16:12).\nFluxo Completo do Cliente Beauty Color Fabio Mazon recapitulou o fluxo completo da Beauty Color, iniciando na filial da indústria (2011) onde o RP retorna a ordem de produção para o BOC, que gera etiquetas seriadas e agrupadoras. Ele explicou que o saldo é transferido do depósito de qualidade (CQ) para o depósito EXB, onde ocorre a separação (01:18:54). A filial de distribuição (301) é responsável pelo recebimento e movimentações internas, incluindo a transferência por onda, que pode resultar na perda do vínculo das seriadas com a agrupadora, transformando o código da seriada no código da própria agrupadora (01:21:46).\nRevise as anotações do Gemini para checar se estão corretas. Confira dicas e saiba como o Gemini faz anotações\nEnvie feedback sobre o uso do Gemini para criar notas breve pesquisa.",
+        "metadata": {
+            "customer": "BeautyColor",
+            "source_file": "Processo BeautyColor - Beestock - 2025_07_24 08_58 GMT-03_00 - Anotações do Gemini.docx",
+            "chunk_id": "Processo BeautyColor - Beestock - 2025_07_24 08_58 GMT-03_00 - Anotações do Gemini.docx_0"
+        }
+    },
+    {
+        "text_chunk": "29 de jul. de 2025\nProcessos Barros - Beestock\nConvidados Vitor Pellense José Fidalgo De Siqueira Wagner Tabordas Ribas Renan Fernandes Dias Jeferson Moraes Ramon SZ Carlos Alberto Bertling Junior\nAnexos Processos Barros - Beestock \nRegistros da reunião Transcrição Gravação \nResumo\nRamon Mendes apresentou o cliente Barros Autopeças, que utiliza o WMS Bstock integrado ao ERP da Zuquet, com foco na filial de Serra para operações de cross-docking simplificado e destacou desenvolvimentos específicos do Bstock, como o armazenamento automático e o uso do \"código complementar\". Os planos de expansão para outras filiais dependem de desenvolvimentos pendentes no ERP do cliente e Ramon Mendes explicou o futuro direcionamento de depósito na entrada e saída, enquanto José Fidalgo De Siqueira e Jeferson Moraes discutiram o desenvolvimento do módulo de cross-docking, que será lançado em agosto. Ramon Mendes recomendou que a equipe de suporte se familiarize com o cliente e seus processos atuais para o suporte futuro.\nDetalhes\nIntrodução ao Cliente Barros Autopeças Ramon Mendes iniciou a reunião, apresentando o cliente Barros Autopeças, localizado em Mogi Mirim, São Paulo (00:06:04). A empresa implantou o WMS Bstock integrado ao ERP da Zuquet, que é um parceiro. Atualmente, apenas uma filial em Serra, Espírito Santo, está em produção, operando no modelo de cross-docking simplificado (00:07:44) (00:10:33).\nIntegração e Operação em Serra A Barros Autopeças utiliza a primeira integração com o ERP do parceiro Zuquet, onde todo o desenvolvimento da integração de dados (ida e volta) foi realizado pela Zuquet (00:09:07). A filial de Serra funciona como um cross-docking, recebendo mercadorias de fornecedores e as movimentando diretamente para expedição, sem paletização, pois não há processo de armazenagem prolongado (00:10:33). O foco principal é a entrada e saída de materiais, sem utilização de inventário ou outras funções mais complexas (00:11:56).\nDiferenciais e Desenvolvimentos Específicos Ramon Mendes destacou desenvolvimentos específicos para o cliente Barros, como o parâmetro de \"armazenamento automático\" no Bstock, que permite que a conferência de entrada direcione os produtos diretamente para o endereço final de armazenamento, sem a necessidade de uma segunda etapa (00:13:56). Outro diferencial é a utilização do \"código complementar\" como referência principal para os produtos, que é concatenado à descrição em várias telas do sistema para facilitar a identificação pelos usuários (00:19:11).\nPontos de Atenção na Integração e Suporte Em relação às integrações, é crucial monitorar erros no monitor de integrações, pois problemas como o cancelamento de saída podem ocorrer devido à falta de desenvolvimento no ERP do cliente. Ramon Mendes enfatizou que o suporte para problemas de integração com o ERP da Zuquet é feito diretamente com a equipe deles, embora a equipe de suporte possa auxiliar quando necessário (00:21:36).\nPlanos de Crescimento e Desenvolvimentos Pendentes O cliente Barros Autopeças tem planos de expandir a utilização do Bstock para outras filiais, incluindo Curitiba e a matriz em Mogi Mirim. Contudo, essa expansão depende de desenvolvimentos pendentes no lado do ERP deles, como a geração de pedidos e o módulo de cross-docking. Enquanto isso, o Bstock será implementado nas lojas menores no módulo padrão (00:23:05).\nDirecionamento de Depósito na Entrada e Saída Ramon Mendes explicou uma funcionalidade futura onde o ERP passará a enviar o código do depósito na integração do documento de entrada. Isso permitirá ao Bstock configurar tipos de documento específicos para cada filial (ex: BH, Curitiba, Matriz) e direcionar o saldo diretamente para o depósito correto no momento do armazenamento, segregando o estoque desde a entrada (00:24:42). Da mesma forma, o depósito será enviado na integração de saída, facilitando a alocação automática de saldo (00:27:24).\nDesenvolvimento do Módulo de Cross-docking José Fidalgo De Siqueira solicitou esclarecimentos sobre o processo de cross-docking (00:28:47). Ramon Mendes explicou que o módulo de cross-docking está sendo desenvolvido tanto no Bstock quanto no ERP do cliente, e substituirá a solução manual temporária (00:29:56). Este novo módulo permitirá que, na integração de entrada, o ERP informe as quantidades previstas para pedidos de saída, possibilitando que a conferência de entrada já realize a separação e preparação para expedição, pulando etapas intermediárias (00:31:19). O saldo ficará reservado no depósito cross para pedidos específicos e será automaticamente baixado quando o pedido for faturado (00:40:04) (00:42:17). Jeferson Moraes acrescentou que o módulo de cross-docking deve ser lançado na próxima versão do Bstock em agosto, mas sua implementação dependerá dos desenvolvimentos do cliente (00:47:11).\nSuporte Futuro e Familiarização com o Cliente Ramon Mendes salientou que o cliente Barros ainda está se familiarizando com o Bstock, o que pode gerar chamados mais básicos ou por falta de entendimento. Ele recomendou que a equipe de suporte analise cuidadosamente os chamados, pois nem sempre se tratam de problemas técnicos (00:44:41). Com a expansão para operações maiores em Mogi e Curitiba, que envolverão mais itens e usuários, é importante que a equipe se familiarize com o processo atual para estar preparada para a complexidade futura (00:45:49).\nRevise as anotações do Gemini para checar se estão corretas. Confira dicas e saiba como o Gemini faz anotações\nEnvie feedback sobre o uso do Gemini para criar notas breve pesquisa.",
+        "metadata": {
+            "customer": "Barros",
+            "source_file": "Processos Barros - Beestock - 2025_07_29 08_59 GMT-03_00 - Anotações do Gemini.docx",
+            "chunk_id": "Processos Barros - Beestock - 2025_07_29 08_59 GMT-03_00 - Anotações do Gemini.docx_0"
+        }
+    },
+    {
+        "text_chunk": "25 de jul. de 2025\nProcessos CIA Melhoramentos - Beestock\nConvidados José Fidalgo De Siqueira Vitor Pellense Wagner Tabordas Ribas Renan Fernandes Dias Jeferson Moraes Ramon SZ Carlos Alberto Bertling Junior\nAnexos Processos CIA Melhoramentos - Beestock \nRegistros da reunião Transcrição Gravação \nResumo\nRamon Mendes e José Fidalgo De Siqueira discutiram dificuldades de acesso à VPN da CIA e soluções provisórias para demonstração do sistema, além de confirmarem a presença de Carlos Alberto Bertling Junior, Vitor Pellense e Renan Fernandes Dias. Ramon Mendes iniciou um treinamento detalhado sobre o cliente C Melhoramentos, explicando seu modelo de negócio focado na manutenção industrial e automotiva, o uso de módulos específicos do Datasul (CD1406 e inspeção customizada), o complexo gerenciamento de múltiplos depósitos e integrações, e os processos de saída via requisição. Ramon Mendes e José Fidalgo De Siqueira também abordaram o rigoroso controle de estoque, confirmação de entrega via coletor, envio de e-mails de notificação, processos de inventário cíclico e anual, transferências entre depósitos e as customizações no Datasul, além de problemas passados de inventário.\nDetalhes\nProblemas de Acesso e Soluções Provisórias Ramon Mendes e José Fidalgo De Siqueira discutiram as dificuldades de acesso à VPN da CIA, que foi desativada, impossibilitando o acesso direto. José Fidalgo De Siqueira mencionou que o acesso agora é por zona e que estão solicitando acesso por máquinas de fornecedores (00:00:00). Uma solução provisória para a demonstração do sistema é utilizar a base de demonstração da C.\nReunião e Presença dos Participantes Ramon Mendes expressou a necessidade de dar continuidade à reunião devido a outro compromisso às 10h. Ele confirmou a presença de José Fidalgo De Siqueira, Carlos Alberto Bertling Junior, Vitor Pellense e Renan Fernandes Dias na chamada, assegurando que todos estavam \"vivos\" e participativos (00:23:46).\nTreinamento do Cliente C Melhoramentos Ramon Mendes iniciou um treinamento sobre o cliente C Melhoramentos, com o objetivo de repassar a estrutura e facilitar o acesso a informações e especificidades desse cliente. Ele destacou que o treinamento teria uma dinâmica interativa, pedindo participação dos presentes, especialmente de Carlos Alberto Bertling Junior e Renan Fernandes Dias, que estão acessando este cliente pela primeira vez (00:27:18).\nModelo de Negócio da C Melhoramentos Ramon Mendes explicou que a C Melhoramentos processa cana-de-açúcar para diversos fins, incluindo açúcar (vendido para a China), asfalto (a partir do bagaço), energia elétrica (da queima do bagaço) e álcool automotivo, atuando em toda a cadeia produtiva (00:28:26). O foco principal do cliente é o controle do almoxarifado de manutenção industrial e automotiva (AMI), gerenciando itens usados para a manutenção de uma grande frota de veículos e equipamentos, e não produtos para venda (00:29:39).\nMódulo de Requisições e Inspeção no Datasul Ramon Mendes detalhou que a C Melhoramentos utiliza o módulo de requisições do Datasul (CD1406) para gerar documentos de separação, em vez do embarque (Q0506) (00:30:49). Eles também são o único cliente que usa um módulo de inspeção customizado, onde a aprovação ou reprovação de itens comprados é feita via web ou coletor, e a mercadoria só pode ser armazenada após essa inspeção (00:32:12).\nGerenciamento de Depósitos e Integrações Ramon Mendes ressaltou a complexidade do cliente C Melhoramentos, que utiliza múltiplos depósitos e um depara entre os códigos do WMS (Bistock) e do ERP (Datasul) para as movimentações de estoque (00:36:50). Ele alertou que, nas integrações, o depósito enviado ao Datasul pode ser diferente do que é controlado no Bistock, exigindo atenção ao cadastro de depósitos (00:37:56).\nProcessos de Saída e Controle de Estoque As saídas de mercadorias são feitas via requisição, e o atendimento dessas requisições é automatizado pelo Bistock, que envia a confirmação de separação para baixa no estoque do Datasul (00:39:22). A C Melhoramentos é um cliente crítico na conciliação de estoque, exigindo que o estoque do ERP e do WMS batam no final do mês, o que os torna rigorosos com as integrações (00:40:53).\nConfirmação de Entrega e Envio de E-mails A C Melhoramentos não realiza expedição tradicional, mas utiliza um módulo de confirmação de entrega de mercadorias via coletor, onde o recebedor informa seus dados (incluindo número do crachá) para registrar quem retirou o item (00:42:10). Além disso, após a confirmação da separação no Datasul, um e-mail é automaticamente enviado ao solicitante da requisição, informando que os materiais estão disponíveis para retirada (00:44:43).\nInventário e Transferências entre Depósitos Ramon Mendes destacou a importância de atenção aos depósitos no inventário, já que a C Melhoramentos possui um grande número de depósitos com nomes semelhantes. José Fidalgo De Siqueira questionou a frequência do inventário, e Ramon Mendes explicou que eles fazem inventários cíclicos mensais e um inventário completo anual (00:46:01). Ele também mencionou que as transferências entre depósitos são frequentes, utilizando o B012 no Datasul quando um dos depósitos não é controlado pelo Bistock (00:48:47).\nProblemas de Inventário e Papel da TI Ramon Mendes abordou um problema anterior de inventário onde o mesmo produto em diferentes depósitos estava no mesmo endereço físico, causando erros na contagem; a solução foi separar os produtos em endereços distintos (00:50:28). Ele também alertou que os chamados para esse cliente são gerenciados pela TI interna, que muitas vezes repassa informações de forma incompleta, exigindo que a equipe de suporte investigue a fundo a real necessidade do cliente (00:51:48).\nCustomizações no Datasul Ramon Mendes enfatizou que o Datasul da C Melhoramentos possui muitas customizações, o que requer atenção ao suporte e entendimento dos processos específicos (00:54:11). José Fidalgo De Siqueira resumiu que os principais diferenciais do cliente são a inspeção na entrada e a confirmação de entrega na saída, além da ausência de expedição (00:54:11).\nRevise as anotações do Gemini para checar se estão corretas. Confira dicas e saiba como o Gemini faz anotações\nEnvie feedback sobre o uso do Gemini para criar notas breve pesquisa.",
+        "metadata": {
+            "customer": "CIA Melhoramentos",
+            "source_file": "Processos CIA Melhoramentos - Beestock - 2025_07_25 08_58 GMT-03_00 - Anotações do Gemini.docx",
+            "chunk_id": "Processos CIA Melhoramentos - Beestock - 2025_07_25 08_58 GMT-03_00 - Anotações do Gemini.docx_0"
+        }
+    },
+    {
+        "text_chunk": "23 de jul. de 2025\nProcessos Pafer - Beestock\nConvidados José Fidalgo De Siqueira Vitor Pellense Wagner Tabordas Ribas Fabio Mazon Renan Fernandes Dias Jeferson Moraes Carlos Alberto Bertling Junior\nAnexos Processos Pafer - Beestock \nRegistros da reunião Transcrição \nResumo\nFabio Mazon apresentou o cliente Puffer, uma empresa de fixação que lida com produtos fracionados e utiliza \"cento\" como unidade de medida padrão, o que impacta o estoque e os processos de expedição e recebimento. Ele detalhou o fluxo de balcão e os modelos de recebimento (Nacional, Importado, Diverso e Zincagem), além de explicar a etiqueta de embalagem específica da Puffer e o processo de padronização das embalagens. Fabio Mazon e Jeferson Moraes explicaram o fluxo de expedição, que inclui pedidos de venda com alocação manual e prioridades, separação com etiqueta unitizadora, conferência, embalagem e controle de doca, e fluxos específicos para VEG e clientes de loja/retira, além do uso de RTS e RTE para ajuste de estoque.\nDetalhes\nVisão Geral do Cliente Puffer Fabio Mazon apresentou o cliente Puffer, uma empresa de médio a grande porte no ramo de fixação, que lida com muitos produtos fracionados como parafusos e arruelas. Eles utilizam \"cento\" como unidade de medida padrão, o que significa que 10 parafusos são representados como 0,1, resultando em saldos fracionados no estoque (00:00:00).\nFluxo de Balcão e Prioridade de Pedidos Fabio Mazon explicou que a Puffer opera com um fluxo de balcão, onde os clientes fazem pedidos diretamente na loja, e esses pedidos recebem prioridade sobre os demais. Ele também destacou que a Puffer não trabalha com peças ou unidades únicas, mas sim com a unidade de medida \"cento\", o que é um ponto de atenção em cenários de expedição e recebimento (00:01:26).\nModelos de Recebimento Fabio Mazon detalhou os modelos de recebimento da Puffer, que incluem o Recebimento Nacional (RCN) para materiais comprados no Brasil, com entrada quase imediata em estoque, e o Recebimento Importado (RCI) para grandes quantidades da China, que são direcionados para um depósito de pulmão para reabastecimento do picking. Ele também mencionou o recebimento diverso para materiais retornados, como vasilhames (00:02:52).\nRecebimento de Zincagem e Armazenamento Automático Fabio Mazon descreveu o processo de recebimento de zincagem, utilizado para materiais oxidados ou divergentes no estoque, onde os parafusos são tratados e polidos. Ele explicou que, ao retornar, o material é conferido e o saldo é automaticamente disponibilizado no estoque de venda, utilizando o primeiro depósito atribuído para armazenamento automático (00:04:19).\nEtiqueta de Embalagem Específica Fabio Mazon apresentou a etiqueta de embalagem específica da Puffer, que é impressa diretamente no monitor de recebimento ou nas telas de saída e etiqueta de embalagem fracionada. Jeferson Moraes e Fabio Mazon esclareceram que essa etiqueta permite o fracionamento de pacotes com quantidades específicas e serve como controle de lote, diferente das etiquetas padrão que apenas exibem descrição, código e código de barras (00:05:47) (00:08:59).\nProcesso de Padronização das Embalagens Fabio Mazon explicou que após o recebimento de zincagem, os materiais ficam em uma área de \"desencagem\" esperando a embalagem padrão. Os usuários pesam os materiais, os embalam em pacotes específicos e colam a etiqueta de embalagem, o que facilita o fluxo de expedição ao ter pacotes prontos para quantidades específicas (00:11:36).\nFluxo de Expedição: Pedido de Venda Fabio Mazon detalhou o fluxo de expedição, que inclui pedidos de venda e operações de loja e retirada. Ele explicou que os pedidos de venda, geralmente de maiores quantidades, caem em um monitor de pendência de alocação, pois a Puffer não utiliza alocação automática, e só são alocados se a expedição do dia anterior ou atual foi concluída (00:12:58). Jeferson Moraes complementou a explicação sobre a alocação manual e a diferença entre os depósitos DIP (disponível para venda) e pulmão (reabastecimento) (00:15:49).\nPrioridades e Sequenciamento de Pedidos Fabio Mazon explicou que a Puffer utiliza um cadastro de prioridades para sequenciar os pedidos no coletor e na tela de visualização, com o cliente \"loja\" tendo a maior prioridade (00:23:16). Ele também mencionou que a prioridade e a data de entrega são usadas para gerenciar pedidos, como os com prioridade de 48 horas (00:24:32).\nProcesso de Alocação e Separação Fabio Mazon demonstrou o processo de alocação, onde o sistema reserva o saldo do material no picking (00:25:52). Ele explicou que, se um item não tiver saldo no estoque disponível, o sistema imprime um relatório indicando os itens não alocados, e a Puffer pode cancelar esses itens do pedido, expedindo o restante do material (00:19:08). Jeferson Moraes esclareceu os conceitos de picking e pulmão, comparando-os com corredores de supermercado e estoque de retaguarda, respectivamente (00:20:45).\nEtiqueta Unitizadora e Identificação de Carrinhos Fabio Mazon explicou que, antes da separação, é impressa uma etiqueta unitizadora para identificar os materiais separados dentro de um carrinho. Jeferson Moraes comparou essa etiqueta com um número de carrinho de supermercado, que permite identificar todos os itens dentro dele para conferência (00:28:59).\nConferência, Embalagem e Controle de Doca Fabio Mazon detalhou o processo de conferência, onde o sistema pede a quantidade conferida e o tipo de embalagem (caixa, pacote, sacola), gerando a etiqueta de volume. Ele explicou que, após a separação e conferência, os pedidos de venda passam por controle de doca, onde os volumes são embarcados na transportadora, com validação de que o material foi faturado e todos os volumes foram bipados antes da finalização da doca (00:37:45) (00:42:55).\nFluxo de Expedição: VEG e Loja/Retira Fabio Mazon descreveu o fluxo específico para a VEG, que utiliza um depósito exclusivo e produtos com a letra \"W\" no final do código. Ele também explicou os processos de \"loja\" e \"retira\", onde os pedidos de loja têm prioridade máxima, alocação automática e não passam por conferência, com um dashboard que exibe o status do pedido e emite alertas sonoros (00:44:16). Os pedidos de \"retira\" seguem um fluxo similar, com o cliente buscando o material após o pagamento (00:47:19).\nAjuste de Estoque via RT e RTE Fabio Mazon explicou o uso dos documentos RTS (Registro de Transferência de Saída) e RTE (Registro de Transferência de Entrada) para ajustes de estoque (00:48:48). Jeferson Moraes e Fabio Mazon detalharam que esses documentos são usados para converter produtos do tipo importado para nacional e vice-versa, permitindo que a Puffer ajuste seu estoque no WMS para coincidir com o RP, sem gerar custos de inventário (00:50:22) (00:54:39).\nRevise as anotações do Gemini para checar se estão corretas. Confira dicas e saiba como o Gemini faz anotações\nEnvie feedback sobre o uso do Gemini para criar notas breve pesquisa.",
+        "metadata": {
+            "customer": "Pafer",
+            "source_file": "Processos Pafer - Beestock - 2025_07_23 08_59 GMT-03_00 - Anotações do Gemini.docx",
+            "chunk_id": "Processos Pafer - Beestock - 2025_07_23 08_59 GMT-03_00 - Anotações do Gemini.docx_0"
+        }
+    },
+    {
+        "text_chunk": "28 de jul. de 2025\nProcessos Pastre - Beestock\nConvidados José Fidalgo De Siqueira Vitor Pellense Wagner Tabordas Ribas Renan Fernandes Dias Jeferson Moraes Ramon SZ Carlos Alberto Bertling Junior\nAnexos Processos Pastre - Beestock \nRegistros da reunião Transcrição Gravação \nResumo\nRamon Mendes apresentou o cliente Pastre, fabricante de implementos rodoviários, destacando a necessidade de acesso via VPN Pastre e as particularidades de comunicação com a equipe atual (Karin e Sandro) devido à perda de conhecimento após a saída de Richard e Gabriel. Ele explicou o fluxo de integração com o ERP Datasul para ordens de produção e requisições, o processo de separação \"picking confirm production\" e o fluxo de produção, onde o Bistock controla saldos de itens semiacabados para produtos finais. Os principais pontos discutidos foram o uso de depósitos lógicos Camban, as diferenças na movimentação de estoque (como o depósito 001 para recebimento e armazenagem, e a baixa de estoque direta pelo Datasul nos depósitos Camban), a alta probabilidade de divergências de estoque devido à falta de uso do módulo de inventário e movimentações diretas de saldo via tipo ACT.\nDetalhes\nVisão Geral e Acesso do Cliente Pastre Ramon Mendes iniciou a reunião apresentando o cliente Pastre, que atua na fabricação de implementos rodoviários, como baús e caçambas (00:09:27). Ele enfatizou a necessidade de acesso via VPN Pastre e compartilhou o arquivo de instalação do \"Engian\" para os presentes (00:06:21). Ramon Mendes destacou que a Pastre é um cliente que fabrica produtos grandes e complexos, diferente dos clientes de revenda habituais da empresa (00:10:59).\nSilos de Informação e Comunicação Ramon Mendes alertou sobre a dificuldade de comunicação com o cliente Pastre, mencionando que o nível de conhecimento da equipe foi perdido após a saída de Richard e Gabriel, os usuários-chave que participaram do Go-Live (00:12:22) (00:41:41). Ele ressaltou que a equipe atual, Karin (gerente de logística) e Sandro (gerente de TI), não têm as mesmas informações, o que exige uma comunicação clara e detalhada por e-mail (00:12:22) (00:15:03). José Fidalgo De Siqueira complementou que a maioria dos chamados anteriores estava relacionada a problemas de saldo alocado, mas que as correções foram feitas e o cliente tem acionado pouco o suporte (00:45:56).\nIntegração com ERP Datasul Ramon Mendes explicou que o cliente Pastre utiliza o ERP Datasul e a integração com o WMS Bistock se dá por meio de requisições (00:15:03). Ele detalhou que a integração inicial ocorre via ordens de produção (OP), que indicam os produtos a serem fabricados (00:19:44). No entanto, nem todos os itens da OP são enviados para separação no Bistock; apenas os itens requisitados caem para separação, enquanto outros são baixados diretamente no Datasul (00:22:40).\nProcesso de Requisição e Separação O processo de separação no Bistock é para requisições de materiais e utiliza um tipo de confirmação específico chamado \"picking confirm production\", diferente do \"picking confirm\" usual (00:24:01). Ramon Mendes explicou que este parâmetro permite que a integração seja disparada a cada item separado e conferido, não esperando que todo o documento seja concluído (00:25:13). Além disso, ele mencionou a existência de requisições manuais geradas pelo WMS (documento tipo \"hackm\"), que ocorrem quando há necessidade de materiais adicionais para uma OP já integrada (00:36:25). Essas requisições manuais também são separadas e conferidas normalmente, e a integração baixa os itens diretamente contra a OP (00:39:10).\nFluxo de Produção e Recebimento Ramon Mendes descreveu o fluxo de produção, onde, após a separação das matérias-primas ou semiacabados, a mercadoria é entregue à produção. Quando a produção realiza o apontamento, um recebimento do produto semiacabado fabricado cai no Bistock (documento tipo \"report\"), que é conferido e armazenado, ficando disponível para ser utilizado em outras etapas de produção (00:26:39). Ramon Mendes enfatizou que o Bistock controla o saldo de itens semiacabados que serão usados para compor produtos finais, não o produto final em si (00:21:23) (00:40:22).\nControle de Estoque e Camban O cliente Pastre utiliza depósitos lógicos (FB1 a FB7) que representam linhas de produção, funcionando como estoque Camban. Ramon Mendes explicou que há um processo de ressuprimento no Bistock que abastece essas linhas de produção a partir do estoque principal (L2) (00:29:05). A baixa do estoque nesses depósitos Camban é feita diretamente pelo Datasul via uma integração especial, o que é um diferencial em relação a outros clientes onde o Bistock confirma a baixa no ERP (00:31:46).\nDiferenças na Movimentação de Estoque e Inventário Ramon Mendes destacou que o cliente Pastre utiliza o mesmo depósito 001 para recebimento e para materiais aguardando armazenagem, diferente de outros clientes que usam depósitos separados para cada etapa (00:34:43). Ele também alertou sobre a alta probabilidade de divergências de estoque entre o Bistock e o ERP devido ao fato de o cliente não utilizar o módulo de inventário e realizar movimentações diretas de saldo no Bistock (tipo ACT), o que José Fidalgo De Siqueira também apontou como um problema anterior (00:47:05).\nCaracterísticas e Fluxo de Saída Ramon Mendes informou que o cliente Pastre possui um estoque de aproximadamente 23 milhões de reais, com 6.200 SKUs únicos e 5.400 endereços lógicos, focando em prateleiras para produtos pequenos (00:48:15). Ele explicou que, como não há processo de revenda, não existe fluxo de expedição, docas ou consolidação; a saída de materiais ocorre via requisição ou requisição manual, com conferência automática e baixa direta (00:49:35). Por fim, Ramon Mendes reforçou a importância do monitor de integração B002/BEE002 para verificar problemas de comunicação e alertou sobre o uso de inventários físicos para forçar saídas de saldo (00:51:03).\nRevise as anotações do Gemini para checar se estão corretas. Confira dicas e saiba como o Gemini faz anotações\nEnvie feedback sobre o uso do Gemini para criar notas breve pesquisa.",
+        "metadata": {
+            "customer": "Pastre",
+            "source_file": "Processos Pastre - Beestock - 2025_07_28 08_59 GMT-03_00 - Anotações do Gemini.docx",
+            "chunk_id": "Processos Pastre - Beestock - 2025_07_28 08_59 GMT-03_00 - Anotações do Gemini.docx_0"
+        }
+    },
+    {
+        "text_chunk": "# Título: Configuração e gestão de áreas de picking no BeeStock",
+        "metadata": {
+            "topic": "areas_picking_markdown",
+            "source_file": "areas_picking_markdown.md",
+            "chunk_id": "areas_picking_markdown.md_0"
+        }
+    },
+    {
+        "text_chunk": "**Pergunta Frequente:** \"Como cadastrar e gerenciar áreas de picking no sistema BeeStock?\"",
+        "metadata": {
+            "topic": "areas_picking_markdown",
+            "source_file": "areas_picking_markdown.md",
+            "chunk_id": "areas_picking_markdown.md_1"
+        }
+    },
+    {
+        "text_chunk": "**Resposta:**",
+        "metadata": {
+            "topic": "areas_picking_markdown",
+            "source_file": "areas_picking_markdown.md",
+            "chunk_id": "areas_picking_markdown.md_2"
+        }
+    },
+    {
+        "text_chunk": "Localizado no menu **Cadastros > Gerais > Áreas de Picking**, esta tela permite cadastrar e gerenciar áreas de picking, oferecendo duas formas de inclusão: individual ou em lote.",
+        "metadata": {
+            "topic": "areas_picking_markdown",
+            "source_file": "areas_picking_markdown.md",
+            "chunk_id": "areas_picking_markdown.md_3"
+        }
+    },
+    {
+        "text_chunk": "## Método 1: Cadastro Individual de Área de Picking",
+        "metadata": {
+            "topic": "areas_picking_markdown",
+            "source_file": "areas_picking_markdown.md",
+            "chunk_id": "areas_picking_markdown.md_4"
+        }
+    },
+    {
+        "text_chunk": "### Passos para Inclusão Individual:",
+        "metadata": {
+            "topic": "areas_picking_markdown",
+            "source_file": "areas_picking_markdown.md",
+            "chunk_id": "areas_picking_markdown.md_5"
+        }
+    },
+    {
+        "text_chunk": "1. **Acesse** Cadastros > Gerais > Áreas de Picking\n2. **Clique no botão laranja** + Incluir nova área de picking",
+        "metadata": {
+            "topic": "areas_picking_markdown",
+            "source_file": "areas_picking_markdown.md",
+            "chunk_id": "areas_picking_markdown.md_6"
+        }
+    },
+    {
+        "text_chunk": "### Preenchimento das Informações:",
+        "metadata": {
+            "topic": "areas_picking_markdown",
+            "source_file": "areas_picking_markdown.md",
+            "chunk_id": "areas_picking_markdown.md_7"
+        }
+    },
+    {
+        "text_chunk": "3. **Na tela Área de Picking, preencha**:\n   - **Código do Produto** - Código do item que será alocado na área\n   - **Descrição da Área de Picking** - Nome descritivo da área\n   - **Filial** - Filial onde a área está localizada\n   - **Depósito** - Depósito específico da área",
+        "metadata": {
+            "topic": "areas_picking_markdown",
+            "source_file": "areas_picking_markdown.md",
+            "chunk_id": "areas_picking_markdown.md_8"
+        }
+    },
+    {
+        "text_chunk": "4. **Clique em Criar** para finalizar o cadastro",
+        "metadata": {
+            "topic": "areas_picking_markdown",
+            "source_file": "areas_picking_markdown.md",
+            "chunk_id": "areas_picking_markdown.md_9"
+        }
+    },
+    {
+        "text_chunk": "### Gerenciamento da Área Criada:",
+        "metadata": {
+            "topic": "areas_picking_markdown",
+            "source_file": "areas_picking_markdown.md",
+            "chunk_id": "areas_picking_markdown.md_10"
+        }
+    },
+    {
+        "text_chunk": "5. **Após criação**, a área aparecerá na listagem\n6. **Use Ações > Eliminar** para excluir a área se necessário",
+        "metadata": {
+            "topic": "areas_picking_markdown",
+            "source_file": "areas_picking_markdown.md",
+            "chunk_id": "areas_picking_markdown.md_11"
+        }
+    },
+    {
+        "text_chunk": "## Método 2: Cadastro em Lote via CSV",
+        "metadata": {
+            "topic": "areas_picking_markdown",
+            "source_file": "areas_picking_markdown.md",
+            "chunk_id": "areas_picking_markdown.md_12"
+        }
+    },
+    {
+        "text_chunk": "### Passos para Inclusão em Lote:",
+        "metadata": {
+            "topic": "areas_picking_markdown",
+            "source_file": "areas_picking_markdown.md",
+            "chunk_id": "areas_picking_markdown.md_13"
+        }
+    },
+    {
+        "text_chunk": "1. **Clique no botão laranja** Vincular Endereços / Remover em lote",
+        "metadata": {
+            "topic": "areas_picking_markdown",
+            "source_file": "areas_picking_markdown.md",
+            "chunk_id": "areas_picking_markdown.md_14"
+        }
+    },
+    {
+        "text_chunk": "### Processo de Importação:",
+        "metadata": {
+            "topic": "areas_picking_markdown",
+            "source_file": "areas_picking_markdown.md",
+            "chunk_id": "areas_picking_markdown.md_15"
+        }
+    },
+    {
+        "text_chunk": "2. **Baixe o modelo CSV**:\n   - Clique em **Baixar Modelo CSV**\n   - Siga o exemplo fornecido no arquivo",
+        "metadata": {
+            "topic": "areas_picking_markdown",
+            "source_file": "areas_picking_markdown.md",
+            "chunk_id": "areas_picking_markdown.md_16"
+        }
+    },
+    {
+        "text_chunk": "3. **Prepare seu arquivo**:\n   - Use o modelo como base\n   - Inclua todas as áreas de picking desejadas\n   - Mantenha o formato exato do modelo",
+        "metadata": {
+            "topic": "areas_picking_markdown",
+            "source_file": "areas_picking_markdown.md",
+            "chunk_id": "areas_picking_markdown.md_17"
+        }
+    },
+    {
+        "text_chunk": "### Upload e Processamento:",
+        "metadata": {
+            "topic": "areas_picking_markdown",
+            "source_file": "areas_picking_markdown.md",
+            "chunk_id": "areas_picking_markdown.md_18"
+        }
+    },
+    {
+        "text_chunk": "4. **Faça upload do arquivo**:\n   - **Selecionar um Arquivo** ou **Arraste e solte** o arquivo CSV\n   - Aguarde o upload ser concluído",
+        "metadata": {
+            "topic": "areas_picking_markdown",
+            "source_file": "areas_picking_markdown.md",
+            "chunk_id": "areas_picking_markdown.md_19"
+        }
+    },
+    {
+        "text_chunk": "5. **Processe o arquivo**:\n   - **Clique em Processar Arquivo**\n   - Aguarde a confirmação do processamento\n   - Verifique se todas as áreas foram criadas corretamente",
+        "metadata": {
+            "topic": "areas_picking_markdown",
+            "source_file": "areas_picking_markdown.md",
+            "chunk_id": "areas_picking_markdown.md_20"
+        }
+    },
+    {
+        "text_chunk": "## Funcionalidades das Áreas de Picking",
+        "metadata": {
+            "topic": "areas_picking_markdown",
+            "source_file": "areas_picking_markdown.md",
+            "chunk_id": "areas_picking_markdown.md_21"
+        }
+    },
+    {
+        "text_chunk": "### Organização do Armazém:\n- **Segregação por produto** - Cada área pode ser dedicada a produtos específicos\n- **Controle por depósito** - Vinculação a depósitos específicos\n- **Organização por filial** - Configuração específica por localização",
+        "metadata": {
+            "topic": "areas_picking_markdown",
+            "source_file": "areas_picking_markdown.md",
+            "chunk_id": "areas_picking_markdown.md_22"
+        }
+    },
+    {
+        "text_chunk": "### Eficiência Operacional:\n- **Otimização de rotas** - Áreas bem definidas melhoram a eficiência do picking\n- **Controle de estoque** - Melhor rastreabilidade por área\n- **Gestão de espaço** - Aproveitamento otimizado do armazém",
+        "metadata": {
+            "topic": "areas_picking_markdown",
+            "source_file": "areas_picking_markdown.md",
+            "chunk_id": "areas_picking_markdown.md_23"
+        }
+    },
+    {
+        "text_chunk": "## Quando Usar Cada Método:",
+        "metadata": {
+            "topic": "areas_picking_markdown",
+            "source_file": "areas_picking_markdown.md",
+            "chunk_id": "areas_picking_markdown.md_24"
+        }
+    },
+    {
+        "text_chunk": "### Cadastro Individual:\n- **Poucas áreas** - Para 1-5 áreas de picking\n- **Configuração específica** - Quando cada área tem características únicas\n- **Primeira configuração** - Para entender o processo",
+        "metadata": {
+            "topic": "areas_picking_markdown",
+            "source_file": "areas_picking_markdown.md",
+            "chunk_id": "areas_picking_markdown.md_25"
+        }
+    },
+    {
+        "text_chunk": "### Cadastro em Lote:\n- **Muitas áreas** - Para 10+ áreas de picking\n- **Configuração padrão** - Quando áreas seguem padrão similar\n- **Migração de dados** - Transferência de outro sistema",
+        "metadata": {
+            "topic": "areas_picking_markdown",
+            "source_file": "areas_picking_markdown.md",
+            "chunk_id": "areas_picking_markdown.md_26"
+        }
+    },
+    {
+        "text_chunk": "## Boas Práticas para Áreas de Picking:",
+        "metadata": {
+            "topic": "areas_picking_markdown",
+            "source_file": "areas_picking_markdown.md",
+            "chunk_id": "areas_picking_markdown.md_27"
+        }
+    },
+    {
+        "text_chunk": "### Planejamento:\n- **Analise layout** do armazém antes de criar áreas\n- **Considere fluxo** de produtos mais movimentados\n- **Defina nomenclatura** padronizada para descrições",
+        "metadata": {
+            "topic": "areas_picking_markdown",
+            "source_file": "areas_picking_markdown.md",
+            "chunk_id": "areas_picking_markdown.md_28"
+        }
+    },
+    {
+        "text_chunk": "### Organização:\n- **Agrupe produtos** similares ou relacionados\n- **Considere curva ABC** para posicionamento\n- **Mantenha áreas** de tamanho adequado ao volume",
+        "metadata": {
+            "topic": "areas_picking_markdown",
+            "source_file": "areas_picking_markdown.md",
+            "chunk_id": "areas_picking_markdown.md_29"
+        }
+    },
+    {
+        "text_chunk": "### Manutenção:\n- **Revise configurações** periodicamente\n- **Ajuste áreas** conforme mudanças operacionais\n- **Monitore eficiência** das áreas criadas",
+        "metadata": {
+            "topic": "areas_picking_markdown",
+            "source_file": "areas_picking_markdown.md",
+            "chunk_id": "areas_picking_markdown.md_30"
+        }
+    },
+    {
+        "text_chunk": "### Nomenclatura Sugerida:\n- **Por produto**: \"AREA_ELETRONICOS\", \"AREA_FERRAMENTAS\"\n- **Por localização**: \"PICKING_A1\", \"PICKING_B2\"\n- **Por característica**: \"PESADOS\", \"FRAGEIS\", \"RAPIDO_GIRO\"",
+        "metadata": {
+            "topic": "areas_picking_markdown",
+            "source_file": "areas_picking_markdown.md",
+            "chunk_id": "areas_picking_markdown.md_31"
+        }
+    },
+    {
+        "text_chunk": "Este sistema de áreas de picking permite organização eficiente do armazém, melhorando a produtividade e controle das operações de separação.",
+        "metadata": {
+            "topic": "areas_picking_markdown",
+            "source_file": "areas_picking_markdown.md",
+            "chunk_id": "areas_picking_markdown.md_32"
+        }
+    },
+    {
+        "text_chunk": "# Título: Configuração e cadastro de filiais no BeeStock",
+        "metadata": {
+            "topic": "cadastro_filiais_markdown",
+            "source_file": "cadastro_filiais_markdown.md",
+            "chunk_id": "cadastro_filiais_markdown.md_0"
+        }
+    },
+    {
+        "text_chunk": "**Pergunta Frequente:** \"Como configurar e cadastrar filiais com suas regras operacionais no BeeStock?\"",
+        "metadata": {
+            "topic": "cadastro_filiais_markdown",
+            "source_file": "cadastro_filiais_markdown.md",
+            "chunk_id": "cadastro_filiais_markdown.md_1"
+        }
+    },
+    {
+        "text_chunk": "**Resposta:**",
+        "metadata": {
+            "topic": "cadastro_filiais_markdown",
+            "source_file": "cadastro_filiais_markdown.md",
+            "chunk_id": "cadastro_filiais_markdown.md_2"
+        }
+    },
+    {
+        "text_chunk": "Localizado no menu **Administração > Gerais > Filiais**, esta tela permite listar e configurar todas as filiais cadastradas no sistema, incluindo parâmetros específicos para cada filial.",
+        "metadata": {
+            "topic": "cadastro_filiais_markdown",
+            "source_file": "cadastro_filiais_markdown.md",
+            "chunk_id": "cadastro_filiais_markdown.md_3"
+        }
+    },
+    {
+        "text_chunk": "## Processo de Criação de Nova Filial",
+        "metadata": {
+            "topic": "cadastro_filiais_markdown",
+            "source_file": "cadastro_filiais_markdown.md",
+            "chunk_id": "cadastro_filiais_markdown.md_4"
+        }
+    },
+    {
+        "text_chunk": "### 1. Iniciando o Cadastro\n1. **Acesse** Administração > Gerais > Filiais\n2. **Clique no botão laranja** +Incluir Filial",
+        "metadata": {
+            "topic": "cadastro_filiais_markdown",
+            "source_file": "cadastro_filiais_markdown.md",
+            "chunk_id": "cadastro_filiais_markdown.md_5"
+        }
+    },
+    {
+        "text_chunk": "## Configuração por Abas",
+        "metadata": {
+            "topic": "cadastro_filiais_markdown",
+            "source_file": "cadastro_filiais_markdown.md",
+            "chunk_id": "cadastro_filiais_markdown.md_6"
+        }
+    },
+    {
+        "text_chunk": "### Aba Dados - Informações Básicas",
+        "metadata": {
+            "topic": "cadastro_filiais_markdown",
+            "source_file": "cadastro_filiais_markdown.md",
+            "chunk_id": "cadastro_filiais_markdown.md_7"
+        }
+    },
+    {
+        "text_chunk": "3. **Preencha as informações da empresa**:\n   - **Nome empresa** - Razão social da filial\n   - **Inscrição Estadual** - IE da filial\n   - **CEP** - Código postal\n   - **Número** - Número do endereço\n   - **Complemento** - Complemento do endereço\n   - **Bairro** - Bairro da filial\n   - **Cidade** - Cidade da filial\n   - **País** - País da filial\n   - **E-mail** - Email de contato\n   - **Observação** - Observações relevantes",
+        "metadata": {
+            "topic": "cadastro_filiais_markdown",
+            "source_file": "cadastro_filiais_markdown.md",
+            "chunk_id": "cadastro_filiais_markdown.md_8"
+        }
+    },
+    {
+        "text_chunk": "### Aba Geral - Configurações Globais",
+        "metadata": {
+            "topic": "cadastro_filiais_markdown",
+            "source_file": "cadastro_filiais_markdown.md",
+            "chunk_id": "cadastro_filiais_markdown.md_9"
+        }
+    },
+    {
+        "text_chunk": "4. **Configure parâmetros gerais**:\n   - **Filial em Inventário** - Se marcado, bloqueia todas as movimentações desta filial durante o inventário geral",
+        "metadata": {
+            "topic": "cadastro_filiais_markdown",
+            "source_file": "cadastro_filiais_markdown.md",
+            "chunk_id": "cadastro_filiais_markdown.md_10"
+        }
+    },
+    {
+        "text_chunk": "### Aba Recebimento - Regras de Entrada",
+        "metadata": {
+            "topic": "cadastro_filiais_markdown",
+            "source_file": "cadastro_filiais_markdown.md",
+            "chunk_id": "cadastro_filiais_markdown.md_11"
+        }
+    },
+    {
+        "text_chunk": "5. **Configure processos de recebimento**:\n   - **Conferência de Placa** - Define se documentos de entrada devem passar por conferência de placa\n   - **Conferência Fiscal Parcial** - Permite conferência física parcial (em múltiplas etapas) ou exige conferência total\n   - **Solicitar Pesos e Dimensões do Produto** - Solicita pesos e dimensões obrigatórios na conferência física\n   - **Pré-Conferência** - Habilita etiqueta de pré-conferência no processo de entrada\n   - **Permite receber sobra de produto** - Envia saldo recebido como sobra para depósitos configurados",
+        "metadata": {
+            "topic": "cadastro_filiais_markdown",
+            "source_file": "cadastro_filiais_markdown.md",
+            "chunk_id": "cadastro_filiais_markdown.md_12"
+        }
+    },
+    {
+        "text_chunk": "#### Regra Sugestão Endereço:\nDefine a ordem de sugestão de endereços no processo de entrada:\n- **Endereço com saldo do produto**\n- **Último endereço vazio do produto**\n- **Endereço padrão do produto**\n- **Endereço vazio da curva do produto**",
+        "metadata": {
+            "topic": "cadastro_filiais_markdown",
+            "source_file": "cadastro_filiais_markdown.md",
+            "chunk_id": "cadastro_filiais_markdown.md_13"
+        }
+    },
+    {
+        "text_chunk": "### Aba Separação - Regras de Expedição",
+        "metadata": {
+            "topic": "cadastro_filiais_markdown",
+            "source_file": "cadastro_filiais_markdown.md",
+            "chunk_id": "cadastro_filiais_markdown.md_14"
+        }
+    },
+    {
+        "text_chunk": "6. **Configure processos de separação**:\n   - **Utiliza plano de corte de cabo** - Define se será usado plano de corte de cabo na separação\n   - **Separação automática após corte de cabo** - Automatiza separação após corte de cabo\n   - **Conferência às cegas** - Conferência sem conhecimento prévio do produto\n   - **Consolidação** - Agrupa produtos de diferentes documentos em uma onda\n   - **Controla doca** - Separação realizada por doca\n   - **Conferência automática após separação por documento** - Automatiza conferência após separação\n   - **Limite de produtos por onda** - Máximo de produtos por onda para o separador\n   - **Embalagem padrão** - Embalagem sugerida na conferência e usada automaticamente",
+        "metadata": {
+            "topic": "cadastro_filiais_markdown",
+            "source_file": "cadastro_filiais_markdown.md",
+            "chunk_id": "cadastro_filiais_markdown.md_15"
+        }
+    },
+    {
+        "text_chunk": "### Aba Depósito - Configuração de Depósitos",
+        "metadata": {
+            "topic": "cadastro_filiais_markdown",
+            "source_file": "cadastro_filiais_markdown.md",
+            "chunk_id": "cadastro_filiais_markdown.md_16"
+        }
+    },
+    {
+        "text_chunk": "7. **Configure depósitos por processo**:\n   - **Depósito de Recebimento** - Para processos de entrada\n   - **Depósito de Expedição** - Para processos de saída\n   - **Depósito de Sobra** - Para produtos em excesso\n   - **Depósito de Avaria** - Para produtos danificados\n   - **Depósito de Transferência** - Para movimentações internas",
+        "metadata": {
+            "topic": "cadastro_filiais_markdown",
+            "source_file": "cadastro_filiais_markdown.md",
+            "chunk_id": "cadastro_filiais_markdown.md_17"
+        }
+    },
+    {
+        "text_chunk": "### Aba Inventário - Configurações de Contagem",
+        "metadata": {
+            "topic": "cadastro_filiais_markdown",
+            "source_file": "cadastro_filiais_markdown.md",
+            "chunk_id": "cadastro_filiais_markdown.md_18"
+        }
+    },
+    {
+        "text_chunk": "8. **Configure parâmetros de inventário**:\n   - **Obrigatório gerar ficha para endereços complementares** - Opção marcada automaticamente ao gerar fichas de inventário",
+        "metadata": {
+            "topic": "cadastro_filiais_markdown",
+            "source_file": "cadastro_filiais_markdown.md",
+            "chunk_id": "cadastro_filiais_markdown.md_19"
+        }
+    },
+    {
+        "text_chunk": "## Finalizando o Cadastro",
+        "metadata": {
+            "topic": "cadastro_filiais_markdown",
+            "source_file": "cadastro_filiais_markdown.md",
+            "chunk_id": "cadastro_filiais_markdown.md_20"
+        }
+    },
+    {
+        "text_chunk": "9. **Clique em Criar** para finalizar o cadastro da nova filial",
+        "metadata": {
+            "topic": "cadastro_filiais_markdown",
+            "source_file": "cadastro_filiais_markdown.md",
+            "chunk_id": "cadastro_filiais_markdown.md_21"
+        }
+    },
+    {
+        "text_chunk": "## Impacto das Configurações",
+        "metadata": {
+            "topic": "cadastro_filiais_markdown",
+            "source_file": "cadastro_filiais_markdown.md",
+            "chunk_id": "cadastro_filiais_markdown.md_22"
+        }
+    },
+    {
+        "text_chunk": "### Configurações de Recebimento:\n- **Determinam fluxo obrigatório** de conferência de placa\n- **Controlam flexibilidade** de conferência parcial\n- **Definem validações** de peso e dimensões\n- **Estabelecem regras** de sugestão de endereços",
+        "metadata": {
+            "topic": "cadastro_filiais_markdown",
+            "source_file": "cadastro_filiais_markdown.md",
+            "chunk_id": "cadastro_filiais_markdown.md_23"
+        }
+    },
+    {
+        "text_chunk": "### Configurações de Separação:\n- **Controlam automação** de processos\n- **Definem método** de conferência (às cegas ou normal)\n- **Estabelecem limites** operacionais\n- **Determinam agrupamentos** de produtos",
+        "metadata": {
+            "topic": "cadastro_filiais_markdown",
+            "source_file": "cadastro_filiais_markdown.md",
+            "chunk_id": "cadastro_filiais_markdown.md_24"
+        }
+    },
+    {
+        "text_chunk": "### Configurações de Depósito:\n- **Direcionam produtos** para locais específicos\n- **Segregam materiais** por tipo (avaria, sobra, etc.)\n- **Organizam fluxos** por processo",
+        "metadata": {
+            "topic": "cadastro_filiais_markdown",
+            "source_file": "cadastro_filiais_markdown.md",
+            "chunk_id": "cadastro_filiais_markdown.md_25"
+        }
+    },
+    {
+        "text_chunk": "## Boas Práticas para Configuração:",
+        "metadata": {
+            "topic": "cadastro_filiais_markdown",
+            "source_file": "cadastro_filiais_markdown.md",
+            "chunk_id": "cadastro_filiais_markdown.md_26"
+        }
+    },
+    {
+        "text_chunk": "### Planejamento:\n- **Analise fluxos** operacionais antes de configurar\n- **Considere volume** de operações da filial\n- **Defina responsabilidades** por processo",
+        "metadata": {
+            "topic": "cadastro_filiais_markdown",
+            "source_file": "cadastro_filiais_markdown.md",
+            "chunk_id": "cadastro_filiais_markdown.md_27"
+        }
+    },
+    {
+        "text_chunk": "### Configuração:\n- **Configure regras** conforme necessidades específicas\n- **Teste parâmetros** em ambiente controlado\n- **Documente configurações** para futuras referências",
+        "metadata": {
+            "topic": "cadastro_filiais_markdown",
+            "source_file": "cadastro_filiais_markdown.md",
+            "chunk_id": "cadastro_filiais_markdown.md_28"
+        }
+    },
+    {
+        "text_chunk": "### Manutenção:\n- **Revise configurações** periodicamente\n- **Ajuste parâmetros** conforme evolução operacional\n- **Monitore impactos** das mudanças",
+        "metadata": {
+            "topic": "cadastro_filiais_markdown",
+            "source_file": "cadastro_filiais_markdown.md",
+            "chunk_id": "cadastro_filiais_markdown.md_29"
+        }
+    },
+    {
+        "text_chunk": "Este sistema de configuração garante flexibilidade para adequar o BeeStock às necessidades específicas de cada filial, mantendo controle operacional e eficiência dos processos.",
+        "metadata": {
+            "topic": "cadastro_filiais_markdown",
+            "source_file": "cadastro_filiais_markdown.md",
+            "chunk_id": "cadastro_filiais_markdown.md_30"
+        }
+    },
+    {
+        "text_chunk": "# Título: Fluxo para conferência da placa de um veículo",
+        "metadata": {
+            "topic": "conferencia_placa_markdown",
+            "source_file": "conferencia_placa_markdown.md",
+            "chunk_id": "conferencia_placa_markdown.md_0"
+        }
+    },
+    {
+        "text_chunk": "**Pergunta Frequente:** \"Como fazer a conferência da placa do veículo no coletor?\"",
+        "metadata": {
+            "topic": "conferencia_placa_markdown",
+            "source_file": "conferencia_placa_markdown.md",
+            "chunk_id": "conferencia_placa_markdown.md_1"
+        }
+    },
+    {
+        "text_chunk": "**Resposta:**",
+        "metadata": {
+            "topic": "conferencia_placa_markdown",
+            "source_file": "conferencia_placa_markdown.md",
+            "chunk_id": "conferencia_placa_markdown.md_2"
+        }
+    },
+    {
+        "text_chunk": "Localizado em **Entrada > Conferência de Placa**, é utilizado para a conferência da placa do veículo e volumes do documento a ser recebido.",
+        "metadata": {
+            "topic": "conferencia_placa_markdown",
+            "source_file": "conferencia_placa_markdown.md",
+            "chunk_id": "conferencia_placa_markdown.md_3"
+        }
+    },
+    {
+        "text_chunk": "O usuário deverá inserir a placa do veículo e clicar na **Lupa** ao lado do campo **Placa** para que sejam trazidos os dados do documento pretendido.",
+        "metadata": {
+            "topic": "conferencia_placa_markdown",
+            "source_file": "conferencia_placa_markdown.md",
+            "chunk_id": "conferencia_placa_markdown.md_4"
+        }
+    },
+    {
+        "text_chunk": "Após a inserção da placa do veículo, os dados do documento relacionado são preenchidos automaticamente, necessitando que o usuário informe a quantidade de volumes e clique em **Confirmar** para finalizar a conferência de placa.",
+        "metadata": {
+            "topic": "conferencia_placa_markdown",
+            "source_file": "conferencia_placa_markdown.md",
+            "chunk_id": "conferencia_placa_markdown.md_5"
+        }
+    },
+    {
+        "text_chunk": "Caso a quantidade de volumes informado seja diferente da quantidade cadastrada para o documento na Recepção na Recepção NF-e Placa e Volumes, o sistema informa a divergência para que o usuário confirme ou cancele caso a contagem dos volumes esteja incorreta ou prossiga com a nova quantidade encontrada.",
+        "metadata": {
+            "topic": "conferencia_placa_markdown",
+            "source_file": "conferencia_placa_markdown.md",
+            "chunk_id": "conferencia_placa_markdown.md_6"
+        }
+    },
+    {
+        "text_chunk": "Caso a quantidade de volumes informada coincida com a cadastrada para o documento, ao confirmar, a conferência de placa é finalizada e o documento passa a ficar pendente para a conferência física de recebimento.",
+        "metadata": {
+            "topic": "conferencia_placa_markdown",
+            "source_file": "conferencia_placa_markdown.md",
+            "chunk_id": "conferencia_placa_markdown.md_7"
+        }
+    },
+    {
+        "text_chunk": "# Título: Sistema de consultas de expedição no coletor",
+        "metadata": {
+            "topic": "consultas_expedicao_markdown",
+            "source_file": "consultas_expedicao_markdown.md",
+            "chunk_id": "consultas_expedicao_markdown.md_0"
+        }
+    },
+    {
+        "text_chunk": "**Pergunta Frequente:** \"Como consultar informações sobre expedição e batismos de saída no coletor?\"",
+        "metadata": {
+            "topic": "consultas_expedicao_markdown",
+            "source_file": "consultas_expedicao_markdown.md",
+            "chunk_id": "consultas_expedicao_markdown.md_1"
+        }
+    },
+    {
+        "text_chunk": "**Resposta:**",
+        "metadata": {
+            "topic": "consultas_expedicao_markdown",
+            "source_file": "consultas_expedicao_markdown.md",
+            "chunk_id": "consultas_expedicao_markdown.md_2"
+        }
+    },
+    {
+        "text_chunk": "Localizado no coletor na opção **Consultas > Etiqueta Batismo - Saída**, esta funcionalidade permite consultar informações detalhadas sobre batismos de saída e processos de expedição.",
+        "metadata": {
+            "topic": "consultas_expedicao_markdown",
+            "source_file": "consultas_expedicao_markdown.md",
+            "chunk_id": "consultas_expedicao_markdown.md_3"
+        }
+    },
+    {
+        "text_chunk": "## Consulta de Etiqueta Batismo - Saída",
+        "metadata": {
+            "topic": "consultas_expedicao_markdown",
+            "source_file": "consultas_expedicao_markdown.md",
+            "chunk_id": "consultas_expedicao_markdown.md_4"
+        }
+    },
+    {
+        "text_chunk": "### Passos para Consulta:",
+        "metadata": {
+            "topic": "consultas_expedicao_markdown",
+            "source_file": "consultas_expedicao_markdown.md",
+            "chunk_id": "consultas_expedicao_markdown.md_5"
+        }
+    },
+    {
+        "text_chunk": "1. **Clique em** Consulta no menu principal\n2. **Clique em** Etiqueta Batismo - Saída\n3. **Preencha o campo Batismo** com o número do batismo desejado para realizar a consulta\n4. **Visualize as informações completas** do processo de expedição",
+        "metadata": {
+            "topic": "consultas_expedicao_markdown",
+            "source_file": "consultas_expedicao_markdown.md",
+            "chunk_id": "consultas_expedicao_markdown.md_6"
+        }
+    },
+    {
+        "text_chunk": "## Informações Disponíveis na Consulta:",
+        "metadata": {
+            "topic": "consultas_expedicao_markdown",
+            "source_file": "consultas_expedicao_markdown.md",
+            "chunk_id": "consultas_expedicao_markdown.md_7"
+        }
+    },
+    {
+        "text_chunk": "A consulta de batismo de saída fornece um conjunto abrangente de informações sobre o processo de expedição:",
+        "metadata": {
+            "topic": "consultas_expedicao_markdown",
+            "source_file": "consultas_expedicao_markdown.md",
+            "chunk_id": "consultas_expedicao_markdown.md_8"
+        }
+    },
+    {
+        "text_chunk": "### Informações do Documento:\n- **Documento** - Número do documento de saída\n- **Código** - Código do produto\n- **Nome** - Descrição do produto\n- **Pedido** - Número do pedido relacionado\n- **Nota Fiscal** - Número da nota fiscal de saída",
+        "metadata": {
+            "topic": "consultas_expedicao_markdown",
+            "source_file": "consultas_expedicao_markdown.md",
+            "chunk_id": "consultas_expedicao_markdown.md_9"
+        }
+    },
+    {
+        "text_chunk": "### Status e Situação:\n- **Situação** - Status atual do batismo (separado, conferido, etc.)",
+        "metadata": {
+            "topic": "consultas_expedicao_markdown",
+            "source_file": "consultas_expedicao_markdown.md",
+            "chunk_id": "consultas_expedicao_markdown.md_10"
+        }
+    },
+    {
+        "text_chunk": "### Informações de Quantidade:\n- **Qtd. Item** - Quantidade total do item no documento\n- **Qtd. Separação** - Quantidade que foi separada\n- **Qtd. Conferência** - Quantidade que foi conferida",
+        "metadata": {
+            "topic": "consultas_expedicao_markdown",
+            "source_file": "consultas_expedicao_markdown.md",
+            "chunk_id": "consultas_expedicao_markdown.md_11"
+        }
+    },
+    {
+        "text_chunk": "### Informações Operacionais:\n- **Range** - Faixa de endereços utilizada na separação\n- **Separador** - Usuário responsável pela separação\n- **Conferente** - Usuário responsável pela conferência",
+        "metadata": {
+            "topic": "consultas_expedicao_markdown",
+            "source_file": "consultas_expedicao_markdown.md",
+            "chunk_id": "consultas_expedicao_markdown.md_12"
+        }
+    },
+    {
+        "text_chunk": "### Informações de Localização:\n- **Depósito** - Depósito de origem do produto\n- **Endereço** - Endereço específico de retirada",
+        "metadata": {
+            "topic": "consultas_expedicao_markdown",
+            "source_file": "consultas_expedicao_markdown.md",
+            "chunk_id": "consultas_expedicao_markdown.md_13"
+        }
+    },
+    {
+        "text_chunk": "## Finalidades da Consulta de Expedição:",
+        "metadata": {
+            "topic": "consultas_expedicao_markdown",
+            "source_file": "consultas_expedicao_markdown.md",
+            "chunk_id": "consultas_expedicao_markdown.md_14"
+        }
+    },
+    {
+        "text_chunk": "### Rastreamento de Status:\n- **Acompanhar progresso** de separação e conferência\n- **Verificar situação atual** de documentos de saída\n- **Identificar gargalos** no processo de expedição",
+        "metadata": {
+            "topic": "consultas_expedicao_markdown",
+            "source_file": "consultas_expedicao_markdown.md",
+            "chunk_id": "consultas_expedicao_markdown.md_15"
+        }
+    },
+    {
+        "text_chunk": "### Controle de Qualidade:\n- **Comparar quantidades** entre separação e conferência\n- **Verificar responsáveis** por cada etapa do processo\n- **Confirmar endereços** de retirada",
+        "metadata": {
+            "topic": "consultas_expedicao_markdown",
+            "source_file": "consultas_expedicao_markdown.md",
+            "chunk_id": "consultas_expedicao_markdown.md_16"
+        }
+    },
+    {
+        "text_chunk": "### Auditoria e Gestão:\n- **Rastrear atividades** por usuário (separador/conferente)\n- **Verificar eficiência** dos processos de expedição\n- **Localizar produtos** em documentos específicos",
+        "metadata": {
+            "topic": "consultas_expedicao_markdown",
+            "source_file": "consultas_expedicao_markdown.md",
+            "chunk_id": "consultas_expedicao_markdown.md_17"
+        }
+    },
+    {
+        "text_chunk": "Esta ferramenta de consulta é essencial para o monitoramento e controle de qualidade dos processos de expedição, permitindo rastreamento completo desde a separação até a conferência final dos produtos.",
+        "metadata": {
+            "topic": "consultas_expedicao_markdown",
+            "source_file": "consultas_expedicao_markdown.md",
+            "chunk_id": "consultas_expedicao_markdown.md_18"
+        }
+    },
+    {
+        "text_chunk": "# Título: Sistema de consultas de recebimento no coletor",
+        "metadata": {
+            "topic": "consultas_recebimento_markdown",
+            "source_file": "consultas_recebimento_markdown.md",
+            "chunk_id": "consultas_recebimento_markdown.md_0"
+        }
+    },
+    {
+        "text_chunk": "**Pergunta Frequente:** \"Como consultar informações sobre recebimento, batismos e notas fiscais no coletor?\"",
+        "metadata": {
+            "topic": "consultas_recebimento_markdown",
+            "source_file": "consultas_recebimento_markdown.md",
+            "chunk_id": "consultas_recebimento_markdown.md_1"
+        }
+    },
+    {
+        "text_chunk": "**Resposta:**",
+        "metadata": {
+            "topic": "consultas_recebimento_markdown",
+            "source_file": "consultas_recebimento_markdown.md",
+            "chunk_id": "consultas_recebimento_markdown.md_2"
+        }
+    },
+    {
+        "text_chunk": "O menu **Consulta** do coletor oferece três tipos principais de consulta relacionadas ao processo de recebimento:",
+        "metadata": {
+            "topic": "consultas_recebimento_markdown",
+            "source_file": "consultas_recebimento_markdown.md",
+            "chunk_id": "consultas_recebimento_markdown.md_3"
+        }
+    },
+    {
+        "text_chunk": "1. **Consulta de Etiqueta Batismo - Entrada**\n2. **Consulta de Nota Fiscal**\n3. **Consulta de EAN**",
+        "metadata": {
+            "topic": "consultas_recebimento_markdown",
+            "source_file": "consultas_recebimento_markdown.md",
+            "chunk_id": "consultas_recebimento_markdown.md_4"
+        }
+    },
+    {
+        "text_chunk": "## 1. Consulta de Etiqueta Batismo - Entrada",
+        "metadata": {
+            "topic": "consultas_recebimento_markdown",
+            "source_file": "consultas_recebimento_markdown.md",
+            "chunk_id": "consultas_recebimento_markdown.md_5"
+        }
+    },
+    {
+        "text_chunk": "Localizada em **Consulta > Etiqueta Batismo - Entrada**, permite consultar informações sobre batismos de entrada.",
+        "metadata": {
+            "topic": "consultas_recebimento_markdown",
+            "source_file": "consultas_recebimento_markdown.md",
+            "chunk_id": "consultas_recebimento_markdown.md_6"
+        }
+    },
+    {
+        "text_chunk": "### Passos para Consulta de Batismo:",
+        "metadata": {
+            "topic": "consultas_recebimento_markdown",
+            "source_file": "consultas_recebimento_markdown.md",
+            "chunk_id": "consultas_recebimento_markdown.md_7"
+        }
+    },
+    {
+        "text_chunk": "1. **Acesse** o menu Consulta\n2. **Clique em** Etiqueta Batismo - Entrada\n3. **Preencha o campo Batismo** com o número do batismo desejado\n4. **Visualize as informações disponíveis**:\n   - **Item** - Código do produto\n   - **Nota Fiscal** - Número da NF relacionada\n   - **Situação** - Status atual do batismo\n   - **Descrição** - Detalhes do produto",
+        "metadata": {
+            "topic": "consultas_recebimento_markdown",
+            "source_file": "consultas_recebimento_markdown.md",
+            "chunk_id": "consultas_recebimento_markdown.md_8"
+        }
+    },
+    {
+        "text_chunk": "## 2. Consulta de Nota Fiscal",
+        "metadata": {
+            "topic": "consultas_recebimento_markdown",
+            "source_file": "consultas_recebimento_markdown.md",
+            "chunk_id": "consultas_recebimento_markdown.md_9"
+        }
+    },
+    {
+        "text_chunk": "Permite verificar informações detalhadas sobre notas fiscais de entrada.",
+        "metadata": {
+            "topic": "consultas_recebimento_markdown",
+            "source_file": "consultas_recebimento_markdown.md",
+            "chunk_id": "consultas_recebimento_markdown.md_10"
+        }
+    },
+    {
+        "text_chunk": "### Passos para Consulta de Nota Fiscal:",
+        "metadata": {
+            "topic": "consultas_recebimento_markdown",
+            "source_file": "consultas_recebimento_markdown.md",
+            "chunk_id": "consultas_recebimento_markdown.md_11"
+        }
+    },
+    {
+        "text_chunk": "5. **Acesse** o menu Consulta\n6. **Clique em** Nota Fiscal\n7. **Preencha o campo Nota Fiscal** com o número da NF desejada\n8. **Visualize as informações disponíveis**:\n   - **Seq** - Sequência do item na nota\n   - **Item** - Código do produto\n   - **Batismo** - Número do batismo associado",
+        "metadata": {
+            "topic": "consultas_recebimento_markdown",
+            "source_file": "consultas_recebimento_markdown.md",
+            "chunk_id": "consultas_recebimento_markdown.md_12"
+        }
+    },
+    {
+        "text_chunk": "## 3. Consulta de EAN",
+        "metadata": {
+            "topic": "consultas_recebimento_markdown",
+            "source_file": "consultas_recebimento_markdown.md",
+            "chunk_id": "consultas_recebimento_markdown.md_13"
+        }
+    },
+    {
+        "text_chunk": "Permite verificar informações sobre códigos EAN e imprimir etiquetas.",
+        "metadata": {
+            "topic": "consultas_recebimento_markdown",
+            "source_file": "consultas_recebimento_markdown.md",
+            "chunk_id": "consultas_recebimento_markdown.md_14"
+        }
+    },
+    {
+        "text_chunk": "### Passos para Consulta de EAN:",
+        "metadata": {
+            "topic": "consultas_recebimento_markdown",
+            "source_file": "consultas_recebimento_markdown.md",
+            "chunk_id": "consultas_recebimento_markdown.md_15"
+        }
+    },
+    {
+        "text_chunk": "9. **Acesse** o menu Consulta\n10. **Clique em** EAN\n11. **Informe o código EAN** ou bipe o código de barras\n12. **Visualize as informações disponíveis**:\n    - **Código Produto** - Código interno do item\n    - **UM** - Unidade de medida\n    - **Descrição** - Descrição completa do produto",
+        "metadata": {
+            "topic": "consultas_recebimento_markdown",
+            "source_file": "consultas_recebimento_markdown.md",
+            "chunk_id": "consultas_recebimento_markdown.md_16"
+        }
+    },
+    {
+        "text_chunk": "### Impressão de Etiquetas EAN:",
+        "metadata": {
+            "topic": "consultas_recebimento_markdown",
+            "source_file": "consultas_recebimento_markdown.md",
+            "chunk_id": "consultas_recebimento_markdown.md_17"
+        }
+    },
+    {
+        "text_chunk": "13. **Clique no botão da Impressora** para imprimir etiquetas\n14. **Informe a quantidade de etiquetas** desejada\n15. **Clique em CONFIRMAR** para processar a impressão\n16. **Aguarde a mensagem** \"Impressão efetuada com sucesso!\"",
+        "metadata": {
+            "topic": "consultas_recebimento_markdown",
+            "source_file": "consultas_recebimento_markdown.md",
+            "chunk_id": "consultas_recebimento_markdown.md_18"
+        }
+    },
+    {
+        "text_chunk": "## Finalidades das Consultas:",
+        "metadata": {
+            "topic": "consultas_recebimento_markdown",
+            "source_file": "consultas_recebimento_markdown.md",
+            "chunk_id": "consultas_recebimento_markdown.md_19"
+        }
+    },
+    {
+        "text_chunk": "### Consulta de Batismo:\n- **Acompanhar status** de recebimentos em andamento\n- **Verificar situação** de produtos conferidos\n- **Relacionar itens** a notas fiscais",
+        "metadata": {
+            "topic": "consultas_recebimento_markdown",
+            "source_file": "consultas_recebimento_markdown.md",
+            "chunk_id": "consultas_recebimento_markdown.md_20"
+        }
+    },
+    {
+        "text_chunk": "### Consulta de Nota Fiscal:\n- **Verificar todos os itens** de uma nota fiscal\n- **Localizar batismos** associados a produtos específicos\n- **Acompanhar andamento** do recebimento por NF",
+        "metadata": {
+            "topic": "consultas_recebimento_markdown",
+            "source_file": "consultas_recebimento_markdown.md",
+            "chunk_id": "consultas_recebimento_markdown.md_21"
+        }
+    },
+    {
+        "text_chunk": "### Consulta de EAN:\n- **Verificar informações** de produtos por código EAN\n- **Imprimir etiquetas** de reposição\n- **Confirmar descrições** e unidades de medida",
+        "metadata": {
+            "topic": "consultas_recebimento_markdown",
+            "source_file": "consultas_recebimento_markdown.md",
+            "chunk_id": "consultas_recebimento_markdown.md_22"
+        }
+    },
+    {
+        "text_chunk": "Estas ferramentas de consulta são essenciais para o acompanhamento e verificação de informações durante o processo de recebimento de mercadorias.",
+        "metadata": {
+            "topic": "consultas_recebimento_markdown",
+            "source_file": "consultas_recebimento_markdown.md",
+            "chunk_id": "consultas_recebimento_markdown.md_23"
+        }
+    },
+    {
+        "text_chunk": "# Título: Sistema de consultas de estoque no coletor",
+        "metadata": {
+            "topic": "consulta_estoque_markdown",
+            "source_file": "consulta_estoque_markdown.md",
+            "chunk_id": "consulta_estoque_markdown.md_0"
+        }
+    },
+    {
+        "text_chunk": "**Pergunta Frequente:** \"Como consultar informações de estoque, endereços e produtos no coletor?\"",
+        "metadata": {
+            "topic": "consulta_estoque_markdown",
+            "source_file": "consulta_estoque_markdown.md",
+            "chunk_id": "consulta_estoque_markdown.md_1"
+        }
+    },
+    {
+        "text_chunk": "**Resposta:**",
+        "metadata": {
+            "topic": "consulta_estoque_markdown",
+            "source_file": "consulta_estoque_markdown.md",
+            "chunk_id": "consulta_estoque_markdown.md_2"
+        }
+    },
+    {
+        "text_chunk": "Localizado no menu **Consultas**, o sistema oferece três tipos principais de consulta para verificação de informações de estoque e produtos:",
+        "metadata": {
+            "topic": "consulta_estoque_markdown",
+            "source_file": "consulta_estoque_markdown.md",
+            "chunk_id": "consulta_estoque_markdown.md_3"
+        }
+    },
+    {
+        "text_chunk": "1. **Consulta por Estoque** - Verificar saldo de produtos\n2. **Consulta por Endereço** - Ver produtos em localizações específicas  \n3. **Consulta por EAN** - Verificar e gerenciar códigos EAN",
+        "metadata": {
+            "topic": "consulta_estoque_markdown",
+            "source_file": "consulta_estoque_markdown.md",
+            "chunk_id": "consulta_estoque_markdown.md_4"
+        }
+    },
+    {
+        "text_chunk": "## 1. Consultas Estoque",
+        "metadata": {
+            "topic": "consulta_estoque_markdown",
+            "source_file": "consulta_estoque_markdown.md",
+            "chunk_id": "consulta_estoque_markdown.md_5"
+        }
+    },
+    {
+        "text_chunk": "Localizado no menu **Consultas > Estoque**, esta tela lista o item e seu respectivo saldo em estoque.",
+        "metadata": {
+            "topic": "consulta_estoque_markdown",
+            "source_file": "consulta_estoque_markdown.md",
+            "chunk_id": "consulta_estoque_markdown.md_6"
+        }
+    },
+    {
+        "text_chunk": "### Como Consultar Estoque:",
+        "metadata": {
+            "topic": "consulta_estoque_markdown",
+            "source_file": "consulta_estoque_markdown.md",
+            "chunk_id": "consulta_estoque_markdown.md_7"
+        }
+    },
+    {
+        "text_chunk": "1. **Acesse** Consultas > Estoque\n2. **Informe o EAN do produto**:\n   - Digite manualmente o código EAN\n   - Ou bipe o código de barras do produto\n3. **Visualize as informações** do saldo em estoque\n4. **Use a Vassoura** para limpar os dados pesquisados quando necessário",
+        "metadata": {
+            "topic": "consulta_estoque_markdown",
+            "source_file": "consulta_estoque_markdown.md",
+            "chunk_id": "consulta_estoque_markdown.md_8"
+        }
+    },
+    {
+        "text_chunk": "### Informações Exibidas:\n- **Produto** e suas características\n- **Saldo atual** em estoque\n- **Detalhes** do item consultado",
+        "metadata": {
+            "topic": "consulta_estoque_markdown",
+            "source_file": "consulta_estoque_markdown.md",
+            "chunk_id": "consulta_estoque_markdown.md_9"
+        }
+    },
+    {
+        "text_chunk": "## 2. Consultas Endereço",
+        "metadata": {
+            "topic": "consulta_estoque_markdown",
+            "source_file": "consulta_estoque_markdown.md",
+            "chunk_id": "consulta_estoque_markdown.md_10"
+        }
+    },
+    {
+        "text_chunk": "Localizado no menu **Consultas > Endereço**, esta tela lista o endereço e quais itens se localizam nele, junto com seus respectivos saldos em estoque.",
+        "metadata": {
+            "topic": "consulta_estoque_markdown",
+            "source_file": "consulta_estoque_markdown.md",
+            "chunk_id": "consulta_estoque_markdown.md_11"
+        }
+    },
+    {
+        "text_chunk": "### Como Consultar por Endereço:",
+        "metadata": {
+            "topic": "consulta_estoque_markdown",
+            "source_file": "consulta_estoque_markdown.md",
+            "chunk_id": "consulta_estoque_markdown.md_12"
+        }
+    },
+    {
+        "text_chunk": "1. **Acesse** Consultas > Endereço\n2. **Informe o endereço**:\n   - Digite manualmente o código do endereço\n   - Ou bipe a etiqueta do endereço\n3. **Visualize todos os produtos** localizados naquele endereço\n4. **Use a Vassoura** para limpar os dados pesquisados",
+        "metadata": {
+            "topic": "consulta_estoque_markdown",
+            "source_file": "consulta_estoque_markdown.md",
+            "chunk_id": "consulta_estoque_markdown.md_13"
+        }
+    },
+    {
+        "text_chunk": "### Informações Exibidas:\n- **Endereço** consultado\n- **Lista de todos os produtos** no endereço\n- **Saldos individuais** de cada produto\n- **Detalhes** de localização",
+        "metadata": {
+            "topic": "consulta_estoque_markdown",
+            "source_file": "consulta_estoque_markdown.md",
+            "chunk_id": "consulta_estoque_markdown.md_14"
+        }
+    },
+    {
+        "text_chunk": "## 3. Consultas EAN",
+        "metadata": {
+            "topic": "consulta_estoque_markdown",
+            "source_file": "consulta_estoque_markdown.md",
+            "chunk_id": "consulta_estoque_markdown.md_15"
+        }
+    },
+    {
+        "text_chunk": "Localizado no menu **Consultas > EAN**, esta tela lista o item e seu respectivo código EAN, permitindo também a gestão de etiquetas.",
+        "metadata": {
+            "topic": "consulta_estoque_markdown",
+            "source_file": "consulta_estoque_markdown.md",
+            "chunk_id": "consulta_estoque_markdown.md_16"
+        }
+    },
+    {
+        "text_chunk": "### Como Consultar EAN:",
+        "metadata": {
+            "topic": "consulta_estoque_markdown",
+            "source_file": "consulta_estoque_markdown.md",
+            "chunk_id": "consulta_estoque_markdown.md_17"
+        }
+    },
+    {
+        "text_chunk": "1. **Acesse** Consultas > EAN\n2. **Informe o item**:\n   - Digite o código do produto\n   - Ou bipe o código de barras\n3. **Visualize informações do EAN** associado ao produto",
+        "metadata": {
+            "topic": "consulta_estoque_markdown",
+            "source_file": "consulta_estoque_markdown.md",
+            "chunk_id": "consulta_estoque_markdown.md_18"
+        }
+    },
+    {
+        "text_chunk": "### Funcionalidades Adicionais:",
+        "metadata": {
+            "topic": "consulta_estoque_markdown",
+            "source_file": "consulta_estoque_markdown.md",
+            "chunk_id": "consulta_estoque_markdown.md_19"
+        }
+    },
+    {
+        "text_chunk": "#### Impressão de Etiquetas EAN:\n4. **Clique no ícone da impressora** para imprimir etiquetas EAN\n5. **Selecione a quantidade de etiquetas** desejada\n6. **Escolha a impressora** na lista de impressoras disponíveis\n7. **Confirme a impressão**",
+        "metadata": {
+            "topic": "consulta_estoque_markdown",
+            "source_file": "consulta_estoque_markdown.md",
+            "chunk_id": "consulta_estoque_markdown.md_20"
+        }
+    },
+    {
+        "text_chunk": "#### Relacionamento de EAN:\n8. **Use o botão Relacionar** para associar um item a um código EAN\n9. **Configure novos relacionamentos** entre produtos e códigos EAN conforme necessário",
+        "metadata": {
+            "topic": "consulta_estoque_markdown",
+            "source_file": "consulta_estoque_markdown.md",
+            "chunk_id": "consulta_estoque_markdown.md_21"
+        }
+    },
+    {
+        "text_chunk": "## Dicas de Uso:",
+        "metadata": {
+            "topic": "consulta_estoque_markdown",
+            "source_file": "consulta_estoque_markdown.md",
+            "chunk_id": "consulta_estoque_markdown.md_22"
+        }
+    },
+    {
+        "text_chunk": "- **Vassoura**: Disponível em todas as consultas para limpar dados pesquisados\n- **Códigos de barras**: Podem ser usados em qualquer campo para agilizar o processo\n- **Impressão**: Etiquetas EAN podem ser impressas diretamente das consultas\n- **Navegação**: Use os menus de forma intuitiva para alternar entre tipos de consulta",
+        "metadata": {
+            "topic": "consulta_estoque_markdown",
+            "source_file": "consulta_estoque_markdown.md",
+            "chunk_id": "consulta_estoque_markdown.md_23"
+        }
+    },
+    {
+        "text_chunk": "Estas ferramentas de consulta são essenciais para verificação rápida de informações durante as operações diárias do armazém.",
+        "metadata": {
+            "topic": "consulta_estoque_markdown",
+            "source_file": "consulta_estoque_markdown.md",
+            "chunk_id": "consulta_estoque_markdown.md_24"
+        }
+    },
+    {
+        "text_chunk": "# Título: Processo de devolução de picking no coletor",
+        "metadata": {
+            "topic": "devolucao_picking_markdown",
+            "source_file": "devolucao_picking_markdown.md",
+            "chunk_id": "devolucao_picking_markdown.md_0"
+        }
+    },
+    {
+        "text_chunk": "**Pergunta Frequente:** \"Como fazer a devolução de produtos separados para picking no coletor?\"",
+        "metadata": {
+            "topic": "devolucao_picking_markdown",
+            "source_file": "devolucao_picking_markdown.md",
+            "chunk_id": "devolucao_picking_markdown.md_1"
+        }
+    },
+    {
+        "text_chunk": "**Resposta:**",
+        "metadata": {
+            "topic": "devolucao_picking_markdown",
+            "source_file": "devolucao_picking_markdown.md",
+            "chunk_id": "devolucao_picking_markdown.md_2"
+        }
+    },
+    {
+        "text_chunk": "Localizado no menu **Entrada de Mercadorias > Devolução de Picking**, esta funcionalidade é utilizada para realizar a devolução do saldo do material ao endereço de origem, disponibilizando-o novamente para nova alocação.",
+        "metadata": {
+            "topic": "devolucao_picking_markdown",
+            "source_file": "devolucao_picking_markdown.md",
+            "chunk_id": "devolucao_picking_markdown.md_3"
+        }
+    },
+    {
+        "text_chunk": "## Pré-requisito",
+        "metadata": {
+            "topic": "devolucao_picking_markdown",
+            "source_file": "devolucao_picking_markdown.md",
+            "chunk_id": "devolucao_picking_markdown.md_4"
+        }
+    },
+    {
+        "text_chunk": "O documento de devolução deve ter sido **previamente gerado através do menu Web** na funcionalidade **Devolução de Picking** do BeeStock WEB.",
+        "metadata": {
+            "topic": "devolucao_picking_markdown",
+            "source_file": "devolucao_picking_markdown.md",
+            "chunk_id": "devolucao_picking_markdown.md_5"
+        }
+    },
+    {
+        "text_chunk": "## Passos do Processo de Devolução:",
+        "metadata": {
+            "topic": "devolucao_picking_markdown",
+            "source_file": "devolucao_picking_markdown.md",
+            "chunk_id": "devolucao_picking_markdown.md_6"
+        }
+    },
+    {
+        "text_chunk": "### 1. Acesso à Funcionalidade\n1. **Acesse o menu** Entrada de Mercadorias\n2. **Acesse a tela** Devolução de Picking",
+        "metadata": {
+            "topic": "devolucao_picking_markdown",
+            "source_file": "devolucao_picking_markdown.md",
+            "chunk_id": "devolucao_picking_markdown.md_7"
+        }
+    },
+    {
+        "text_chunk": "### 2. Seleção do Documento\n3. **Clique na Lupa** para buscar documentos disponíveis\n4. **Localize na lista** o documento que deseja devolver ao picking\n5. **Selecione o documento** desejado",
+        "metadata": {
+            "topic": "devolucao_picking_markdown",
+            "source_file": "devolucao_picking_markdown.md",
+            "chunk_id": "devolucao_picking_markdown.md_8"
+        }
+    },
+    {
+        "text_chunk": "### 3. Processo de Devolução por Item\n6. **Confirme os campos solicitados** bipando fisicamente as etiquetas para garantir que a guarda do material física e sistemicamente ocorram no mesmo momento:\n   - **EAN** - Bipe o código de barras do produto\n   - **Endereço** - Bipe a etiqueta do endereço de destino\n   - **Quantidade** - Confirme a quantidade a ser devolvida\n7. **Clique em Efetivar**",
+        "metadata": {
+            "topic": "devolucao_picking_markdown",
+            "source_file": "devolucao_picking_markdown.md",
+            "chunk_id": "devolucao_picking_markdown.md_9"
+        }
+    },
+    {
+        "text_chunk": "### 4. Confirmação\n8. **Será apresentada a mensagem** \"Item devolvido com sucesso!\"",
+        "metadata": {
+            "topic": "devolucao_picking_markdown",
+            "source_file": "devolucao_picking_markdown.md",
+            "chunk_id": "devolucao_picking_markdown.md_10"
+        }
+    },
+    {
+        "text_chunk": "### 5. Repetição do Processo\n9. **Realize o mesmo procedimento** para todos os itens do documento que deseja realizar a devolução de picking",
+        "metadata": {
+            "topic": "devolucao_picking_markdown",
+            "source_file": "devolucao_picking_markdown.md",
+            "chunk_id": "devolucao_picking_markdown.md_11"
+        }
+    },
+    {
+        "text_chunk": "## Resultado Final",
+        "metadata": {
+            "topic": "devolucao_picking_markdown",
+            "source_file": "devolucao_picking_markdown.md",
+            "chunk_id": "devolucao_picking_markdown.md_12"
+        }
+    },
+    {
+        "text_chunk": "**Importante**: Somente após a devolução de picking realizada, o saldo volta a ficar **disponível para nova alocação** no endereço de origem.",
+        "metadata": {
+            "topic": "devolucao_picking_markdown",
+            "source_file": "devolucao_picking_markdown.md",
+            "chunk_id": "devolucao_picking_markdown.md_13"
+        }
+    },
+    {
+        "text_chunk": "Este processo garante que produtos separados incorretamente ou não utilizados retornem ao estoque disponível de forma controlada e rastreável.",
+        "metadata": {
+            "topic": "devolucao_picking_markdown",
+            "source_file": "devolucao_picking_markdown.md",
+            "chunk_id": "devolucao_picking_markdown.md_14"
+        }
+    },
+    {
+        "text_chunk": "# Título: Fluxos de transferência e manutenção de estoque no coletor",
+        "metadata": {
+            "topic": "estoque_coletor_markdown",
+            "source_file": "estoque_coletor_markdown.md",
+            "chunk_id": "estoque_coletor_markdown.md_0"
+        }
+    },
+    {
+        "text_chunk": "**Pergunta Frequente:** \"Como fazer transferências de estoque e manutenção de produtos no coletor?\"",
+        "metadata": {
+            "topic": "estoque_coletor_markdown",
+            "source_file": "estoque_coletor_markdown.md",
+            "chunk_id": "estoque_coletor_markdown.md_1"
+        }
+    },
+    {
+        "text_chunk": "**Resposta:**",
+        "metadata": {
+            "topic": "estoque_coletor_markdown",
+            "source_file": "estoque_coletor_markdown.md",
+            "chunk_id": "estoque_coletor_markdown.md_2"
+        }
+    },
+    {
+        "text_chunk": "O BeeStock oferece três tipos principais de operações de estoque no coletor:",
+        "metadata": {
+            "topic": "estoque_coletor_markdown",
+            "source_file": "estoque_coletor_markdown.md",
+            "chunk_id": "estoque_coletor_markdown.md_3"
+        }
+    },
+    {
+        "text_chunk": "1. **Transferência Simples entre Endereços**\n2. **Transferência por Onda** \n3. **Manutenção de Retalho/Validade**",
+        "metadata": {
+            "topic": "estoque_coletor_markdown",
+            "source_file": "estoque_coletor_markdown.md",
+            "chunk_id": "estoque_coletor_markdown.md_4"
+        }
+    },
+    {
+        "text_chunk": "## 1. Transferência Simples entre Endereços",
+        "metadata": {
+            "topic": "estoque_coletor_markdown",
+            "source_file": "estoque_coletor_markdown.md",
+            "chunk_id": "estoque_coletor_markdown.md_5"
+        }
+    },
+    {
+        "text_chunk": "Localizada no menu **Entrada de Mercadorias > Transferência Endereços**, esta função é utilizada para realizar transferências entre endereços do mesmo depósito.",
+        "metadata": {
+            "topic": "estoque_coletor_markdown",
+            "source_file": "estoque_coletor_markdown.md",
+            "chunk_id": "estoque_coletor_markdown.md_6"
+        }
+    },
+    {
+        "text_chunk": "### Passos da Transferência Simples:",
+        "metadata": {
+            "topic": "estoque_coletor_markdown",
+            "source_file": "estoque_coletor_markdown.md",
+            "chunk_id": "estoque_coletor_markdown.md_7"
+        }
+    },
+    {
+        "text_chunk": "1. **Acesse o menu** Entrada de Mercadorias\n2. **Acesse a tela** Transferência Endereços\n3. **Siga os passos na sequência**:\n   - Bipe o código de barras do produto que deseja movimentar\n   - Bipe o endereço de retirada\n   - Bipe o endereço de armazenamento\n   - Confirme a quantidade a ser movimentada (será sugerida a quantidade total disponível no endereço, podendo alterar manualmente se necessário)\n   - Clique em **TRANSFERIR**",
+        "metadata": {
+            "topic": "estoque_coletor_markdown",
+            "source_file": "estoque_coletor_markdown.md",
+            "chunk_id": "estoque_coletor_markdown.md_8"
+        }
+    },
+    {
+        "text_chunk": "4. **Será apresentada a mensagem** \"Transferência realizada com sucesso!\"",
+        "metadata": {
+            "topic": "estoque_coletor_markdown",
+            "source_file": "estoque_coletor_markdown.md",
+            "chunk_id": "estoque_coletor_markdown.md_9"
+        }
+    },
+    {
+        "text_chunk": "**Importante**: As movimentações são realizadas apenas no WMS BeeStock, sem gerar movimentações para o ERP, já que se tratam apenas de movimentações entre endereços do mesmo depósito.",
+        "metadata": {
+            "topic": "estoque_coletor_markdown",
+            "source_file": "estoque_coletor_markdown.md",
+            "chunk_id": "estoque_coletor_markdown.md_10"
+        }
+    },
+    {
+        "text_chunk": "## 2. Transferência por Onda",
+        "metadata": {
+            "topic": "estoque_coletor_markdown",
+            "source_file": "estoque_coletor_markdown.md",
+            "chunk_id": "estoque_coletor_markdown.md_11"
+        }
+    },
+    {
+        "text_chunk": "A transferência por onda permite movimentar produtos entre depósitos diferentes e é dividida em duas etapas:\n- **Saída**: Retirada do produto do endereço de origem\n- **Entrada**: Armazenamento no endereço de destino",
+        "metadata": {
+            "topic": "estoque_coletor_markdown",
+            "source_file": "estoque_coletor_markdown.md",
+            "chunk_id": "estoque_coletor_markdown.md_12"
+        }
+    },
+    {
+        "text_chunk": "### Etapa 1: Saída do Produto (Transferência Onda - Saída)",
+        "metadata": {
+            "topic": "estoque_coletor_markdown",
+            "source_file": "estoque_coletor_markdown.md",
+            "chunk_id": "estoque_coletor_markdown.md_13"
+        }
+    },
+    {
+        "text_chunk": "Localizada no menu **Saída de Mercadorias > Transferência Onda - Saída**:",
+        "metadata": {
+            "topic": "estoque_coletor_markdown",
+            "source_file": "estoque_coletor_markdown.md",
+            "chunk_id": "estoque_coletor_markdown.md_14"
+        }
+    },
+    {
+        "text_chunk": "1. **Acesse a tela** Saída de Mercadorias > Transferência Onda - Saída\n2. **Bipe a Etiqueta de Batismo de Transferência** previamente impressa\n3. **Será solicitada confirmação**, clique em **Confirmar**\n4. **Preencha as informações solicitadas**:\n   - Endereço de Retirada\n   - EAN\n   - Quantidade\n5. **Clique em TRANSFERIR**\n6. **Será apresentada a mensagem** \"Transferência realizada com sucesso!\"",
+        "metadata": {
+            "topic": "estoque_coletor_markdown",
+            "source_file": "estoque_coletor_markdown.md",
+            "chunk_id": "estoque_coletor_markdown.md_15"
+        }
+    },
+    {
+        "text_chunk": "### Etapa 2: Entrada do Produto (Transferência Onda - Entrada)",
+        "metadata": {
+            "topic": "estoque_coletor_markdown",
+            "source_file": "estoque_coletor_markdown.md",
+            "chunk_id": "estoque_coletor_markdown.md_16"
+        }
+    },
+    {
+        "text_chunk": "Após retirar o material, leve-o até o endereço de destino:",
+        "metadata": {
+            "topic": "estoque_coletor_markdown",
+            "source_file": "estoque_coletor_markdown.md",
+            "chunk_id": "estoque_coletor_markdown.md_17"
+        }
+    },
+    {
+        "text_chunk": "1. **Acesse o menu** Saída de Mercadorias > Transferência Onda - Entrada\n2. **Bipe a Etiqueta de Batismo de Transferência**\n3. **Selecione o depósito** que deseja armazenar o material\n4. **Informe o endereço de destino** previamente cadastrado no sistema\n5. **Bipe a etiqueta de endereço de destino**\n6. **Será apresentada a mensagem** \"Transferência realizada com sucesso!\"",
+        "metadata": {
+            "topic": "estoque_coletor_markdown",
+            "source_file": "estoque_coletor_markdown.md",
+            "chunk_id": "estoque_coletor_markdown.md_18"
+        }
+    },
+    {
+        "text_chunk": "**Importante**: As movimentações são realizadas no WMS BeeStock e são enviadas integrações para movimentações entre depósitos também no ERP.",
+        "metadata": {
+            "topic": "estoque_coletor_markdown",
+            "source_file": "estoque_coletor_markdown.md",
+            "chunk_id": "estoque_coletor_markdown.md_19"
+        }
+    },
+    {
+        "text_chunk": "## 3. Manutenção Retalho/Validade",
+        "metadata": {
+            "topic": "estoque_coletor_markdown",
+            "source_file": "estoque_coletor_markdown.md",
+            "chunk_id": "estoque_coletor_markdown.md_20"
+        }
+    },
+    {
+        "text_chunk": "Localizada no menu **Entrada de Mercadorias > Manutenção Retalho/Validade**, esta função é utilizada para alterar Lotes ou Validades de produtos, refletindo as alterações apenas no WMS BeeStock, sem enviar integrações ao ERP.",
+        "metadata": {
+            "topic": "estoque_coletor_markdown",
+            "source_file": "estoque_coletor_markdown.md",
+            "chunk_id": "estoque_coletor_markdown.md_21"
+        }
+    },
+    {
+        "text_chunk": "### Passos da Manutenção:",
+        "metadata": {
+            "topic": "estoque_coletor_markdown",
+            "source_file": "estoque_coletor_markdown.md",
+            "chunk_id": "estoque_coletor_markdown.md_22"
+        }
+    },
+    {
+        "text_chunk": "1. **Acesse o menu** Entrada de Mercadorias\n2. **Acesse a tela** Manutenção Retalho/Validade\n3. **Confirme todas as informações solicitadas**:\n   - EAN\n   - Quantidade\n   - Lote (Atual)\n   - Novo Lote\n   - Endereço Retirada\n   - Endereço Armazenagem\n4. **Clique em TRANSFERIR**\n5. **Será apresentada a mensagem** \"Transferência realizada com sucesso!\"",
+        "metadata": {
+            "topic": "estoque_coletor_markdown",
+            "source_file": "estoque_coletor_markdown.md",
+            "chunk_id": "estoque_coletor_markdown.md_23"
+        }
+    },
+    {
+        "text_chunk": "### Para Produtos com Controle de Validade:",
+        "metadata": {
+            "topic": "estoque_coletor_markdown",
+            "source_file": "estoque_coletor_markdown.md",
+            "chunk_id": "estoque_coletor_markdown.md_24"
+        }
+    },
+    {
+        "text_chunk": "**O mesmo procedimento deve ser utilizado para troca de Validade**. Se o item for controlado por validade, serão habilitados os campos:\n- **Data Validade** (atual)\n- **Validade Nova**",
+        "metadata": {
+            "topic": "estoque_coletor_markdown",
+            "source_file": "estoque_coletor_markdown.md",
+            "chunk_id": "estoque_coletor_markdown.md_25"
+        }
+    },
+    {
+        "text_chunk": "**Processo interno**: Será realizada a saída do saldo do lote antigo e uma entrada do saldo com o lote novo.",
+        "metadata": {
+            "topic": "estoque_coletor_markdown",
+            "source_file": "estoque_coletor_markdown.md",
+            "chunk_id": "estoque_coletor_markdown.md_26"
+        }
+    },
+    {
+        "text_chunk": "## Resumo das Diferenças:",
+        "metadata": {
+            "topic": "estoque_coletor_markdown",
+            "source_file": "estoque_coletor_markdown.md",
+            "chunk_id": "estoque_coletor_markdown.md_27"
+        }
+    },
+    {
+        "text_chunk": "- **Transferência Simples**: Mesmo depósito, apenas WMS, sem ERP\n- **Transferência por Onda**: Entre depósitos diferentes, com integração ERP\n- **Manutenção Retalho/Validade**: Alteração de lotes/validades, apenas WMS",
+        "metadata": {
+            "topic": "estoque_coletor_markdown",
+            "source_file": "estoque_coletor_markdown.md",
+            "chunk_id": "estoque_coletor_markdown.md_28"
+        }
+    },
+    {
+        "text_chunk": "# Título: Fluxo completo de expedição no coletor",
+        "metadata": {
+            "topic": "expedicao_coletor_markdown",
+            "source_file": "expedicao_coletor_markdown.md",
+            "chunk_id": "expedicao_coletor_markdown.md_0"
+        }
+    },
+    {
+        "text_chunk": "**Pergunta Frequente:** \"Como fazer o processo completo de expedição de mercadorias no coletor?\"",
+        "metadata": {
+            "topic": "expedicao_coletor_markdown",
+            "source_file": "expedicao_coletor_markdown.md",
+            "chunk_id": "expedicao_coletor_markdown.md_1"
+        }
+    },
+    {
+        "text_chunk": "**Resposta:**",
+        "metadata": {
+            "topic": "expedicao_coletor_markdown",
+            "source_file": "expedicao_coletor_markdown.md",
+            "chunk_id": "expedicao_coletor_markdown.md_2"
+        }
+    },
+    {
+        "text_chunk": "Localizado no menu **Saída de Mercadorias** no coletor, o fluxo de expedição é composto de seis processos principais:",
+        "metadata": {
+            "topic": "expedicao_coletor_markdown",
+            "source_file": "expedicao_coletor_markdown.md",
+            "chunk_id": "expedicao_coletor_markdown.md_3"
+        }
+    },
+    {
+        "text_chunk": "1. **Corte de Cabos**\n2. **Separação por Onda**\n3. **Separação por Documento** \n4. **Conferência**\n5. **Docas**\n6. **Consolidação**",
+        "metadata": {
+            "topic": "expedicao_coletor_markdown",
+            "source_file": "expedicao_coletor_markdown.md",
+            "chunk_id": "expedicao_coletor_markdown.md_4"
+        }
+    },
+    {
+        "text_chunk": "## 1. Corte de Cabos",
+        "metadata": {
+            "topic": "expedicao_coletor_markdown",
+            "source_file": "expedicao_coletor_markdown.md",
+            "chunk_id": "expedicao_coletor_markdown.md_5"
+        }
+    },
+    {
+        "text_chunk": "Tem a função de realizar o corte de cabos no sistema para que ele seja efetivado fisicamente, após ter seu plano de corte criado via WEB.",
+        "metadata": {
+            "topic": "expedicao_coletor_markdown",
+            "source_file": "expedicao_coletor_markdown.md",
+            "chunk_id": "expedicao_coletor_markdown.md_6"
+        }
+    },
+    {
+        "text_chunk": "## 2. Separação por Onda",
+        "metadata": {
+            "topic": "expedicao_coletor_markdown",
+            "source_file": "expedicao_coletor_markdown.md",
+            "chunk_id": "expedicao_coletor_markdown.md_7"
+        }
+    },
+    {
+        "text_chunk": "Para iniciar a separação por onda:",
+        "metadata": {
+            "topic": "expedicao_coletor_markdown",
+            "source_file": "expedicao_coletor_markdown.md",
+            "chunk_id": "expedicao_coletor_markdown.md_8"
+        }
+    },
+    {
+        "text_chunk": "1. **Entre no menu** Saída de Mercadorias > Separação por Onda\n2. **Clique no botão com setas circulares** no canto superior direito\n3. **A cada clique** o sistema adiciona um produto para ser separado na onda\n4. **Quantidade máxima** de produtos por onda é definida no parâmetro \"Limite de Produtos por Onda\" no Cadastro de Filiais\n5. **Clique em Confirmar** para iniciar o processo de separação",
+        "metadata": {
+            "topic": "expedicao_coletor_markdown",
+            "source_file": "expedicao_coletor_markdown.md",
+            "chunk_id": "expedicao_coletor_markdown.md_9"
+        }
+    },
+    {
+        "text_chunk": "### Processo de Separação por Onda:",
+        "metadata": {
+            "topic": "expedicao_coletor_markdown",
+            "source_file": "expedicao_coletor_markdown.md",
+            "chunk_id": "expedicao_coletor_markdown.md_10"
+        }
+    },
+    {
+        "text_chunk": "6. **Informe as seguintes informações**:\n   - Batismo\n   - Endereço de retirada\n   - EAN do produto\n   - Quantidade",
+        "metadata": {
+            "topic": "expedicao_coletor_markdown",
+            "source_file": "expedicao_coletor_markdown.md",
+            "chunk_id": "expedicao_coletor_markdown.md_11"
+        }
+    },
+    {
+        "text_chunk": "7. **Na parte inferior** são listados os produtos a serem separados na onda\n8. **Clique em Separar** para confirmar a separação do produto",
+        "metadata": {
+            "topic": "expedicao_coletor_markdown",
+            "source_file": "expedicao_coletor_markdown.md",
+            "chunk_id": "expedicao_coletor_markdown.md_12"
+        }
+    },
+    {
+        "text_chunk": "**Observação**: Se o produto não for separado pelo usuário que criou a onda, ela pode ser eliminada via BeeStock WEB.",
+        "metadata": {
+            "topic": "expedicao_coletor_markdown",
+            "source_file": "expedicao_coletor_markdown.md",
+            "chunk_id": "expedicao_coletor_markdown.md_13"
+        }
+    },
+    {
+        "text_chunk": "## 3. Separação por Documento",
+        "metadata": {
+            "topic": "expedicao_coletor_markdown",
+            "source_file": "expedicao_coletor_markdown.md",
+            "chunk_id": "expedicao_coletor_markdown.md_14"
+        }
+    },
+    {
+        "text_chunk": "Para iniciar a separação por documento:",
+        "metadata": {
+            "topic": "expedicao_coletor_markdown",
+            "source_file": "expedicao_coletor_markdown.md",
+            "chunk_id": "expedicao_coletor_markdown.md_15"
+        }
+    },
+    {
+        "text_chunk": "1. **Informe o documento pretendido** ou clique no botão **+** para adicionar um dos documentos disponíveis\n2. **Selecione o documento** na lista de documentos disponíveis\n3. **O processo de separação é iniciado** para aquele documento específico",
+        "metadata": {
+            "topic": "expedicao_coletor_markdown",
+            "source_file": "expedicao_coletor_markdown.md",
+            "chunk_id": "expedicao_coletor_markdown.md_16"
+        }
+    },
+    {
+        "text_chunk": "### Diferenças da Separação por Onda:\n- **Separação por onda**: Vários produtos de diferentes documentos em uma onda\n- **Separação por documento**: Apenas um documento por vez, mas pode ter vários produtos",
+        "metadata": {
+            "topic": "expedicao_coletor_markdown",
+            "source_file": "expedicao_coletor_markdown.md",
+            "chunk_id": "expedicao_coletor_markdown.md_17"
+        }
+    },
+    {
+        "text_chunk": "### Passos da Separação:\n4. **Informe as mesmas informações** da separação por onda:\n   - Batismo\n   - Endereço de retirada\n   - EAN do produto\n   - Quantidade\n5. **São apresentados todos os produtos** daquele documento",
+        "metadata": {
+            "topic": "expedicao_coletor_markdown",
+            "source_file": "expedicao_coletor_markdown.md",
+            "chunk_id": "expedicao_coletor_markdown.md_18"
+        }
+    },
+    {
+        "text_chunk": "## 4. Conferência",
+        "metadata": {
+            "topic": "expedicao_coletor_markdown",
+            "source_file": "expedicao_coletor_markdown.md",
+            "chunk_id": "expedicao_coletor_markdown.md_19"
+        }
+    },
+    {
+        "text_chunk": "Para realizar a conferência:",
+        "metadata": {
+            "topic": "expedicao_coletor_markdown",
+            "source_file": "expedicao_coletor_markdown.md",
+            "chunk_id": "expedicao_coletor_markdown.md_20"
+        }
+    },
+    {
+        "text_chunk": "1. **Informe o batismo** a ser conferido\n2. **A tela é preenchida** com informações da separação daquele batismo\n3. **Informe os dados necessários**:\n   - Embalagem do volume\n   - EAN do produto\n   - Quantidade física conferida\n4. **Clique em Confirmar** para conferir o produto",
+        "metadata": {
+            "topic": "expedicao_coletor_markdown",
+            "source_file": "expedicao_coletor_markdown.md",
+            "chunk_id": "expedicao_coletor_markdown.md_21"
+        }
+    },
+    {
+        "text_chunk": "### Finalização da Conferência:\n5. **Após conferir todos os produtos**, clique em **Finalizar**\n6. **Informe**:\n   - Quantidade de volumes\n   - Peso total\n7. **Selecione a impressora** para impressão da etiqueta de conferência (Volume)",
+        "metadata": {
+            "topic": "expedicao_coletor_markdown",
+            "source_file": "expedicao_coletor_markdown.md",
+            "chunk_id": "expedicao_coletor_markdown.md_22"
+        }
+    },
+    {
+        "text_chunk": "## 5. Docas",
+        "metadata": {
+            "topic": "expedicao_coletor_markdown",
+            "source_file": "expedicao_coletor_markdown.md",
+            "chunk_id": "expedicao_coletor_markdown.md_23"
+        }
+    },
+    {
+        "text_chunk": "Após a confirmação da conferência, o documento deve ser inserido em uma Doca:",
+        "metadata": {
+            "topic": "expedicao_coletor_markdown",
+            "source_file": "expedicao_coletor_markdown.md",
+            "chunk_id": "expedicao_coletor_markdown.md_24"
+        }
+    },
+    {
+        "text_chunk": "1. **Informe o nome da Doca** onde irá adicionar os volumes\n2. **Informe a etiqueta de volume**\n3. **Clique em Confirmar** para adicionar o volume na doca\n4. **Repita** para todos os volumes\n5. **Clique em Finalizar** para finalizar a doca",
+        "metadata": {
+            "topic": "expedicao_coletor_markdown",
+            "source_file": "expedicao_coletor_markdown.md",
+            "chunk_id": "expedicao_coletor_markdown.md_25"
+        }
+    },
+    {
+        "text_chunk": "### Resultado:\n- **Romaneio gerado automaticamente**\n- **Integração automática com o ERP**",
+        "metadata": {
+            "topic": "expedicao_coletor_markdown",
+            "source_file": "expedicao_coletor_markdown.md",
+            "chunk_id": "expedicao_coletor_markdown.md_26"
+        }
+    },
+    {
+        "text_chunk": "## 6. Consolidação",
+        "metadata": {
+            "topic": "expedicao_coletor_markdown",
+            "source_file": "expedicao_coletor_markdown.md",
+            "chunk_id": "expedicao_coletor_markdown.md_27"
+        }
+    },
+    {
+        "text_chunk": "A consolidação garante a entrega dos volumes corretos ao transportador, confrontando se a etiqueta de conferência confere com a etiqueta de consolidação:",
+        "metadata": {
+            "topic": "expedicao_coletor_markdown",
+            "source_file": "expedicao_coletor_markdown.md",
+            "chunk_id": "expedicao_coletor_markdown.md_28"
+        }
+    },
+    {
+        "text_chunk": "### Passos da Consolidação:",
+        "metadata": {
+            "topic": "expedicao_coletor_markdown",
+            "source_file": "expedicao_coletor_markdown.md",
+            "chunk_id": "expedicao_coletor_markdown.md_29"
+        }
+    },
+    {
+        "text_chunk": "1. **Insira a etiqueta de volume** no campo \"Etiq Volume\"\n   - **Será impressa automaticamente** a etiqueta de consolidação\n   - **Campos preenchidos automaticamente**: Documento, Pendente, sequência e volume",
+        "metadata": {
+            "topic": "expedicao_coletor_markdown",
+            "source_file": "expedicao_coletor_markdown.md",
+            "chunk_id": "expedicao_coletor_markdown.md_30"
+        }
+    },
+    {
+        "text_chunk": "2. **Bipe o código de barras** da etiqueta impressa no campo \"Etiqueta de Consolidação\"",
+        "metadata": {
+            "topic": "expedicao_coletor_markdown",
+            "source_file": "expedicao_coletor_markdown.md",
+            "chunk_id": "expedicao_coletor_markdown.md_31"
+        }
+    },
+    {
+        "text_chunk": "3. **Será exibida a mensagem** \"Finalizado com sucesso\"",
+        "metadata": {
+            "topic": "expedicao_coletor_markdown",
+            "source_file": "expedicao_coletor_markdown.md",
+            "chunk_id": "expedicao_coletor_markdown.md_32"
+        }
+    },
+    {
+        "text_chunk": "4. **Repita o processo** para todos os volumes do documento até que estejam consolidados",
+        "metadata": {
+            "topic": "expedicao_coletor_markdown",
+            "source_file": "expedicao_coletor_markdown.md",
+            "chunk_id": "expedicao_coletor_markdown.md_33"
+        }
+    },
+    {
+        "text_chunk": "Este processo completo garante que as mercadorias sejam expedidas de forma controlada e rastreável, desde a separação até a entrega ao transportador.",
+        "metadata": {
+            "topic": "expedicao_coletor_markdown",
+            "source_file": "expedicao_coletor_markdown.md",
+            "chunk_id": "expedicao_coletor_markdown.md_34"
+        }
+    },
+    {
+        "text_chunk": "# Título: Processo de impressão de etiquetas EAN no coletor",
+        "metadata": {
+            "topic": "impressao_etiqueta_markdown",
+            "source_file": "impressao_etiqueta_markdown.md",
+            "chunk_id": "impressao_etiqueta_markdown.md_0"
+        }
+    },
+    {
+        "text_chunk": "**Pergunta Frequente:** \"Como imprimir etiquetas de código EAN no coletor?\"",
+        "metadata": {
+            "topic": "impressao_etiqueta_markdown",
+            "source_file": "impressao_etiqueta_markdown.md",
+            "chunk_id": "impressao_etiqueta_markdown.md_1"
+        }
+    },
+    {
+        "text_chunk": "**Resposta:**",
+        "metadata": {
+            "topic": "impressao_etiqueta_markdown",
+            "source_file": "impressao_etiqueta_markdown.md",
+            "chunk_id": "impressao_etiqueta_markdown.md_2"
+        }
+    },
+    {
+        "text_chunk": "Localizado no coletor na opção **Entrada de Mercadoria > Etiqueta EAN**, esta funcionalidade permite imprimir etiquetas de EAN diretamente no coletor.",
+        "metadata": {
+            "topic": "impressao_etiqueta_markdown",
+            "source_file": "impressao_etiqueta_markdown.md",
+            "chunk_id": "impressao_etiqueta_markdown.md_3"
+        }
+    },
+    {
+        "text_chunk": "## Passos para Impressão de Etiqueta EAN:",
+        "metadata": {
+            "topic": "impressao_etiqueta_markdown",
+            "source_file": "impressao_etiqueta_markdown.md",
+            "chunk_id": "impressao_etiqueta_markdown.md_4"
+        }
+    },
+    {
+        "text_chunk": "### 1. Acesso à Funcionalidade\n1. **Toque em** Entrada de Mercadorias\n2. **Depois toque em** Etiqueta EAN",
+        "metadata": {
+            "topic": "impressao_etiqueta_markdown",
+            "source_file": "impressao_etiqueta_markdown.md",
+            "chunk_id": "impressao_etiqueta_markdown.md_5"
+        }
+    },
+    {
+        "text_chunk": "### 2. Configuração da Etiqueta\n3. **Preencha o campo EAN** com o código EAN de sua escolha",
+        "metadata": {
+            "topic": "impressao_etiqueta_markdown",
+            "source_file": "impressao_etiqueta_markdown.md",
+            "chunk_id": "impressao_etiqueta_markdown.md_6"
+        }
+    },
+    {
+        "text_chunk": "### 3. Processo de Impressão\n4. **Toque no botão da impressora**\n5. **Selecione a impressora desejada** na lista de impressoras disponíveis\n6. **Será apresentada a mensagem** \"Impressão efetuada com sucesso!\"",
+        "metadata": {
+            "topic": "impressao_etiqueta_markdown",
+            "source_file": "impressao_etiqueta_markdown.md",
+            "chunk_id": "impressao_etiqueta_markdown.md_7"
+        }
+    },
+    {
+        "text_chunk": "## Especificações da Etiqueta",
+        "metadata": {
+            "topic": "impressao_etiqueta_markdown",
+            "source_file": "impressao_etiqueta_markdown.md",
+            "chunk_id": "impressao_etiqueta_markdown.md_8"
+        }
+    },
+    {
+        "text_chunk": "A etiqueta impressa segue o layout padrão do BeeStock:",
+        "metadata": {
+            "topic": "impressao_etiqueta_markdown",
+            "source_file": "impressao_etiqueta_markdown.md",
+            "chunk_id": "impressao_etiqueta_markdown.md_9"
+        }
+    },
+    {
+        "text_chunk": "- **Tamanho**: 5cm x 2.2cm\n- **Nome do template**: EAN - ean.js\n- **Caminho no sistema**: /movement/label/ean\n- **Exemplo de dados**: Item 1004633",
+        "metadata": {
+            "topic": "impressao_etiqueta_markdown",
+            "source_file": "impressao_etiqueta_markdown.md",
+            "chunk_id": "impressao_etiqueta_markdown.md_10"
+        }
+    },
+    {
+        "text_chunk": "## Características da Etiqueta",
+        "metadata": {
+            "topic": "impressao_etiqueta_markdown",
+            "source_file": "impressao_etiqueta_markdown.md",
+            "chunk_id": "impressao_etiqueta_markdown.md_11"
+        }
+    },
+    {
+        "text_chunk": "A etiqueta contém:\n- **Código de barras EAN** do produto\n- **Número do código** em formato legível\n- **Layout padronizado** para fácil leitura pelos coletores",
+        "metadata": {
+            "topic": "impressao_etiqueta_markdown",
+            "source_file": "impressao_etiqueta_markdown.md",
+            "chunk_id": "impressao_etiqueta_markdown.md_12"
+        }
+    },
+    {
+        "text_chunk": "Este processo é essencial para criação de etiquetas de reposição ou identificação de produtos que perderam ou danificaram suas etiquetas originais.",
+        "metadata": {
+            "topic": "impressao_etiqueta_markdown",
+            "source_file": "impressao_etiqueta_markdown.md",
+            "chunk_id": "impressao_etiqueta_markdown.md_13"
+        }
+    },
+    {
+        "text_chunk": "# Título: Processos de inventário e contagem de estoque no coletor",
+        "metadata": {
+            "topic": "inventario_coletor_markdown",
+            "source_file": "inventario_coletor_markdown.md",
+            "chunk_id": "inventario_coletor_markdown.md_0"
+        }
+    },
+    {
+        "text_chunk": "**Pergunta Frequente:** \"Como fazer inventário e contagem de produtos no coletor BeeStock?\"",
+        "metadata": {
+            "topic": "inventario_coletor_markdown",
+            "source_file": "inventario_coletor_markdown.md",
+            "chunk_id": "inventario_coletor_markdown.md_1"
+        }
+    },
+    {
+        "text_chunk": "**Resposta:**",
+        "metadata": {
+            "topic": "inventario_coletor_markdown",
+            "source_file": "inventario_coletor_markdown.md",
+            "chunk_id": "inventario_coletor_markdown.md_2"
+        }
+    },
+    {
+        "text_chunk": "O menu **Inventário** agrupa duas funcionalidades principais para contagem de estoque:",
+        "metadata": {
+            "topic": "inventario_coletor_markdown",
+            "source_file": "inventario_coletor_markdown.md",
+            "chunk_id": "inventario_coletor_markdown.md_3"
+        }
+    },
+    {
+        "text_chunk": "1. **Inventário Padrão** - Com integração ERP\n2. **Inventário Físico** - Apenas WMS BeeStock",
+        "metadata": {
+            "topic": "inventario_coletor_markdown",
+            "source_file": "inventario_coletor_markdown.md",
+            "chunk_id": "inventario_coletor_markdown.md_4"
+        }
+    },
+    {
+        "text_chunk": "## 1. Inventário Padrão (com integração ERP)",
+        "metadata": {
+            "topic": "inventario_coletor_markdown",
+            "source_file": "inventario_coletor_markdown.md",
+            "chunk_id": "inventario_coletor_markdown.md_5"
+        }
+    },
+    {
+        "text_chunk": "Localizado em **Inventário > Inventário**, este processo realiza o inventário padrão do BeeStock que gera integrações com o ERP para movimentação de saldos em casos de divergências.",
+        "metadata": {
+            "topic": "inventario_coletor_markdown",
+            "source_file": "inventario_coletor_markdown.md",
+            "chunk_id": "inventario_coletor_markdown.md_6"
+        }
+    },
+    {
+        "text_chunk": "### Passos do Inventário Padrão:",
+        "metadata": {
+            "topic": "inventario_coletor_markdown",
+            "source_file": "inventario_coletor_markdown.md",
+            "chunk_id": "inventario_coletor_markdown.md_7"
+        }
+    },
+    {
+        "text_chunk": "1. **Acesse o menu** Inventário > Inventário\n2. **Confirme as informações solicitadas**:\n   - **Endereço**: Bipe a etiqueta física colada na localização do produto\n   - **EAN**: Bipe o código de barras físico do produto\n3. **Informe a quantidade física** contada no endereço\n4. **Clique em CONFIRMAR**\n5. **Será apresentada a mensagem** \"Contagem efetuada!\"",
+        "metadata": {
+            "topic": "inventario_coletor_markdown",
+            "source_file": "inventario_coletor_markdown.md",
+            "chunk_id": "inventario_coletor_markdown.md_8"
+        }
+    },
+    {
+        "text_chunk": "### Caso Especial: Endereço Vazio (Quantidade Zero)",
+        "metadata": {
+            "topic": "inventario_coletor_markdown",
+            "source_file": "inventario_coletor_markdown.md",
+            "chunk_id": "inventario_coletor_markdown.md_9"
+        }
+    },
+    {
+        "text_chunk": "Quando não existe nenhuma unidade do produto no endereço:",
+        "metadata": {
+            "topic": "inventario_coletor_markdown",
+            "source_file": "inventario_coletor_markdown.md",
+            "chunk_id": "inventario_coletor_markdown.md_10"
+        }
+    },
+    {
+        "text_chunk": "1. **Bipe a etiqueta de endereço** normalmente\n2. **No campo EAN**, pressione **enter** no teclado (virtual ou físico) com o campo **em branco**, sem nenhuma informação\n   - **Importante**: NÃO digite quantidade = 0, apenas pressione enter no campo EAN vazio\n   - Como não há produto físico, não será possível bipar o código de barras\n   - O sistema entenderá que se trata de quantidade 0\n3. **Será apresentada a mensagem** \"Este endereço está vazio\", clique em **Confirmar**\n4. **Confirmação final**: \"Contagem efetuada!\" e a ficha será lançada com quantidade contada = 0",
+        "metadata": {
+            "topic": "inventario_coletor_markdown",
+            "source_file": "inventario_coletor_markdown.md",
+            "chunk_id": "inventario_coletor_markdown.md_11"
+        }
+    },
+    {
+        "text_chunk": "## 2. Inventário Físico (apenas WMS)",
+        "metadata": {
+            "topic": "inventario_coletor_markdown",
+            "source_file": "inventario_coletor_markdown.md",
+            "chunk_id": "inventario_coletor_markdown.md_12"
+        }
+    },
+    {
+        "text_chunk": "Localizado em **Inventário > Inventário Físico**, esta funcionalidade permite ajustar o saldo apenas do WMS BeeStock, **sem enviar integrações** de movimentação de saldo para o ERP.",
+        "metadata": {
+            "topic": "inventario_coletor_markdown",
+            "source_file": "inventario_coletor_markdown.md",
+            "chunk_id": "inventario_coletor_markdown.md_13"
+        }
+    },
+    {
+        "text_chunk": "### Passos do Inventário Físico:",
+        "metadata": {
+            "topic": "inventario_coletor_markdown",
+            "source_file": "inventario_coletor_markdown.md",
+            "chunk_id": "inventario_coletor_markdown.md_14"
+        }
+    },
+    {
+        "text_chunk": "1. **Acesse o menu** Inventário > Inventário Físico\n2. **Confirme as informações solicitadas**:\n   - **Filial**\n   - **Endereço**\n   - **EAN** \n   - **Quantidade**\n3. **Pressione Confirmar**\n4. **Será apresentada a mensagem** \"Ajuste efetuado!\"",
+        "metadata": {
+            "topic": "inventario_coletor_markdown",
+            "source_file": "inventario_coletor_markdown.md",
+            "chunk_id": "inventario_coletor_markdown.md_15"
+        }
+    },
+    {
+        "text_chunk": "### Resultado do Inventário Físico:\n- **Será realizada entrada ou saída** do produto no endereço informado\n- **Saldo ficará com a quantidade informada** na contagem física\n- **Sem movimentações com o ERP** - apenas ajuste interno do WMS",
+        "metadata": {
+            "topic": "inventario_coletor_markdown",
+            "source_file": "inventario_coletor_markdown.md",
+            "chunk_id": "inventario_coletor_markdown.md_16"
+        }
+    },
+    {
+        "text_chunk": "## Resumo das Diferenças:",
+        "metadata": {
+            "topic": "inventario_coletor_markdown",
+            "source_file": "inventario_coletor_markdown.md",
+            "chunk_id": "inventario_coletor_markdown.md_17"
+        }
+    },
+    {
+        "text_chunk": "- **Inventário Padrão**: Integra com ERP, movimenta saldos no sistema corporativo\n- **Inventário Físico**: Apenas WMS BeeStock, para ajustes internos de armazém",
+        "metadata": {
+            "topic": "inventario_coletor_markdown",
+            "source_file": "inventario_coletor_markdown.md",
+            "chunk_id": "inventario_coletor_markdown.md_18"
+        }
+    },
+    {
+        "text_chunk": "Ambos os processos garantem a precisão dos saldos de estoque, sendo escolhidos conforme a necessidade de integração com o sistema ERP da empresa.",
+        "metadata": {
+            "topic": "inventario_coletor_markdown",
+            "source_file": "inventario_coletor_markdown.md",
+            "chunk_id": "inventario_coletor_markdown.md_19"
+        }
+    },
+    {
+        "text_chunk": "# Título: Fluxo completo de recebimento no coletor",
+        "metadata": {
+            "topic": "recebimento_coletor_markdown",
+            "source_file": "recebimento_coletor_markdown.md",
+            "chunk_id": "recebimento_coletor_markdown.md_0"
+        }
+    },
+    {
+        "text_chunk": "**Pergunta Frequente:** \"Como fazer o processo completo de recebimento de mercadorias no coletor?\"",
+        "metadata": {
+            "topic": "recebimento_coletor_markdown",
+            "source_file": "recebimento_coletor_markdown.md",
+            "chunk_id": "recebimento_coletor_markdown.md_1"
+        }
+    },
+    {
+        "text_chunk": "**Resposta:**",
+        "metadata": {
+            "topic": "recebimento_coletor_markdown",
+            "source_file": "recebimento_coletor_markdown.md",
+            "chunk_id": "recebimento_coletor_markdown.md_2"
+        }
+    },
+    {
+        "text_chunk": "Localizada no menu **Entrada**, as telas são utilizadas para realizar todo o processo de **Entrada no Coletor**. O processo é dividido em duas etapas principais:",
+        "metadata": {
+            "topic": "recebimento_coletor_markdown",
+            "source_file": "recebimento_coletor_markdown.md",
+            "chunk_id": "recebimento_coletor_markdown.md_3"
+        }
+    },
+    {
+        "text_chunk": "- **Entrada de Mercadoria > Conferência AR**\n- **Entrada de Mercadoria > Armazenamento**",
+        "metadata": {
+            "topic": "recebimento_coletor_markdown",
+            "source_file": "recebimento_coletor_markdown.md",
+            "chunk_id": "recebimento_coletor_markdown.md_4"
+        }
+    },
+    {
+        "text_chunk": "## Conferência AR",
+        "metadata": {
+            "topic": "recebimento_coletor_markdown",
+            "source_file": "recebimento_coletor_markdown.md",
+            "chunk_id": "recebimento_coletor_markdown.md_5"
+        }
+    },
+    {
+        "text_chunk": "Localizada no menu **Entrada > Conferência AR**, a tela é utilizada para realizar todo o processo de **Conferência de Entrada no Coletor**.",
+        "metadata": {
+            "topic": "recebimento_coletor_markdown",
+            "source_file": "recebimento_coletor_markdown.md",
+            "chunk_id": "recebimento_coletor_markdown.md_6"
+        }
+    },
+    {
+        "text_chunk": "### Passos da Conferência:",
+        "metadata": {
+            "topic": "recebimento_coletor_markdown",
+            "source_file": "recebimento_coletor_markdown.md",
+            "chunk_id": "recebimento_coletor_markdown.md_7"
+        }
+    },
+    {
+        "text_chunk": "1. **Seleção do documento**: Podemos colocar o número do documento diretamente, ou então procurar o documento clicando na **lupa** e selecionar o documento desejado.",
+        "metadata": {
+            "topic": "recebimento_coletor_markdown",
+            "source_file": "recebimento_coletor_markdown.md",
+            "chunk_id": "recebimento_coletor_markdown.md_8"
+        }
+    },
+    {
+        "text_chunk": "2. **Após selecionar o documento**, iremos para a tela de conferência.",
+        "metadata": {
+            "topic": "recebimento_coletor_markdown",
+            "source_file": "recebimento_coletor_markdown.md",
+            "chunk_id": "recebimento_coletor_markdown.md_9"
+        }
+    },
+    {
+        "text_chunk": "3. **Para iniciar a conferência** pegamos ou bipamos EAN do primeiro item.",
+        "metadata": {
+            "topic": "recebimento_coletor_markdown",
+            "source_file": "recebimento_coletor_markdown.md",
+            "chunk_id": "recebimento_coletor_markdown.md_10"
+        }
+    },
+    {
+        "text_chunk": "4. **Após isso colocamos a quantidade** a ser conferida.",
+        "metadata": {
+            "topic": "recebimento_coletor_markdown",
+            "source_file": "recebimento_coletor_markdown.md",
+            "chunk_id": "recebimento_coletor_markdown.md_11"
+        }
+    },
+    {
+        "text_chunk": "5. **Número do Batismo**: Após a quantidade devemos colocar o número do Batismo que será utilizado na Armazenagem.",
+        "metadata": {
+            "topic": "recebimento_coletor_markdown",
+            "source_file": "recebimento_coletor_markdown.md",
+            "chunk_id": "recebimento_coletor_markdown.md_12"
+        }
+    },
+    {
+        "text_chunk": "6. **Etiquetas**: Temos a opção de colocar o número de etiquetas a ser impressas.",
+        "metadata": {
+            "topic": "recebimento_coletor_markdown",
+            "source_file": "recebimento_coletor_markdown.md",
+            "chunk_id": "recebimento_coletor_markdown.md_13"
+        }
+    },
+    {
+        "text_chunk": "7. **Endereço**: Conferimos o endereço sugerido. O Endereço sugerido pode ser alterado conforme necessidade do usuário, e ele respeita a regra de negócio ordenada no Cadastro de Filiais > Aba Recebimento.",
+        "metadata": {
+            "topic": "recebimento_coletor_markdown",
+            "source_file": "recebimento_coletor_markdown.md",
+            "chunk_id": "recebimento_coletor_markdown.md_14"
+        }
+    },
+    {
+        "text_chunk": "8. **Confirmar** o processo clicando em **Confirmar**.",
+        "metadata": {
+            "topic": "recebimento_coletor_markdown",
+            "source_file": "recebimento_coletor_markdown.md",
+            "chunk_id": "recebimento_coletor_markdown.md_15"
+        }
+    },
+    {
+        "text_chunk": "9. **Repetir** o mesmo processo para todos os itens do documento.",
+        "metadata": {
+            "topic": "recebimento_coletor_markdown",
+            "source_file": "recebimento_coletor_markdown.md",
+            "chunk_id": "recebimento_coletor_markdown.md_16"
+        }
+    },
+    {
+        "text_chunk": "### Itens com Controle de Validade:",
+        "metadata": {
+            "topic": "recebimento_coletor_markdown",
+            "source_file": "recebimento_coletor_markdown.md",
+            "chunk_id": "recebimento_coletor_markdown.md_17"
+        }
+    },
+    {
+        "text_chunk": "10. **Quando o item é controlado por validade**, após colocar o EAN iremos para uma tela específica.",
+        "metadata": {
+            "topic": "recebimento_coletor_markdown",
+            "source_file": "recebimento_coletor_markdown.md",
+            "chunk_id": "recebimento_coletor_markdown.md_18"
+        }
+    },
+    {
+        "text_chunk": "11. **Preencher informações** e clicar em **Salvar**:\n    - Ao preencher a **Data Fabricação** é utilizada a informação do Cadastro de Produto, aba **Estoque**, campo **Dias de Vida**, para calcular automaticamente e sugerir a validade\n    - Se informar a validade, ele calcula baseado na quantidade de dias do cadastro do produto para sugerir a data de fabricação",
+        "metadata": {
+            "topic": "recebimento_coletor_markdown",
+            "source_file": "recebimento_coletor_markdown.md",
+            "chunk_id": "recebimento_coletor_markdown.md_19"
+        }
+    },
+    {
+        "text_chunk": "12. **Colocamos então o batismo** e confirmamos.",
+        "metadata": {
+            "topic": "recebimento_coletor_markdown",
+            "source_file": "recebimento_coletor_markdown.md",
+            "chunk_id": "recebimento_coletor_markdown.md_20"
+        }
+    },
+    {
+        "text_chunk": "### Conferência Parcial:",
+        "metadata": {
+            "topic": "recebimento_coletor_markdown",
+            "source_file": "recebimento_coletor_markdown.md",
+            "chunk_id": "recebimento_coletor_markdown.md_21"
+        }
+    },
+    {
+        "text_chunk": "13. **Existe a possibilidade de conferir uma quantidade menor** que o total.",
+        "metadata": {
+            "topic": "recebimento_coletor_markdown",
+            "source_file": "recebimento_coletor_markdown.md",
+            "chunk_id": "recebimento_coletor_markdown.md_22"
+        }
+    },
+    {
+        "text_chunk": "14. **Ao clicar em Sim**, é realizada a conferência parcial, e podemos conferir o restante posteriormente.",
+        "metadata": {
+            "topic": "recebimento_coletor_markdown",
+            "source_file": "recebimento_coletor_markdown.md",
+            "chunk_id": "recebimento_coletor_markdown.md_23"
+        }
+    },
+    {
+        "text_chunk": "15. **Ao clicar em Não** será novamente questionado se realmente é uma divergência.",
+        "metadata": {
+            "topic": "recebimento_coletor_markdown",
+            "source_file": "recebimento_coletor_markdown.md",
+            "chunk_id": "recebimento_coletor_markdown.md_24"
+        }
+    },
+    {
+        "text_chunk": "16. **Confirmando a divergência** o produto será conferido totalmente.",
+        "metadata": {
+            "topic": "recebimento_coletor_markdown",
+            "source_file": "recebimento_coletor_markdown.md",
+            "chunk_id": "recebimento_coletor_markdown.md_25"
+        }
+    },
+    {
+        "text_chunk": "### Itens com Controle de Lote:",
+        "metadata": {
+            "topic": "recebimento_coletor_markdown",
+            "source_file": "recebimento_coletor_markdown.md",
+            "chunk_id": "recebimento_coletor_markdown.md_26"
+        }
+    },
+    {
+        "text_chunk": "17. **Quando o item é controlado por lote**, após colocar o EAN iremos para uma tela específica.",
+        "metadata": {
+            "topic": "recebimento_coletor_markdown",
+            "source_file": "recebimento_coletor_markdown.md",
+            "chunk_id": "recebimento_coletor_markdown.md_27"
+        }
+    },
+    {
+        "text_chunk": "18. **Podemos quebrar o lote** em mais de uma linha.",
+        "metadata": {
+            "topic": "recebimento_coletor_markdown",
+            "source_file": "recebimento_coletor_markdown.md",
+            "chunk_id": "recebimento_coletor_markdown.md_28"
+        }
+    },
+    {
+        "text_chunk": "### Recebimento em Avaria:",
+        "metadata": {
+            "topic": "recebimento_coletor_markdown",
+            "source_file": "recebimento_coletor_markdown.md",
+            "chunk_id": "recebimento_coletor_markdown.md_29"
+        }
+    },
+    {
+        "text_chunk": "19. **Temos a opção de receber o produto em avaria**.",
+        "metadata": {
+            "topic": "recebimento_coletor_markdown",
+            "source_file": "recebimento_coletor_markdown.md",
+            "chunk_id": "recebimento_coletor_markdown.md_30"
+        }
+    },
+    {
+        "text_chunk": "20. **Confirmando o sistema perguntará** sobre o processo.",
+        "metadata": {
+            "topic": "recebimento_coletor_markdown",
+            "source_file": "recebimento_coletor_markdown.md",
+            "chunk_id": "recebimento_coletor_markdown.md_31"
+        }
+    },
+    {
+        "text_chunk": "## Armazenamento",
+        "metadata": {
+            "topic": "recebimento_coletor_markdown",
+            "source_file": "recebimento_coletor_markdown.md",
+            "chunk_id": "recebimento_coletor_markdown.md_32"
+        }
+    },
+    {
+        "text_chunk": "Localizada no menu **Entrada > Armazenamento**, a tela é utilizada para realizar todo o processo de **Armazenamento no Coletor**.",
+        "metadata": {
+            "topic": "recebimento_coletor_markdown",
+            "source_file": "recebimento_coletor_markdown.md",
+            "chunk_id": "recebimento_coletor_markdown.md_33"
+        }
+    },
+    {
+        "text_chunk": "### Passos do Armazenamento:",
+        "metadata": {
+            "topic": "recebimento_coletor_markdown",
+            "source_file": "recebimento_coletor_markdown.md",
+            "chunk_id": "recebimento_coletor_markdown.md_34"
+        }
+    },
+    {
+        "text_chunk": "21. **Acesse o menu** Entrada > Armazenamento.",
+        "metadata": {
+            "topic": "recebimento_coletor_markdown",
+            "source_file": "recebimento_coletor_markdown.md",
+            "chunk_id": "recebimento_coletor_markdown.md_35"
+        }
+    },
+    {
+        "text_chunk": "22. **Podemos colocar o número do batismo** que irá ser realizado o armazenamento.",
+        "metadata": {
+            "topic": "recebimento_coletor_markdown",
+            "source_file": "recebimento_coletor_markdown.md",
+            "chunk_id": "recebimento_coletor_markdown.md_36"
+        }
+    },
+    {
+        "text_chunk": "23. **Abrirá o batismo** e devemos colocar o EAN do produto que será armazenado.",
+        "metadata": {
+            "topic": "recebimento_coletor_markdown",
+            "source_file": "recebimento_coletor_markdown.md",
+            "chunk_id": "recebimento_coletor_markdown.md_37"
+        }
+    },
+    {
+        "text_chunk": "24. **Após o EAN** devemos colocar o endereço, quantidade e depois efetivar.",
+        "metadata": {
+            "topic": "recebimento_coletor_markdown",
+            "source_file": "recebimento_coletor_markdown.md",
+            "chunk_id": "recebimento_coletor_markdown.md_38"
+        }
+    },
+    {
+        "text_chunk": "### Armazenamento Parcial:",
+        "metadata": {
+            "topic": "recebimento_coletor_markdown",
+            "source_file": "recebimento_coletor_markdown.md",
+            "chunk_id": "recebimento_coletor_markdown.md_39"
+        }
+    },
+    {
+        "text_chunk": "25. **Podemos armazenar uma quantidade parcial**. Quando tentamos armazenar uma quantidade parcial temos uma mensagem de confirmação.",
+        "metadata": {
+            "topic": "recebimento_coletor_markdown",
+            "source_file": "recebimento_coletor_markdown.md",
+            "chunk_id": "recebimento_coletor_markdown.md_40"
+        }
+    },
+    {
+        "text_chunk": "26. **Se confirmado a divergência** o produto será totalmente armazenado.",
+        "metadata": {
+            "topic": "recebimento_coletor_markdown",
+            "source_file": "recebimento_coletor_markdown.md",
+            "chunk_id": "recebimento_coletor_markdown.md_41"
+        }
+    },
+    {
+        "text_chunk": "27. **Se cancelar**, será perguntado se confirmado o armazenamento parcial. Ao prosseguir a quantidade informada será armazenada e o restante ficará pendente.",
+        "metadata": {
+            "topic": "recebimento_coletor_markdown",
+            "source_file": "recebimento_coletor_markdown.md",
+            "chunk_id": "recebimento_coletor_markdown.md_42"
+        }
+    },
+    {
+        "text_chunk": "# Título: Novidades e melhorias do BeeStock versão 1.27.0 de 2025",
+        "metadata": {
+            "topic": "release_notes_2025_markdown",
+            "source_file": "release_notes_2025_markdown.md",
+            "chunk_id": "release_notes_2025_markdown.md_0"
+        }
+    },
+    {
+        "text_chunk": "**Pergunta Frequente:** \"Quais são as principais novidades, melhorias e correções da versão 1.27.0 do BeeStock de 2025?\"",
+        "metadata": {
+            "topic": "release_notes_2025_markdown",
+            "source_file": "release_notes_2025_markdown.md",
+            "chunk_id": "release_notes_2025_markdown.md_1"
+        }
+    },
+    {
+        "text_chunk": "**Resposta:**",
+        "metadata": {
+            "topic": "release_notes_2025_markdown",
+            "source_file": "release_notes_2025_markdown.md",
+            "chunk_id": "release_notes_2025_markdown.md_2"
+        }
+    },
+    {
+        "text_chunk": "Esta versão inclui 7 melhorias significativas e 12 correções importantes, focando em flexibilidade de configuração, precisão operacional e correção de problemas identificados.",
+        "metadata": {
+            "topic": "release_notes_2025_markdown",
+            "source_file": "release_notes_2025_markdown.md",
+            "chunk_id": "release_notes_2025_markdown.md_3"
+        }
+    },
+    {
+        "text_chunk": "## PRINCIPAIS MELHORIAS",
+        "metadata": {
+            "topic": "release_notes_2025_markdown",
+            "source_file": "release_notes_2025_markdown.md",
+            "chunk_id": "release_notes_2025_markdown.md_4"
+        }
+    },
+    {
+        "text_chunk": "### 1. Configuração de Colunas para Recebimento\n**Melhoria BEES-2048**: Extensão da configuração de colunas para processos de recebimento.",
+        "metadata": {
+            "topic": "release_notes_2025_markdown",
+            "source_file": "release_notes_2025_markdown.md",
+            "chunk_id": "release_notes_2025_markdown.md_5"
+        }
+    },
+    {
+        "text_chunk": "- **Nova funcionalidade** em Cadastros > Gerais > Tipos de Documentos, aba Recebimento\n- **Campos configuráveis**: Sequência, Código do produto, Descrição do produto, Código complementar\n- **Aplicação**: Tela do coletor em Entrada de Mercadorias > Conferência AR\n- **Benefício**: Flexibilidade para personalizar informações exibidas no coletor",
+        "metadata": {
+            "topic": "release_notes_2025_markdown",
+            "source_file": "release_notes_2025_markdown.md",
+            "chunk_id": "release_notes_2025_markdown.md_6"
+        }
+    },
+    {
+        "text_chunk": "### 2. Campo \"Código Complementar\" na Separação\n**Melhoria BEES-2086**: Inclusão do código complementar nos processos de separação.",
+        "metadata": {
+            "topic": "release_notes_2025_markdown",
+            "source_file": "release_notes_2025_markdown.md",
+            "chunk_id": "release_notes_2025_markdown.md_7"
+        }
+    },
+    {
+        "text_chunk": "- **Funcionalidade**: \"Ordenar colunas na separação do coletor\" agora inclui Código Complementar\n- **Processos contemplados**: Separação por Documento e Onda\n- **Benefício**: Maior precisão na identificação de produtos durante separação e conferência",
+        "metadata": {
+            "topic": "release_notes_2025_markdown",
+            "source_file": "release_notes_2025_markdown.md",
+            "chunk_id": "release_notes_2025_markdown.md_8"
+        }
+    },
+    {
+        "text_chunk": "### 3. Reestruturação Completa dos Menus\n**Melhoria BEES-1643**: Reorganização dos menus para melhor usabilidade.",
+        "metadata": {
+            "topic": "release_notes_2025_markdown",
+            "source_file": "release_notes_2025_markdown.md",
+            "chunk_id": "release_notes_2025_markdown.md_9"
+        }
+    },
+    {
+        "text_chunk": "**Mudanças implementadas**:\n- **Ordenação alfabética** para facilitar localização de rotinas\n- **Recebimento**: Conferência de Material posicionada antes da Armazenagem\n- **Expedição**: Nova ordem - Separação → Conferência → Processo de Onda → Consolidação\n- **Resultado**: Navegação mais intuitiva e alinhada com fluxo operacional",
+        "metadata": {
+            "topic": "release_notes_2025_markdown",
+            "source_file": "release_notes_2025_markdown.md",
+            "chunk_id": "release_notes_2025_markdown.md_10"
+        }
+    },
+    {
+        "text_chunk": "### 4. Suporte a Quatro Casas Decimais\n**Melhoria BEES-1797**: Processamento completo de quantidades fracionadas.",
+        "metadata": {
+            "topic": "release_notes_2025_markdown",
+            "source_file": "release_notes_2025_markdown.md",
+            "chunk_id": "release_notes_2025_markdown.md_11"
+        }
+    },
+    {
+        "text_chunk": "**Implementações**:\n- **Processamento**: Armazenamento e exibição com quatro casas decimais\n- **Integração**: ERP operando corretamente com formato decimal\n- **Aplicação**: Bases que operam com controle de quantidades fracionadas\n- **Benefício**: Maior precisão e alinhamento entre WMS e ERP",
+        "metadata": {
+            "topic": "release_notes_2025_markdown",
+            "source_file": "release_notes_2025_markdown.md",
+            "chunk_id": "release_notes_2025_markdown.md_12"
+        }
+    },
+    {
+        "text_chunk": "### 5. Ajustes em Campos de Integração\n**Melhoria BEES-2028**: Otimização da obrigatoriedade de campos nas integrações.",
+        "metadata": {
+            "topic": "release_notes_2025_markdown",
+            "source_file": "release_notes_2025_markdown.md",
+            "chunk_id": "release_notes_2025_markdown.md_13"
+        }
+    },
+    {
+        "text_chunk": "**BillingReturn (Status Faturamento)**:\n- Campo \"transportadora\" agora é **obrigatório**\n- Erro retornado: \"O campo 'transportadora' é obrigatório para o Retorno de Faturamento\"",
+        "metadata": {
+            "topic": "release_notes_2025_markdown",
+            "source_file": "release_notes_2025_markdown.md",
+            "chunk_id": "release_notes_2025_markdown.md_14"
+        }
+    },
+    {
+        "text_chunk": "**InBoundOrders (Documento de Entrada)**:\n- **Removida obrigatoriedade** do campo \"transportadora\"\n- Maior flexibilidade na integração de documentos de entrada",
+        "metadata": {
+            "topic": "release_notes_2025_markdown",
+            "source_file": "release_notes_2025_markdown.md",
+            "chunk_id": "release_notes_2025_markdown.md_15"
+        }
+    },
+    {
+        "text_chunk": "### 6. Melhorias na Transferência de Endereços\n**Melhoria BEES-1900**: Aprimoramentos na funcionalidade de transferência.",
+        "metadata": {
+            "topic": "release_notes_2025_markdown",
+            "source_file": "release_notes_2025_markdown.md",
+            "chunk_id": "release_notes_2025_markdown.md_16"
+        }
+    },
+    {
+        "text_chunk": "**Correções implementadas**:\n- **Bloqueio**: Transferências para o mesmo endereço agora são impedidas\n- **Filtragem**: Seleção exibe apenas endereços com saldo do produto bipado\n- **Produtos controlados**: Gravação ajustada para produtos com controle de validade",
+        "metadata": {
+            "topic": "release_notes_2025_markdown",
+            "source_file": "release_notes_2025_markdown.md",
+            "chunk_id": "release_notes_2025_markdown.md_17"
+        }
+    },
+    {
+        "text_chunk": "### 7. Exibição de Dados Adicionais\n**Melhoria BEES-2045**: Melhoria na visualização de informações do produto.",
+        "metadata": {
+            "topic": "release_notes_2025_markdown",
+            "source_file": "release_notes_2025_markdown.md",
+            "chunk_id": "release_notes_2025_markdown.md_18"
+        }
+    },
+    {
+        "text_chunk": "**Locais afetados**:\n- Tela de Etiqueta de Embalagem Fracionada (Movimentação > Etiquetas)\n- Documento de Saída (Movimentação > Expedição > Ações)\n- **Campos adicionados**: Unidade de Medida e Família de Materiais\n- **Função**: Apenas visualização para referência",
+        "metadata": {
+            "topic": "release_notes_2025_markdown",
+            "source_file": "release_notes_2025_markdown.md",
+            "chunk_id": "release_notes_2025_markdown.md_19"
+        }
+    },
+    {
+        "text_chunk": "## PRINCIPAIS CORREÇÕES",
+        "metadata": {
+            "topic": "release_notes_2025_markdown",
+            "source_file": "release_notes_2025_markdown.md",
+            "chunk_id": "release_notes_2025_markdown.md_20"
+        }
+    },
+    {
+        "text_chunk": "### 8. Devolução de Picking com Etiquetas Seriadas\n**Correção BEES-1805**: Correção no comportamento do endereço de devolução.",
+        "metadata": {
+            "topic": "release_notes_2025_markdown",
+            "source_file": "release_notes_2025_markdown.md",
+            "chunk_id": "release_notes_2025_markdown.md_21"
+        }
+    },
+    {
+        "text_chunk": "- **Problema corrigido**: Endereço informado pelo usuário é mantido\n- **Melhoria**: Permite alteração manual do endereço mesmo após devoluções anteriores",
+        "metadata": {
+            "topic": "release_notes_2025_markdown",
+            "source_file": "release_notes_2025_markdown.md",
+            "chunk_id": "release_notes_2025_markdown.md_22"
+        }
+    },
+    {
+        "text_chunk": "### 9. Validação de Produtos nas Integrações\n**Correção BEES-2026**: Validação obrigatória de produtos em documentos.",
+        "metadata": {
+            "topic": "release_notes_2025_markdown",
+            "source_file": "release_notes_2025_markdown.md",
+            "chunk_id": "release_notes_2025_markdown.md_23"
+        }
+    },
+    {
+        "text_chunk": "- **Implementação**: Validação para array de produtos não vazio\n- **Integrações afetadas**: InBoundOrders e OutBoundOrders\n- **Erro retornado**: \"O documento deve conter pelo menos um produto para ser integrado\"",
+        "metadata": {
+            "topic": "release_notes_2025_markdown",
+            "source_file": "release_notes_2025_markdown.md",
+            "chunk_id": "release_notes_2025_markdown.md_24"
+        }
+    },
+    {
+        "text_chunk": "### 10. Contagem de Inventário via Coletor\n**Correção BEES-1931**: Correção para múltiplos itens no mesmo endereço.",
+        "metadata": {
+            "topic": "release_notes_2025_markdown",
+            "source_file": "release_notes_2025_markdown.md",
+            "chunk_id": "release_notes_2025_markdown.md_25"
+        }
+    },
+    {
+        "text_chunk": "- **Problema resolvido**: Usuário pode alternar entre itens no mesmo endereço\n- **Resultado**: Contagem precisa de todos os produtos",
+        "metadata": {
+            "topic": "release_notes_2025_markdown",
+            "source_file": "release_notes_2025_markdown.md",
+            "chunk_id": "release_notes_2025_markdown.md_26"
+        }
+    },
+    {
+        "text_chunk": "### 11. Relatório de Contagem de Inventário\n**Correção BEES-1989**: Correção na apresentação de valores.",
+        "metadata": {
+            "topic": "release_notes_2025_markdown",
+            "source_file": "release_notes_2025_markdown.md",
+            "chunk_id": "release_notes_2025_markdown.md_27"
+        }
+    },
+    {
+        "text_chunk": "- **Ajuste**: Quantidade divergente e valor da divergência com sinais corretos\n- **Benefício**: Maior clareza na interpretação dos dados",
+        "metadata": {
+            "topic": "release_notes_2025_markdown",
+            "source_file": "release_notes_2025_markdown.md",
+            "chunk_id": "release_notes_2025_markdown.md_28"
+        }
+    },
+    {
+        "text_chunk": "### 12. Campo Depósito no Inventário Físico\n**Correção BEES-1970**: Correção na interação do campo após limpeza.",
+        "metadata": {
+            "topic": "release_notes_2025_markdown",
+            "source_file": "release_notes_2025_markdown.md",
+            "chunk_id": "release_notes_2025_markdown.md_29"
+        }
+    },
+    {
+        "text_chunk": "- **Correção**: Campo \"Depósito\" permanece ativo após usar botão \"Limpar\"\n- **Resultado**: Continuidade do fluxo de trabalho",
+        "metadata": {
+            "topic": "release_notes_2025_markdown",
+            "source_file": "release_notes_2025_markdown.md",
+            "chunk_id": "release_notes_2025_markdown.md_30"
+        }
+    },
+    {
+        "text_chunk": "## MELHORIAS TÉCNICAS E DE PERFORMANCE",
+        "metadata": {
+            "topic": "release_notes_2025_markdown",
+            "source_file": "release_notes_2025_markdown.md",
+            "chunk_id": "release_notes_2025_markdown.md_31"
+        }
+    },
+    {
+        "text_chunk": "### 13-19. Correções Técnicas Diversas\n- **Status de Onda**: Atualização correta em cancelamentos parciais\n- **Integração**: Tratamento de erro para itens não cadastrados\n- **Relatórios**: Filtro de curvas dinâmico no relatório de endereços vazios\n- **Filiais**: Preservação de parâmetros na cópia de filiais\n- **Performance**: Otimização de requisições à Wiki do Bee\n- **Nota Fiscal**: Peso bruto da conferência corretamente enviado\n- **Etiquetas**: Correção na geração de etiquetas seriadas",
+        "metadata": {
+            "topic": "release_notes_2025_markdown",
+            "source_file": "release_notes_2025_markdown.md",
+            "chunk_id": "release_notes_2025_markdown.md_32"
+        }
+    },
+    {
+        "text_chunk": "## Impacto Geral da Versão",
+        "metadata": {
+            "topic": "release_notes_2025_markdown",
+            "source_file": "release_notes_2025_markdown.md",
+            "chunk_id": "release_notes_2025_markdown.md_33"
+        }
+    },
+    {
+        "text_chunk": "Esta versão 1.27.0 representa um marco significativo em:\n- **Flexibilidade**: Maior personalização de interfaces\n- **Precisão**: Melhor controle de quantidades e dados\n- **Usabilidade**: Navegação otimizada e fluxos intuitivos\n- **Integração**: Comunicação mais robusta com ERPs\n- **Estabilidade**: Correção de problemas operacionais críticos",
+        "metadata": {
+            "topic": "release_notes_2025_markdown",
+            "source_file": "release_notes_2025_markdown.md",
+            "chunk_id": "release_notes_2025_markdown.md_34"
+        }
+    },
+    {
+        "text_chunk": "**Documentação completa da API**: https://docapi.beestock.com.br",
+        "metadata": {
+            "topic": "release_notes_2025_markdown",
+            "source_file": "release_notes_2025_markdown.md",
+            "chunk_id": "release_notes_2025_markdown.md_35"
+        }
+    },
+    {
+        "text_chunk": "# Título: Gerenciamento e cadastro de usuários no BeeStock",
+        "metadata": {
+            "topic": "usuarios_admin_markdown",
+            "source_file": "usuarios_admin_markdown.md",
+            "chunk_id": "usuarios_admin_markdown.md_0"
+        }
+    },
+    {
+        "text_chunk": "**Pergunta Frequente:** \"Como cadastrar e gerenciar usuários no sistema BeeStock?\"",
+        "metadata": {
+            "topic": "usuarios_admin_markdown",
+            "source_file": "usuarios_admin_markdown.md",
+            "chunk_id": "usuarios_admin_markdown.md_1"
+        }
+    },
+    {
+        "text_chunk": "**Resposta:**",
+        "metadata": {
+            "topic": "usuarios_admin_markdown",
+            "source_file": "usuarios_admin_markdown.md",
+            "chunk_id": "usuarios_admin_markdown.md_2"
+        }
+    },
+    {
+        "text_chunk": "Localizado no menu **Administração > Usuários > Usuários**, esta tela permite gerenciar todos os usuários cadastrados no sistema, incluindo seus parâmetros de acesso, permissões e configurações.",
+        "metadata": {
+            "topic": "usuarios_admin_markdown",
+            "source_file": "usuarios_admin_markdown.md",
+            "chunk_id": "usuarios_admin_markdown.md_3"
+        }
+    },
+    {
+        "text_chunk": "## Processo de Criação de Novo Usuário",
+        "metadata": {
+            "topic": "usuarios_admin_markdown",
+            "source_file": "usuarios_admin_markdown.md",
+            "chunk_id": "usuarios_admin_markdown.md_4"
+        }
+    },
+    {
+        "text_chunk": "### 1. Iniciando o Cadastro\n1. **Acesse** Administração > Usuários > Usuários\n2. **Clique no botão laranja** +Incluir Usuário",
+        "metadata": {
+            "topic": "usuarios_admin_markdown",
+            "source_file": "usuarios_admin_markdown.md",
+            "chunk_id": "usuarios_admin_markdown.md_5"
+        }
+    },
+    {
+        "text_chunk": "### 2. Aba Dados - Informações Básicas\n3. **Preencha as informações obrigatórias**:\n   - **Login** - Nome de usuário para acesso ao sistema\n   - **Nome** - Nome completo do usuário\n   - **Tipo** - Categoria do usuário no sistema\n   - **Status** - Ativo ou inativo\n   - **Senha** - Senha de acesso\n   - **Confirme a senha** - Confirmação da senha\n   - **Validade senha** - Data de expiração da senha\n   - **E-mail** - Endereço eletrônico\n   - **Matrícula** - Número de matrícula do funcionário\n   - **Departamento** - Setor de trabalho\n   - **Função** - Cargo ou função\n   - **Turnos** - Horários de trabalho\n   - **Telefone** - Número de telefone\n   - **Ramal** - Ramal interno\n   - **Celular** - Número do celular",
+        "metadata": {
+            "topic": "usuarios_admin_markdown",
+            "source_file": "usuarios_admin_markdown.md",
+            "chunk_id": "usuarios_admin_markdown.md_6"
+        }
+    },
+    {
+        "text_chunk": "### 3. Aba Geral - Configurações de Sistema\n4. **Configure os acessos principais**:\n   - **Perfil de Acesso** - Selecione o perfil com conjunto de permissões adequado à função do usuário\n   - **Filial Principal** - Selecione a filial de principal utilização do usuário\n   - **Impressora Principal** - Selecione a impressora de principal utilização do usuário\n   - **Permissão Filiais** - Selecione todas as filiais que o usuário terá acesso",
+        "metadata": {
+            "topic": "usuarios_admin_markdown",
+            "source_file": "usuarios_admin_markdown.md",
+            "chunk_id": "usuarios_admin_markdown.md_7"
+        }
+    },
+    {
+        "text_chunk": "### 4. Aba Tarefas - Permissões Operacionais\n5. **Defina as permissões para processos específicos**:\n   - **Conferência de Placa** - Acesso ao processo de conferência de placa\n   - **Conferência Recebimento** - Acesso ao processo de conferência recebimento\n   - **Armazenamento** - Acesso ao processo de armazenamento\n   - **Transferência** - Acesso ao processo de transferência\n   - **Picking** - Acesso ao processo de picking\n   - **Conferência Expedição** - Acesso ao processo de conferência expedição\n   - **Consolidação** - Acesso ao processo de consolidação\n   - **Romaneio** - Acesso ao processo de romaneio\n   - **Despacho** - Acesso ao processo de despacho\n   - **Devolução de Picking** - Acesso ao processo de devolução de picking\n   - **Consulta Estoque** - Acesso ao processo consulta estoque\n   - **Inventário** - Acesso ao processo de inventário\n   - **Relaciona EAN** - Acesso ao processo de relacionar EAN",
+        "metadata": {
+            "topic": "usuarios_admin_markdown",
+            "source_file": "usuarios_admin_markdown.md",
+            "chunk_id": "usuarios_admin_markdown.md_8"
+        }
+    },
+    {
+        "text_chunk": "### 5. Finalizando o Cadastro\n6. **Clique em Criar** para finalizar o cadastro do novo usuário",
+        "metadata": {
+            "topic": "usuarios_admin_markdown",
+            "source_file": "usuarios_admin_markdown.md",
+            "chunk_id": "usuarios_admin_markdown.md_9"
+        }
+    },
+    {
+        "text_chunk": "## Configuração Adicional - Impressoras",
+        "metadata": {
+            "topic": "usuarios_admin_markdown",
+            "source_file": "usuarios_admin_markdown.md",
+            "chunk_id": "usuarios_admin_markdown.md_10"
+        }
+    },
+    {
+        "text_chunk": "### Vinculação de Impressoras (após criação do usuário):\n7. **Edite o usuário** já criado\n8. **Acesse a aba Impressoras**\n9. **Clique em Vincular Impressoras**\n10. **Escolha as impressoras** que serão vinculadas ao usuário\n11. **Confirme a vinculação**",
+        "metadata": {
+            "topic": "usuarios_admin_markdown",
+            "source_file": "usuarios_admin_markdown.md",
+            "chunk_id": "usuarios_admin_markdown.md_11"
+        }
+    },
+    {
+        "text_chunk": "## Gerenciamento de Usuários Existentes",
+        "metadata": {
+            "topic": "usuarios_admin_markdown",
+            "source_file": "usuarios_admin_markdown.md",
+            "chunk_id": "usuarios_admin_markdown.md_12"
+        }
+    },
+    {
+        "text_chunk": "### Funcionalidades Disponíveis:\n- **Listar usuários** - Visualizar todos os usuários cadastrados\n- **Editar usuários** - Modificar informações e permissões\n- **Ativar/Desativar** - Controlar status de acesso\n- **Gerenciar impressoras** - Vincular/desvincular impressoras\n- **Atualizar permissões** - Modificar acessos a processos específicos",
+        "metadata": {
+            "topic": "usuarios_admin_markdown",
+            "source_file": "usuarios_admin_markdown.md",
+            "chunk_id": "usuarios_admin_markdown.md_13"
+        }
+    },
+    {
+        "text_chunk": "## Boas Práticas para Gestão de Usuários:",
+        "metadata": {
+            "topic": "usuarios_admin_markdown",
+            "source_file": "usuarios_admin_markdown.md",
+            "chunk_id": "usuarios_admin_markdown.md_14"
+        }
+    },
+    {
+        "text_chunk": "### Segurança:\n- **Senhas seguras** com validade definida\n- **Perfis específicos** para cada função\n- **Revisão periódica** de permissões",
+        "metadata": {
+            "topic": "usuarios_admin_markdown",
+            "source_file": "usuarios_admin_markdown.md",
+            "chunk_id": "usuarios_admin_markdown.md_15"
+        }
+    },
+    {
+        "text_chunk": "### Organização:\n- **Nomenclatura padrão** para logins\n- **Departamentos bem definidos**\n- **Impressoras específicas** por função/localização",
+        "metadata": {
+            "topic": "usuarios_admin_markdown",
+            "source_file": "usuarios_admin_markdown.md",
+            "chunk_id": "usuarios_admin_markdown.md_16"
+        }
+    },
+    {
+        "text_chunk": "### Controle:\n- **Status ativos** apenas para usuários em exercício\n- **Permissões mínimas** necessárias para a função\n- **Filiais apropriadas** conforme localização de trabalho",
+        "metadata": {
+            "topic": "usuarios_admin_markdown",
+            "source_file": "usuarios_admin_markdown.md",
+            "chunk_id": "usuarios_admin_markdown.md_17"
+        }
+    },
+    {
+        "text_chunk": "Este sistema de gestão garante controle granular sobre acessos e permissões, mantendo a segurança e eficiência operacional do BeeStock.",
+        "metadata": {
+            "topic": "usuarios_admin_markdown",
+            "source_file": "usuarios_admin_markdown.md",
+            "chunk_id": "usuarios_admin_markdown.md_18"
+        }
+    }
+]
