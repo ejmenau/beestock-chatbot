@@ -4,3 +4,4 @@ sentence-transformers
 google-generativeai
 numpy
 python-docx
+torch

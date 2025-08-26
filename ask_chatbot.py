@@ -36,17 +36,41 @@ class RAGSystem:
         self.model = SentenceTransformer('BAAI/bge-small-en-v1.5')
         print("✓ Sentence transformer model loaded")
         
+        # Analyze the knowledge base
+        self._analyze_knowledge_base()
+        
         print("RAG System initialization complete! 🚀")
         print()
     
-    def search(self, query, k=3, customer_filter=None):
+    def _analyze_knowledge_base(self):
+        """Analyze the loaded knowledge base to show what's available."""
+        source_types = {}
+        customer_names = set()
+        
+        for chunk in self.chunks_data:
+            source_type = chunk.get('source_type', 'unknown')
+            source_types[source_type] = source_types.get(source_type, 0) + 1
+            
+            if chunk.get('customer_name') != 'Wiki Documentation':
+                customer_names.add(chunk.get('customer_name', 'Unknown'))
+        
+        print("📊 Knowledge Base Analysis:")
+        for source_type, count in source_types.items():
+            print(f"  - {source_type}: {count} chunks")
+        
+        if customer_names:
+            print(f"  - Customers: {', '.join(sorted(customer_names))}")
+        print()
+    
+    def search(self, query, k=5, customer_filter=None, source_type_filter=None):
         """
         Search for the most relevant text chunks based on the user's query.
         
         Args:
             query (str): The user's question
-            k (int): Number of top results to return (default: 3)
+            k (int): Number of top results to return (default: 5)
             customer_filter (str, optional): Filter results by specific customer name
+            source_type_filter (str, optional): Filter by source type ('customer_transcript' or 'wiki_documentation')
             
         Returns:
             list: List of relevant text chunks with metadata
@@ -57,8 +81,9 @@ class RAGSystem:
         # Normalize the query embedding for cosine similarity
         faiss.normalize_L2(query_embedding)
         
-        # Search the FAISS index
-        distances, indices = self.index.search(query_embedding, k)
+        # Search the FAISS index with more results to allow for filtering
+        search_k = min(k * 3, len(self.chunks_data))  # Get more results to filter from
+        distances, indices = self.index.search(query_embedding, search_k)
         
         # Retrieve the corresponding chunks
         relevant_chunks = []
@@ -67,33 +92,43 @@ class RAGSystem:
                 chunk = self.chunks_data[idx]
                 
                 # Apply customer filter if specified
-                if customer_filter:
-                    if chunk['customer_name'].lower() == customer_filter.lower():
-                        relevant_chunks.append(chunk)
-                else:
-                    relevant_chunks.append(chunk)
+                if customer_filter and chunk.get('customer_name') != 'Wiki Documentation':
+                    if chunk['customer_name'].lower() != customer_filter.lower():
+                        continue
+                
+                # Apply source type filter if specified
+                if source_type_filter:
+                    if chunk.get('source_type') != source_type_filter:
+                        continue
+                
+                relevant_chunks.append(chunk)
+                
+                # Stop when we have enough results
+                if len(relevant_chunks) >= k:
+                    break
         
         return relevant_chunks
     
-    def ask(self, query, customer_filter=None):
+    def ask(self, query, customer_filter=None, source_type_filter=None):
         """
         Main RAG method: retrieve relevant context and generate an answer using Gemini.
         
         Args:
             query (str): The user's question
             customer_filter (str, optional): Filter results by specific customer name
+            source_type_filter (str, optional): Filter by source type
             
         Returns:
             str: Generated answer from Gemini based on retrieved context
         """
         # Search for relevant context chunks
-        relevant_chunks = self.search(query, k=3, customer_filter=customer_filter)
+        relevant_chunks = self.search(query, k=5, customer_filter=customer_filter, source_type_filter=source_type_filter)
         
         if not relevant_chunks:
             return "I could not find any relevant information in the knowledge base to answer your question. Please try rephrasing your question or ask about a different topic."
         
         # Combine retrieved chunks into context
-        context_str = "\n\n".join([chunk['text'] for chunk in relevant_chunks])
+        context_str = "\n\n---\n".join([chunk['text'] for chunk in relevant_chunks])
         
         # Create detailed prompt template for Gemini
         prompt_template = f"""You are an expert support analyst for BeeStock WMS (Warehouse Management System). 
@@ -118,14 +153,48 @@ Please provide a clear, helpful answer based on the context above:"""
             # Extract the text response
             answer = response.text.strip()
             
-            # Add source information
-            sources = list(set([chunk['customer_name'] for chunk in relevant_chunks]))
-            source_info = f"\n\n---\n*Sources: {', '.join(sources)}*"
+            # Add detailed source information
+            sources_info = self._format_sources(relevant_chunks)
             
-            return answer + source_info
+            return answer + sources_info
             
         except Exception as e:
             return f"Sorry, I encountered an error while generating the response: {str(e)}. Please try again."
+    
+    def _format_sources(self, chunks):
+        """Format source information for the response."""
+        source_groups = {}
+        
+        for chunk in chunks:
+            source_type = chunk.get('source_type', 'unknown')
+            if source_type not in source_groups:
+                source_groups[source_type] = []
+            
+            source_info = {
+                'filename': chunk.get('source_filename', 'Unknown'),
+                'customer': chunk.get('customer_name', 'Unknown')
+            }
+            
+            if chunk.get('title'):
+                source_info['title'] = chunk['title']
+            
+            source_groups[source_type].append(source_info)
+        
+        # Format the sources
+        sources_text = "\n\n---\n**Sources Used:**\n"
+        
+        for source_type, sources in source_groups.items():
+            if source_type == 'wiki_documentation':
+                sources_text += "\n📚 **Wiki Documentation:**\n"
+                for source in sources:
+                    title = source.get('title', source['filename'])
+                    sources_text += f"  - {title}\n"
+            else:
+                sources_text += f"\n💬 **Customer Transcripts ({sources[0]['customer']}):**\n"
+                for source in sources:
+                    sources_text += f"  - {source['filename']}\n"
+        
+        return sources_text
 
 def main():
     """Main execution function for the RAG chatbot."""
@@ -138,7 +207,7 @@ def main():
     print("🤖 BeeStock WMS RAG Chatbot")
     print("=" * 70)
     print("This chatbot can answer questions about BeeStock WMS processes")
-    print("based on the knowledge base of customer documentation.")
+    print("based on the knowledge base of customer documentation and wiki articles.")
     print()
     
     try:
@@ -164,18 +233,35 @@ def main():
                     print("Please enter a question.")
                     continue
                 
-                # Optional: Ask for customer filter
+                # Ask for search preferences
+                print("\n🔍 Search Options:")
+                print("1. Search everything (default)")
+                print("2. Search only wiki documentation")
+                print("3. Search only customer transcripts")
+                print("4. Search specific customer")
+                
+                choice = input("Choose option (1-4, default: 1): ").strip()
+                
                 customer_filter = None
-                filter_choice = input("🔍 Filter by specific customer? (y/n, default: n): ").strip().lower()
-                if filter_choice in ['y', 'yes']:
+                source_type_filter = None
+                
+                if choice == "2":
+                    source_type_filter = "wiki_documentation"
+                    print("🔍 Searching only wiki documentation...")
+                elif choice == "3":
+                    source_type_filter = "customer_transcript"
+                    print("🔍 Searching only customer transcripts...")
+                elif choice == "4":
                     customer_filter = input("Enter customer name: ").strip()
                     if customer_filter:
-                        print(f"Filtering results for customer: {customer_filter}")
+                        print(f"🔍 Filtering results for customer: {customer_filter}")
+                else:
+                    print("🔍 Searching all sources...")
                 
                 print("\n🔍 Searching knowledge base...")
                 
                 # Get answer from RAG system
-                answer = rag_system.ask(user_query, customer_filter)
+                answer = rag_system.ask(user_query, customer_filter, source_type_filter)
                 
                 # Display the answer
                 print("\n" + "=" * 50)
