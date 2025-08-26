@@ -12,9 +12,9 @@ genai.configure(api_key="AIzaSyApjah1pIDAbpG7O2guSi1UcqFKwrEo7hs")
 
 @st.cache_resource
 def load_rag_system():
-    """Load the RAG system with error handling for missing files."""
+    """Carrega o sistema RAG com tratamento de erros para arquivos ausentes."""
     
-    # Check if required files exist
+    # Verifica se os arquivos necessários existem
     required_files = ['vector_index.faiss', 'chunks_data.json']
     missing_files = []
     
@@ -23,60 +23,60 @@ def load_rag_system():
             missing_files.append(file)
     
     if missing_files:
-        st.error(f"❌ Missing required files: {', '.join(missing_files)}")
+        st.error(f"❌ Arquivos necessários não encontrados: {', '.join(missing_files)}")
         st.info("""
-        **To fix this issue:**
+        **Para resolver este problema:**
         
-        1. **Run the indexing script locally first:**
+        1. **Execute o script de indexação localmente primeiro:**
            ```bash
            python build_index.py
            ```
         
-        2. **Make sure these files are generated:**
+        2. **Certifique-se de que estes arquivos foram gerados:**
            - `chunks_data.json`
            - `vector_index.faiss`
         
-        3. **Include them in your deployment or run the indexing on the server.**
+        3. **Inclua-os no seu deployment ou execute a indexação no servidor.**
         """)
         return None, None, None
     
     try:
-        # Load the FAISS vector index
+        # Carrega o índice vetorial FAISS
         index = faiss.read_index('vector_index.faiss')
         
-        # Load the chunks data
+        # Carrega os dados dos chunks
         with open('chunks_data.json', 'r', encoding='utf-8') as f:
             chunks_data = json.load(f)
         
-        # Load the sentence transformer model
-        embedding_model = SentenceTransformer('BAAI/bge-small-en-v1.5')
+        # Carrega o modelo de embedding
+        embedding_model = SentenceTransformer('distiluse-base-multilingual-cased-v2')
         
         return index, chunks_data, embedding_model
         
     except Exception as e:
-        st.error(f"❌ Error loading RAG system: {str(e)}")
+        st.error(f"❌ Erro ao carregar o sistema RAG: {str(e)}")
         return None, None, None
 
 def search_knowledge_base(query, index, chunks_data, embedding_model, k=5, source_type_filter=None):
-    """Search the knowledge base for relevant chunks."""
+    """Busca na base de conhecimento por chunks relevantes."""
     try:
-        # Generate embedding for the query
+        # Gera embedding para a consulta
         query_embedding = embedding_model.encode([query])
         
-        # Normalize the query embedding for cosine similarity
+        # Normaliza o embedding da consulta para similaridade de cosseno
         faiss.normalize_L2(query_embedding)
         
-        # Search the FAISS index
+        # Busca no índice FAISS
         search_k = min(k * 3, len(chunks_data))
         distances, indices = index.search(query_embedding, search_k)
         
-        # Retrieve the corresponding chunks
+        # Recupera os chunks correspondentes
         relevant_chunks = []
         for idx in indices[0]:
             if idx < len(chunks_data):
                 chunk = chunks_data[idx]
                 
-                # Apply source type filter if specified
+                # Aplica filtro de tipo de fonte se especificado
                 if source_type_filter:
                     if chunk.get('source_type') != source_type_filter:
                         continue
@@ -89,44 +89,44 @@ def search_knowledge_base(query, index, chunks_data, embedding_model, k=5, sourc
         return relevant_chunks
         
     except Exception as e:
-        st.error(f"Search error: {str(e)}")
+        st.error(f"Erro na busca: {str(e)}")
         return []
 
 def generate_answer(query, relevant_chunks):
-    """Generate an answer using Gemini based on retrieved context."""
+    """Gera uma resposta usando Gemini baseada no contexto recuperado."""
     try:
         if not relevant_chunks:
-            return "I could not find any relevant information in the knowledge base to answer your question."
+            return "Não consegui encontrar informações relevantes na base de conhecimento para responder sua pergunta."
         
-        # Combine retrieved chunks into context
+        # Combina os chunks recuperados em contexto
         context_str = "\n\n---\n".join([chunk['text'] for chunk in relevant_chunks])
         
-        # Create prompt template
-        prompt_template = f"""You are an expert support analyst for BeeStock WMS (Warehouse Management System). 
-Your role is to help users understand processes, procedures, and information related to BeeStock.
+        # Cria template de prompt em português
+        prompt_template = f"""Você é um analista de suporte especialista no sistema WMS BeeStock (Sistema de Gerenciamento de Armazém). 
+Seu papel é ajudar os usuários a entender processos, procedimentos e informações relacionadas ao BeeStock.
 
-IMPORTANT: Answer the user's question based ONLY on the information provided in the context below. 
-Do not use any external knowledge or make assumptions beyond what is stated in the context.
-If the context doesn't contain enough information to fully answer the question, say so clearly.
+IMPORTANTE: Responda à pergunta do usuário baseado APENAS nas informações fornecidas no contexto abaixo. 
+Não use conhecimento externo ou faça suposições além do que está declarado no contexto.
+Se o contexto não contiver informações suficientes para responder completamente à pergunta, diga isso claramente.
 
-Context information:
+Informações do contexto:
 {context_str}
 
-User Question: {query}
+Pergunta do usuário: {query}
 
-Please provide a clear, helpful answer based on the context above:"""
+Por favor, forneça uma resposta clara e útil baseada no contexto acima:"""
 
-        # Generate response using Gemini Pro
+        # Gera resposta usando Gemini Pro
         model = genai.GenerativeModel('gemini-pro')
         response = model.generate_content(prompt_template)
         
         return response.text.strip()
         
     except Exception as e:
-        return f"Sorry, I encountered an error while generating the response: {str(e)}."
+        return f"Desculpe, encontrei um erro ao gerar a resposta: {str(e)}."
 
 def format_sources(chunks):
-    """Format source information for display."""
+    """Formata informações das fontes para exibição."""
     if not chunks:
         return ""
     
@@ -138,8 +138,8 @@ def format_sources(chunks):
             source_groups[source_type] = []
         
         source_info = {
-            'filename': chunk.get('source_filename', 'Unknown'),
-            'customer': chunk.get('customer_name', 'Unknown')
+            'filename': chunk.get('source_filename', 'Desconhecido'),
+            'customer': chunk.get('customer_name', 'Desconhecido')
         }
         
         if chunk.get('title'):
@@ -147,41 +147,41 @@ def format_sources(chunks):
         
         source_groups[source_type].append(source_info)
     
-    # Format the sources
-    sources_text = "\n\n---\n**Sources Used:**\n"
+    # Formata as fontes
+    sources_text = "\n\n---\n**Fontes Utilizadas:**\n"
     
     for source_type, sources in source_groups.items():
         if source_type == 'wiki_documentation':
-            sources_text += "\n📚 **Wiki Documentation:**\n"
+            sources_text += "\n📚 **Documentação Wiki:**\n"
             for source in sources:
                 title = source.get('title', source['filename'])
                 sources_text += f"  - {title}\n"
         else:
-            sources_text += f"\n💬 **Customer Transcripts ({sources[0]['customer']}):**\n"
+            sources_text += f"\n💬 **Transcrições de Cliente ({sources[0]['customer']}):**\n"
             for source in sources:
                 sources_text += f"  - {source['filename']}\n"
     
     return sources_text
 
-# Streamlit UI
+# Interface Streamlit
 st.set_page_config(
-    page_title="BeeStock WMS RAG Chatbot",
+    page_title="Chatbot RAG BeeStock WMS",
     page_icon="🤖",
     layout="wide"
 )
 
-st.title("🤖 BeeStock WMS RAG Chatbot")
-st.markdown("Ask questions about BeeStock WMS processes based on our knowledge base.")
+st.title("🤖 Chatbot RAG BeeStock WMS")
+st.markdown("Faça perguntas sobre processos do BeeStock WMS baseado em nossa base de conhecimento.")
 
-# Load the RAG system
-with st.spinner("Loading RAG system..."):
+# Carrega o sistema RAG
+with st.spinner("Carregando sistema RAG..."):
     index, chunks_data, embedding_model = load_rag_system()
 
 if index is None or chunks_data is None or embedding_model is None:
     st.stop()
 
-# Show knowledge base info
-with st.expander("📊 Knowledge Base Information"):
+# Mostra informações da base de conhecimento
+with st.expander("📊 Informações da Base de Conhecimento"):
     source_types = {}
     customer_names = set()
     
@@ -189,88 +189,93 @@ with st.expander("📊 Knowledge Base Information"):
         source_type = chunk.get('source_type', 'unknown')
         source_types[source_type] = source_types.get(source_type, 0) + 1
         
-        if chunk.get('customer_name') != 'Wiki Documentation':
-            customer_names.add(chunk.get('customer_name', 'Unknown'))
+        if chunk.get('customer_name') != 'Documentação Wiki':
+            customer_names.add(chunk.get('customer_name', 'Desconhecido'))
     
     col1, col2 = st.columns(2)
     
     with col1:
-        st.write("**Source Types:**")
+        st.write("**Tipos de Fonte:**")
         for source_type, count in source_types.items():
-            st.write(f"- {source_type}: {count} chunks")
+            if source_type == 'wiki_documentation':
+                st.write(f"- Documentação Wiki: {count} chunks")
+            elif source_type == 'customer_transcript':
+                st.write(f"- Transcrições de Cliente: {count} chunks")
+            else:
+                st.write(f"- {source_type}: {count} chunks")
     
     with col2:
         if customer_names:
-            st.write("**Customers:**")
+            st.write("**Clientes:**")
             for customer in sorted(customer_names):
                 st.write(f"- {customer}")
 
-# Search interface
+# Interface de busca
 st.markdown("---")
 
-# Query input
-query = st.text_input("💬 Ask your question:", placeholder="e.g., How do I consult EAN?")
+# Entrada da consulta
+query = st.text_input("💬 Faça sua pergunta:", placeholder="ex: Como consultar EAN?")
 
-# Search options
+# Opções de busca
 col1, col2 = st.columns([2, 1])
 
 with col1:
     source_filter = st.selectbox(
-        "🔍 Filter by source type:",
-        ["All sources", "Wiki Documentation", "Customer Transcripts"],
-        help="Choose which type of documents to search"
+        "🔍 Filtrar por tipo de fonte:",
+        ["Todas as fontes", "Documentação Wiki", "Transcrições de Cliente"],
+        help="Escolha qual tipo de documento pesquisar"
     )
 
 with col2:
-    k_results = st.slider("Number of results:", min_value=1, max_value=10, value=5)
+    k_results = st.slider("Número de resultados:", min_value=1, max_value=10, value=5)
 
-# Convert filter to internal format
+# Converte filtro para formato interno
 source_type_filter = None
-if source_filter == "Wiki Documentation":
+if source_filter == "Documentação Wiki":
     source_type_filter = "wiki_documentation"
-elif source_filter == "Customer Transcripts":
+elif source_filter == "Transcrições de Cliente":
     source_type_filter = "customer_transcript"
 
-# Search button
-if st.button("🔍 Search Knowledge Base", type="primary"):
+# Botão de busca
+if st.button("🔍 Buscar na Base de Conhecimento", type="primary"):
     if query.strip():
-        with st.spinner("Searching knowledge base..."):
-            # Search for relevant chunks
+        with st.spinner("Buscando na base de conhecimento..."):
+            # Busca por chunks relevantes
             relevant_chunks = search_knowledge_base(
                 query, index, chunks_data, embedding_model, 
                 k=k_results, source_type_filter=source_type_filter
             )
             
             if relevant_chunks:
-                # Generate answer
-                with st.spinner("Generating answer..."):
+                # Gera resposta
+                with st.spinner("Gerando resposta..."):
                     answer = generate_answer(query, relevant_chunks)
                 
-                # Display results
+                # Exibe resultados
                 st.markdown("---")
-                st.markdown("### 🤖 Answer")
+                st.markdown("### 🤖 Resposta")
                 st.write(answer)
                 
-                # Show sources
+                # Mostra fontes
                 sources_info = format_sources(relevant_chunks)
                 st.markdown(sources_info)
                 
-                # Show raw chunks for debugging
-                with st.expander("🔍 View Retrieved Chunks"):
+                # Mostra chunks brutos para debug
+                with st.expander("🔍 Ver Chunks Recuperados"):
                     for i, chunk in enumerate(relevant_chunks):
-                        st.markdown(f"**Chunk {i+1}** (from {chunk.get('source_filename', 'Unknown')})")
+                        st.markdown(f"**Chunk {i+1}** (de {chunk.get('source_filename', 'Desconhecido')})")
                         st.text(chunk['text'][:500] + "..." if len(chunk['text']) > 500 else chunk['text'])
                         st.markdown("---")
             else:
-                st.warning("No relevant information found. Try rephrasing your question or checking different source types.")
+                st.warning("Nenhuma informação relevante encontrada. Tente reformular sua pergunta ou verificar diferentes tipos de fonte.")
     else:
-        st.warning("Please enter a question to search.")
+        st.warning("Por favor, digite uma pergunta para buscar.")
 
-# Footer
+# Rodapé
 st.markdown("---")
 st.markdown("""
-**💡 Tips:**
-- Try different phrasings if you don't get the expected results
-- Use the source type filter to focus on specific document types
-- Check the retrieved chunks to see exactly what information was found
+**💡 Dicas:**
+- Tente diferentes formulações se não obtiver os resultados esperados
+- Use o filtro de tipo de fonte para focar em tipos específicos de documento
+- Verifique os chunks recuperados para ver exatamente quais informações foram encontradas
 """)

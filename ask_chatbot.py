@@ -6,44 +6,44 @@ import google.generativeai as genai
 
 class RAGSystem:
     """
-    RAG (Retrieval-Augmented Generation) system for BeeStock WMS support.
-    Loads pre-built vector index and provides question-answering capabilities.
+    Sistema RAG (Recuperação e Geração Aumentada) para suporte ao BeeStock WMS.
+    Carrega índice vetorial pré-construído e fornece capacidades de resposta a perguntas.
     """
     
     def __init__(self, index_file='vector_index.faiss', chunks_file='chunks_data.json'):
         """
-        Initialize the RAG system by loading the vector index, chunks data, and sentence transformer model.
+        Inicializa o sistema RAG carregando o índice vetorial, dados dos chunks e modelo de embedding.
         
         Args:
-            index_file (str): Path to the FAISS vector index file
-            chunks_file (str): Path to the JSON file containing text chunks and metadata
+            index_file (str): Caminho para o arquivo de índice FAISS
+            chunks_file (str): Caminho para o arquivo JSON contendo chunks de texto e metadados
         """
-        print("Initializing RAG System...")
+        print("Inicializando Sistema RAG...")
         
-        # Load the FAISS vector index
-        print("Loading vector index...")
+        # Carrega o índice vetorial FAISS
+        print("Carregando índice vetorial...")
         self.index = faiss.read_index(index_file)
-        print(f"✓ Vector index loaded: {self.index.ntotal} vectors, {self.index.d} dimensions")
+        print(f"✅ Índice vetorial carregado: {self.index.ntotal} vetores, {self.index.d} dimensões")
         
-        # Load the chunks data
-        print("Loading chunks data...")
+        # Carrega os dados dos chunks
+        print("Carregando dados dos chunks...")
         with open(chunks_file, 'r', encoding='utf-8') as f:
             self.chunks_data = json.load(f)
-        print(f"✓ Chunks data loaded: {len(self.chunks_data)} chunks")
+        print(f"✅ Dados dos chunks carregados: {len(self.chunks_data)} chunks")
         
-        # Load the sentence transformer model
-        print("Loading sentence transformer model...")
-        self.model = SentenceTransformer('BAAI/bge-small-en-v1.5')
-        print("✓ Sentence transformer model loaded")
+        # Carrega o modelo de embedding
+        print("Carregando modelo de embedding...")
+        self.model = SentenceTransformer('distiluse-base-multilingual-cased-v2')
+        print("✅ Modelo de embedding carregado")
         
-        # Analyze the knowledge base
+        # Analisa a base de conhecimento
         self._analyze_knowledge_base()
         
-        print("RAG System initialization complete! 🚀")
+        print("Inicialização do Sistema RAG concluída! 🚀")
         print()
     
     def _analyze_knowledge_base(self):
-        """Analyze the loaded knowledge base to show what's available."""
+        """Analisa a base de conhecimento carregada para mostrar o que está disponível."""
         source_types = {}
         customer_names = set()
         
@@ -51,59 +51,64 @@ class RAGSystem:
             source_type = chunk.get('source_type', 'unknown')
             source_types[source_type] = source_types.get(source_type, 0) + 1
             
-            if chunk.get('customer_name') != 'Wiki Documentation':
-                customer_names.add(chunk.get('customer_name', 'Unknown'))
+            if chunk.get('customer_name') != 'Documentação Wiki':
+                customer_names.add(chunk.get('customer_name', 'Desconhecido'))
         
-        print("📊 Knowledge Base Analysis:")
+        print("📊 Análise da Base de Conhecimento:")
         for source_type, count in source_types.items():
-            print(f"  - {source_type}: {count} chunks")
+            if source_type == 'wiki_documentation':
+                print(f"  - Documentação Wiki: {count} chunks")
+            elif source_type == 'customer_transcript':
+                print(f"  - Transcrições de Cliente: {count} chunks")
+            else:
+                print(f"  - {source_type}: {count} chunks")
         
         if customer_names:
-            print(f"  - Customers: {', '.join(sorted(customer_names))}")
+            print(f"  - Clientes: {', '.join(sorted(customer_names))}")
         print()
     
     def search(self, query, k=5, customer_filter=None, source_type_filter=None):
         """
-        Search for the most relevant text chunks based on the user's query.
+        Busca pelos chunks de texto mais relevantes baseado na consulta do usuário.
         
         Args:
-            query (str): The user's question
-            k (int): Number of top results to return (default: 5)
-            customer_filter (str, optional): Filter results by specific customer name
-            source_type_filter (str, optional): Filter by source type ('customer_transcript' or 'wiki_documentation')
+            query (str): A pergunta do usuário
+            k (int): Número de resultados principais para retornar (padrão: 5)
+            customer_filter (str, opcional): Filtra resultados por nome específico do cliente
+            source_type_filter (str, opcional): Filtra por tipo de fonte ('customer_transcript' ou 'wiki_documentation')
             
         Returns:
-            list: List of relevant text chunks with metadata
+            list: Lista de chunks relevantes com metadados
         """
-        # Generate embedding for the query
+        # Gera embedding para a consulta
         query_embedding = self.model.encode([query])
         
-        # Normalize the query embedding for cosine similarity
+        # Normaliza o embedding da consulta para similaridade de cosseno
         faiss.normalize_L2(query_embedding)
         
-        # Search the FAISS index with more results to allow for filtering
-        search_k = min(k * 3, len(self.chunks_data))  # Get more results to filter from
+        # Busca no índice FAISS com mais resultados para permitir filtragem
+        search_k = min(k * 3, len(self.chunks_data))  # Obtém mais resultados para filtrar
         distances, indices = self.index.search(query_embedding, search_k)
         
-        # Retrieve the corresponding chunks
+        # Recupera os chunks correspondentes
         relevant_chunks = []
         for idx in indices[0]:
-            if idx < len(self.chunks_data):  # Ensure index is valid
+            if idx < len(self.chunks_data):  # Garante que o índice é válido
                 chunk = self.chunks_data[idx]
                 
-                # Apply customer filter if specified
-                if customer_filter and chunk.get('customer_name') != 'Wiki Documentation':
+                # Aplica filtro de cliente se especificado
+                if customer_filter and chunk.get('customer_name') != 'Documentação Wiki':
                     if chunk['customer_name'].lower() != customer_filter.lower():
                         continue
                 
-                # Apply source type filter if specified
+                # Aplica filtro de tipo de fonte se especificado
                 if source_type_filter:
                     if chunk.get('source_type') != source_type_filter:
                         continue
                 
                 relevant_chunks.append(chunk)
                 
-                # Stop when we have enough results
+                # Para quando temos resultados suficientes
                 if len(relevant_chunks) >= k:
                     break
         
@@ -111,58 +116,58 @@ class RAGSystem:
     
     def ask(self, query, customer_filter=None, source_type_filter=None):
         """
-        Main RAG method: retrieve relevant context and generate an answer using Gemini.
+        Método RAG principal: recupera contexto relevante e gera uma resposta usando Gemini.
         
         Args:
-            query (str): The user's question
-            customer_filter (str, optional): Filter results by specific customer name
-            source_type_filter (str, optional): Filter by source type
+            query (str): A pergunta do usuário
+            customer_filter (str, opcional): Filtra resultados por nome específico do cliente
+            source_type_filter (str, opcional): Filtra por tipo de fonte
             
         Returns:
-            str: Generated answer from Gemini based on retrieved context
+            str: Resposta gerada do Gemini baseada no contexto recuperado
         """
-        # Search for relevant context chunks
+        # Busca por chunks de contexto relevantes
         relevant_chunks = self.search(query, k=5, customer_filter=customer_filter, source_type_filter=source_type_filter)
         
         if not relevant_chunks:
-            return "I could not find any relevant information in the knowledge base to answer your question. Please try rephrasing your question or ask about a different topic."
+            return "Não consegui encontrar informações relevantes na base de conhecimento para responder sua pergunta. Por favor, tente reformular sua pergunta ou perguntar sobre um tópico diferente."
         
-        # Combine retrieved chunks into context
+        # Combina os chunks recuperados em contexto
         context_str = "\n\n---\n".join([chunk['text'] for chunk in relevant_chunks])
         
-        # Create detailed prompt template for Gemini
-        prompt_template = f"""You are an expert support analyst for BeeStock WMS (Warehouse Management System). 
-Your role is to help users understand processes, procedures, and information related to BeeStock.
+        # Cria template de prompt detalhado para Gemini
+        prompt_template = f"""Você é um analista de suporte especialista no sistema WMS BeeStock (Sistema de Gerenciamento de Armazém). 
+Seu papel é ajudar os usuários a entender processos, procedimentos e informações relacionadas ao BeeStock.
 
-IMPORTANT: Answer the user's question based ONLY on the information provided in the context below. 
-Do not use any external knowledge or make assumptions beyond what is stated in the context.
-If the context doesn't contain enough information to fully answer the question, say so clearly.
+IMPORTANTE: Responda à pergunta do usuário baseado APENAS nas informações fornecidas no contexto abaixo. 
+Não use conhecimento externo ou faça suposições além do que está declarado no contexto.
+Se o contexto não contiver informações suficientes para responder completamente à pergunta, diga isso claramente.
 
-Context information:
+Informações do contexto:
 {context_str}
 
-User Question: {query}
+Pergunta do usuário: {query}
 
-Please provide a clear, helpful answer based on the context above:"""
+Por favor, forneça uma resposta clara e útil baseada no contexto acima:"""
 
         try:
-            # Generate response using Gemini Pro
+            # Gera resposta usando Gemini Pro
             model = genai.GenerativeModel('gemini-pro')
             response = model.generate_content(prompt_template)
             
-            # Extract the text response
+            # Extrai a resposta de texto
             answer = response.text.strip()
             
-            # Add detailed source information
+            # Adiciona informações detalhadas das fontes
             sources_info = self._format_sources(relevant_chunks)
             
             return answer + sources_info
             
         except Exception as e:
-            return f"Sorry, I encountered an error while generating the response: {str(e)}. Please try again."
+            return f"Desculpe, encontrei um erro ao gerar a resposta: {str(e)}. Por favor, tente novamente."
     
     def _format_sources(self, chunks):
-        """Format source information for the response."""
+        """Formata informações das fontes para a resposta."""
         source_groups = {}
         
         for chunk in chunks:
@@ -171,8 +176,8 @@ Please provide a clear, helpful answer based on the context above:"""
                 source_groups[source_type] = []
             
             source_info = {
-                'filename': chunk.get('source_filename', 'Unknown'),
-                'customer': chunk.get('customer_name', 'Unknown')
+                'filename': chunk.get('source_filename', 'Desconhecido'),
+                'customer': chunk.get('customer_name', 'Desconhecido')
             }
             
             if chunk.get('title'):
@@ -180,109 +185,109 @@ Please provide a clear, helpful answer based on the context above:"""
             
             source_groups[source_type].append(source_info)
         
-        # Format the sources
-        sources_text = "\n\n---\n**Sources Used:**\n"
+        # Formata as fontes
+        sources_text = "\n\n---\n**Fontes Utilizadas:**\n"
         
         for source_type, sources in source_groups.items():
             if source_type == 'wiki_documentation':
-                sources_text += "\n📚 **Wiki Documentation:**\n"
+                sources_text += "\n📚 **Documentação Wiki:**\n"
                 for source in sources:
                     title = source.get('title', source['filename'])
                     sources_text += f"  - {title}\n"
             else:
-                sources_text += f"\n💬 **Customer Transcripts ({sources[0]['customer']}):**\n"
+                sources_text += f"\n💬 **Transcrições de Cliente ({sources[0]['customer']}):**\n"
                 for source in sources:
                     sources_text += f"  - {source['filename']}\n"
         
         return sources_text
 
 def main():
-    """Main execution function for the RAG chatbot."""
+    """Função de execução principal para o chatbot RAG."""
     
-    # IMPORTANT: Replace 'YOUR_GEMINI_API_KEY' with your actual Gemini API key
-    # You can get one from: https://makersuite.google.com/app/apikey
+    # IMPORTANTE: Substitua 'YOUR_GEMINI_API_KEY' pela sua chave de API real do Gemini
+    # Você pode obter uma em: https://makersuite.google.com/app/apikey
     genai.configure(api_key="AIzaSyApjah1pIDAbpG7O2guSi1UcqFKwrEo7hs")
     
     print("=" * 70)
-    print("🤖 BeeStock WMS RAG Chatbot")
+    print("🤖 Chatbot RAG BeeStock WMS")
     print("=" * 70)
-    print("This chatbot can answer questions about BeeStock WMS processes")
-    print("based on the knowledge base of customer documentation and wiki articles.")
+    print("Este chatbot pode responder perguntas sobre processos do BeeStock WMS")
+    print("baseado na base de conhecimento de documentação de clientes e artigos wiki.")
     print()
     
     try:
-        # Initialize the RAG system
+        # Inicializa o sistema RAG
         rag_system = RAGSystem()
         
-        print("Chat session started! Type 'exit' to quit.")
+        print("Sessão de chat iniciada! Digite 'sair' para sair.")
         print("-" * 50)
         
-        # Main chat loop
+        # Loop principal de chat
         while True:
             try:
-                # Get user input
-                user_query = input("\n💬 Ask your question (or type 'exit' to quit): ").strip()
+                # Obtém entrada do usuário
+                user_query = input("\n💬 Faça sua pergunta (ou digite 'sair' para sair): ").strip()
                 
-                # Check for exit command
-                if user_query.lower() in ['exit', 'quit', 'bye']:
-                    print("\n👋 Thank you for using the BeeStock WMS RAG Chatbot!")
+                # Verifica comando de saída
+                if user_query.lower() in ['sair', 'quit', 'bye', 'exit']:
+                    print("\n👋 Obrigado por usar o Chatbot RAG BeeStock WMS!")
                     break
                 
-                # Skip empty queries
+                # Pula consultas vazias
                 if not user_query:
-                    print("Please enter a question.")
+                    print("Por favor, digite uma pergunta.")
                     continue
                 
-                # Ask for search preferences
-                print("\n🔍 Search Options:")
-                print("1. Search everything (default)")
-                print("2. Search only wiki documentation")
-                print("3. Search only customer transcripts")
-                print("4. Search specific customer")
+                # Pergunta sobre preferências de busca
+                print("\n🔍 Opções de Busca:")
+                print("1. Buscar tudo (padrão)")
+                print("2. Buscar apenas documentação wiki")
+                print("3. Buscar apenas transcrições de cliente")
+                print("4. Buscar cliente específico")
                 
-                choice = input("Choose option (1-4, default: 1): ").strip()
+                choice = input("Escolha a opção (1-4, padrão: 1): ").strip()
                 
                 customer_filter = None
                 source_type_filter = None
                 
                 if choice == "2":
                     source_type_filter = "wiki_documentation"
-                    print("🔍 Searching only wiki documentation...")
+                    print("🔍 Buscando apenas documentação wiki...")
                 elif choice == "3":
                     source_type_filter = "customer_transcript"
-                    print("🔍 Searching only customer transcripts...")
+                    print("🔍 Buscando apenas transcrições de cliente...")
                 elif choice == "4":
-                    customer_filter = input("Enter customer name: ").strip()
+                    customer_filter = input("Digite o nome do cliente: ").strip()
                     if customer_filter:
-                        print(f"🔍 Filtering results for customer: {customer_filter}")
+                        print(f"🔍 Filtrando resultados para o cliente: {customer_filter}")
                 else:
-                    print("🔍 Searching all sources...")
+                    print("🔍 Buscando todas as fontes...")
                 
-                print("\n🔍 Searching knowledge base...")
+                print("\n🔍 Buscando na base de conhecimento...")
                 
-                # Get answer from RAG system
+                # Obtém resposta do sistema RAG
                 answer = rag_system.ask(user_query, customer_filter, source_type_filter)
                 
-                # Display the answer
+                # Exibe a resposta
                 print("\n" + "=" * 50)
-                print("🤖 ANSWER:")
+                print("🤖 RESPOSTA:")
                 print("=" * 50)
                 print(answer)
                 print("=" * 50)
                 
             except KeyboardInterrupt:
-                print("\n\n👋 Chat session interrupted. Goodbye!")
+                print("\n\n👋 Sessão de chat interrompida. Tchau!")
                 break
             except Exception as e:
-                print(f"\n❌ Error: {str(e)}")
-                print("Please try again or type 'exit' to quit.")
+                print(f"\n❌ Erro: {str(e)}")
+                print("Por favor, tente novamente ou digite 'sair' para sair.")
     
     except FileNotFoundError as e:
-        print(f"❌ Error: Could not find required files: {str(e)}")
-        print("Please make sure you have run 'build_index.py' first to create the index files.")
+        print(f"❌ Erro: Não foi possível encontrar os arquivos necessários: {str(e)}")
+        print("Por favor, certifique-se de que você executou 'build_index.py' primeiro para criar os arquivos de índice.")
     except Exception as e:
-        print(f"❌ Fatal error: {str(e)}")
-        print("Please check your setup and try again.")
+        print(f"❌ Erro fatal: {str(e)}")
+        print("Por favor, verifique sua configuração e tente novamente.")
 
 if __name__ == "__main__":
     main()
