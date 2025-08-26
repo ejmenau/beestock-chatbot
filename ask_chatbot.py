@@ -151,8 +151,8 @@ Pergunta do usuário: {query}
 Por favor, forneça uma resposta clara e útil baseada no contexto acima:"""
 
         try:
-            # Gera resposta usando Gemini Pro
-            model = genai.GenerativeModel('gemini-pro')
+            # Gera resposta usando Gemini Flash (melhor para free tier)
+            model = genai.GenerativeModel('gemini-1.5-flash')
             response = model.generate_content(prompt_template)
             
             # Extrai a resposta de texto

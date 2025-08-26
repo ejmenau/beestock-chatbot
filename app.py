@@ -1,4 +1,3 @@
-# app.py
 import streamlit as st
 import json
 import faiss
@@ -116,8 +115,8 @@ Pergunta do usuário: {query}
 
 Por favor, forneça uma resposta clara e útil baseada no contexto acima:"""
 
-        # Gera resposta usando Gemini Pro
-        model = genai.GenerativeModel('gemini-pro')
+        # Gera resposta usando Gemini Flash (melhor para free tier)
+        model = genai.GenerativeModel('gemini-1.5-flash')
         response = model.generate_content(prompt_template)
         
         return response.text.strip()
