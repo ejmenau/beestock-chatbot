@@ -135,7 +135,9 @@ st.markdown("Faça uma pergunta sobre os processos dos clientes e o chatbot busc
 # Sidebar
 st.sidebar.header("Filtros de Busca (Opcional)")
 if chunks_data:
-    customer_list = sorted(list(set(chunk['metadata'].get('customer', 'N/A') for chunk in chunks_data)))
+    # --- LINHA CORRIGIDA ---
+    # Adicionamos 'if chunk and "metadata" in chunk' para ignorar chunks malformados.
+    customer_list = sorted(list(set(chunk['metadata'].get('customer', 'N/A') for chunk in chunks_data if chunk and "metadata" in chunk)))
 else:
     customer_list = []
 
