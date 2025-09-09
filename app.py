@@ -1,194 +1,280 @@
-# app.py
 import streamlit as st
 import json
 import faiss
 import numpy as np
-from sentence_transformers import SentenceTransformer, CrossEncoder
+from sentence_transformers import SentenceTransformer
 import google.generativeai as genai
 import os
-import re
 
-# --- CONFIGURAÇÃO DA PÁGINA ---
-st.set_page_config(
-    page_title="KB BeeStock Chatbot",
-    page_icon="🐝",
-    layout="wide",
-    initial_sidebar_state="auto"
-)
+# Configure Gemini API
+genai.configure(api_key="AIzaSyApjah1pIDAbpG7O2guSi1UcqFKwrEo7hs")
 
-# --- FUNÇÃO DE CACHE PARA CARREGAR OS MODELOS E OS DADOS ---
 @st.cache_resource
 def load_rag_system():
-    """
-    Carrega todos os componentes necessários para o sistema RAG.
-    """
+    """Carrega o sistema RAG com tratamento de erros para arquivos ausentes."""
+    
+    # Verifica se os arquivos necessários existem
+    required_files = ['vector_index.faiss', 'chunks_data.json']
+    missing_files = []
+    
+    for file in required_files:
+        if not os.path.exists(file):
+            missing_files.append(file)
+    
+    if missing_files:
+        st.error(f"❌ Arquivos necessários não encontrados: {', '.join(missing_files)}")
+        st.info("""
+        **Para resolver este problema:**
+        
+        1. **Execute o script de indexação localmente primeiro:**
+           ```bash
+           python build_index.py
+           ```
+        
+        2. **Certifique-se de que estes arquivos foram gerados:**
+           - `chunks_data.json`
+           - `vector_index.faiss`
+        
+        3. **Inclua-os no seu deployment ou execute a indexação no servidor.**
+        """)
+        return None, None, None
+    
     try:
-        index = faiss.read_index("vector_index.faiss")
-        with open("chunks_data.json", 'r', encoding='utf-8') as f:
+        # Carrega o índice vetorial FAISS
+        index = faiss.read_index('vector_index.faiss')
+        
+        # Carrega os dados dos chunks
+        with open('chunks_data.json', 'r', encoding='utf-8') as f:
             chunks_data = json.load(f)
         
-        bi_encoder = SentenceTransformer('paraphrase-multilingual-mpnet-base-v2')
-        cross_encoder = CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2')
+        # Carrega o modelo de embedding
+        embedding_model = SentenceTransformer('distiluse-base-multilingual-cased-v2')
         
-        return index, chunks_data, bi_encoder, cross_encoder
-    except FileNotFoundError:
-        st.error("Arquivos de índice (vector_index.faiss ou chunks_data.json) não encontrados. "
-                 "Certifique-se de que eles estão no seu repositório GitHub junto com o app.py.")
-        return None, None, None, None
-
-# --- CARREGAMENTO DOS COMPONENTES DO SISTEMA ---
-index, chunks_data, bi_encoder, cross_encoder = load_rag_system()
-
-# --- CONFIGURAÇÃO DA API KEY DO GEMINI ---
-try:
-    api_key = st.secrets["GEMINI_API_KEY"]
-except (FileNotFoundError, KeyError):
-    st.sidebar.warning("🔑 Chave de API do Gemini não encontrada. Por favor, insira abaixo.")
-    api_key = st.sidebar.text_input("Insira sua Chave de API do Gemini:", type="password", help="Obtenha sua chave em [Google AI Studio](https://makersuite.google.com/)")
-
-if api_key:
-    try:
-        genai.configure(api_key=api_key)
-        generative_model = genai.GenerativeModel('gemini-1.5-flash-latest')
+        return index, chunks_data, embedding_model
+        
     except Exception as e:
-        st.error(f"Erro ao configurar a API do Gemini: {e}")
-        generative_model = None
-else:
-    generative_model = None
+        st.error(f"❌ Erro ao carregar o sistema RAG: {str(e)}")
+        return None, None, None
 
-# --- FUNÇÕES DO CHATBOT ---
-
-def search_knowledge_base(query, k=10):
-    """
-    Busca na base de conhecimento usando um processo de duas etapas: busca vetorial e re-ranking.
-    """
-    if bi_encoder is None or cross_encoder is None or index is None:
+def search_knowledge_base(query, index, chunks_data, embedding_model, k=5, source_type_filter=None):
+    """Busca na base de conhecimento por chunks relevantes."""
+    try:
+        # Gera embedding para a consulta
+        query_embedding = embedding_model.encode([query])
+        
+        # Normaliza o embedding da consulta para similaridade de cosseno
+        faiss.normalize_L2(query_embedding)
+        
+        # Busca no índice FAISS
+        search_k = min(k * 3, len(chunks_data))
+        distances, indices = index.search(query_embedding, search_k)
+        
+        # Recupera os chunks correspondentes
+        relevant_chunks = []
+        for idx in indices[0]:
+            if idx < len(chunks_data):
+                chunk = chunks_data[idx]
+                
+                # Aplica filtro de tipo de fonte se especificado
+                if source_type_filter:
+                    if chunk.get('source_type') != source_type_filter:
+                        continue
+                
+                relevant_chunks.append(chunk)
+                
+                if len(relevant_chunks) >= k:
+                    break
+        
+        return relevant_chunks
+        
+    except Exception as e:
+        st.error(f"Erro na busca: {str(e)}")
         return []
 
-    # Etapa 1: Busca Vetorial Rápida em toda a base
-    query_embedding = bi_encoder.encode([query])
-    faiss.normalize_L2(query_embedding)
-    
-    # Busca um grande conjunto inicial de candidatos de toda a base de conhecimento
-    distances, indices = index.search(query_embedding, 50) 
-    candidate_chunks = [chunks_data[i] for i in indices[0] if i != -1]
-
-    if not candidate_chunks:
-        return []
-
-    # Etapa 2: Re-ranking com Cross-Encoder
-    cross_inp = [[query, chunk.get('text_chunk', '')] for chunk in candidate_chunks]
-    cross_scores = cross_encoder.predict(cross_inp)
-
-    for i in range(len(cross_scores)):
-        candidate_chunks[i]['rerank_score'] = cross_scores[i]
-
-    reranked_chunks = sorted(candidate_chunks, key=lambda x: x['rerank_score'], reverse=True)
-    
-    return reranked_chunks[:k]
-
-def generate_response(query, retrieved_chunks):
-    """
-    Gera uma resposta usando o modelo Gemini com um prompt de "Chain of Thought".
-    """
-    if not retrieved_chunks or generative_model is None:
-        return "Não foi possível encontrar informações relevantes para responder à sua pergunta.", []
-
-    context_str = "\n\n---\n\n".join([f"Fonte: {chunk['metadata']['source_file']}\nConteúdo: {chunk.get('text_chunk', '')}" for chunk in retrieved_chunks])
-
-    # O prompt "Chain of Thought" que força o raciocínio passo a passo
-    prompt_template = f"""
-    Siga estritamente este processo de raciocínio de 3 etapas para responder à pergunta do usuário.
-
-    **Pergunta do Usuário:** "{query}"
-
-    **Etapa 1: Identificar a Intenção Principal**
-    Primeiro, identifique a intenção principal da pergunta do usuário. A pergunta é sobre um processo de cliente específico, uma funcionalidade geral do sistema (como fazer), ou está pedindo uma lista?
-
-    **Etapa 2: Extrair Fatos Relevantes do Contexto**
-    Segundo, revise o contexto fornecido abaixo e extraia textualmente todas as frases ou fatos que são diretamente relevantes para a intenção principal da pergunta. Liste cada fato. Se um fato menciona um nome de cliente ou pessoa, inclua esse nome.
-
-    **Contexto Fornecido:**
-    ---
-    {context_str}
-    ---
-
-    **Etapa 3: Sintetizar a Resposta Final**
-    Terceiro, com base nos fatos que você extraiu na Etapa 2, sintetize uma resposta final, abrangente e confiante em português do Brasil.
-    - Se a pergunta for sobre "qual cliente" ou "quem", sua resposta DEVE nomear o cliente ou pessoa se essa informação estiver nos fatos extraídos.
-    - Se a pergunta for sobre "como fazer", sua resposta DEVE fornecer um guia passo a passo, se os passos estiverem nos fatos extraídos.
-    - Se, após extrair os fatos, a informação necessária para responder completamente não estiver lá, afirme que o contexto não fornece os detalhes específicos.
-
-    Execute as três etapas internamente e forneça apenas a **Resposta Final Sintetizada** para o usuário.
-    """
-    
+def generate_answer(query, relevant_chunks):
+    """Gera uma resposta usando Gemini baseada no contexto recuperado."""
     try:
-        response = generative_model.generate_content(prompt_template)
-        return response.text, retrieved_chunks
-    except Exception as e:
-        return f"Ocorreu um erro ao gerar a resposta: {e}", []
-
-# --- INTERFACE DO USUÁRIO (UI) ---
-st.title("🐝 Chatbot da Base de Conhecimento BeeStock")
-st.markdown("Faça uma pergunta sobre os processos dos clientes e o chatbot buscará a resposta nos documentos.")
-
-# Sidebar
-st.sidebar.header("Filtros de Busca (Opcional)")
-if chunks_data:
-    # --- LINHA CORRIGIDA ---
-    # Adicionamos 'if chunk and "metadata" in chunk' para ignorar chunks malformados.
-    customer_list = sorted(list(set(chunk['metadata'].get('customer', 'N/A') for chunk in chunks_data if chunk and "metadata" in chunk)))
-else:
-    customer_list = []
-
-# Inicializa o histórico do chat
-if "messages" not in st.session_state:
-    st.session_state.messages = []
-
-# Exibe as mensagens do histórico
-for message in st.session_state.messages:
-    with st.chat_message(message["role"]):
-        st.markdown(message["content"])
-        if message["role"] == "assistant" and "sources" in message and message["sources"]:
-            with st.expander("Ver fontes utilizadas"):
-                for source in message["sources"]:
-                    st.info(f"**Fonte:** `{source['metadata']['source_file']}`\n\n---\n\n{source.get('text_chunk', '')}")
-
-# Campo de entrada do usuário
-if prompt := st.chat_input("Qual é a sua dúvida?"):
-    st.session_state.messages.append({"role": "user", "content": prompt})
-    with st.chat_message("user"):
-        st.markdown(prompt)
-
-    # Gera e exibe a resposta do assistente
-    with st.chat_message("assistant"):
-        prompt_lower = prompt.lower()
-        if any(keyword in prompt_lower for keyword in ["exemplos de clientes", "quais clientes", "liste os clientes", "que clientes"]):
-            # Filtra clientes "N/A" ou outros valores inválidos se existirem
-            valid_customers = [c for c in customer_list if c != 'N/A' and c]
-            if valid_customers:
-                response = f"Com base nos documentos carregados, os clientes que usam o BeeStock são: **{', '.join(valid_customers)}**."
-            else:
-                response = "Ainda não tenho informações sobre clientes específicos na minha base de dados."
-            st.markdown(response)
-            st.session_state.messages.append({"role": "assistant", "content": response, "sources": []})
+        if not relevant_chunks:
+            return "Não consegui encontrar informações relevantes na base de conhecimento para responder sua pergunta."
         
+        # Combina os chunks recuperados em contexto
+        context_str = "\n\n---\n".join([chunk['text'] for chunk in relevant_chunks])
+        
+        # Cria template de prompt em português
+        prompt_template = f"""Você é um analista de suporte especialista no sistema WMS BeeStock (Sistema de Gerenciamento de Armazém). 
+Seu papel é ajudar os usuários a entender processos, procedimentos e informações relacionadas ao BeeStock.
+
+IMPORTANTE: Responda à pergunta do usuário baseado APENAS nas informações fornecidas no contexto abaixo. 
+Não use conhecimento externo ou faça suposições além do que está declarado no contexto.
+Se o contexto não contiver informações suficientes para responder completamente à pergunta, diga isso claramente.
+
+Informações do contexto:
+{context_str}
+
+Pergunta do usuário: {query}
+
+Por favor, forneça uma resposta clara e útil baseada no contexto acima:"""
+
+        # Gera resposta usando Gemini Flash (melhor para free tier)
+        model = genai.GenerativeModel('gemini-1.5-flash')
+        response = model.generate_content(prompt_template)
+        
+        return response.text.strip()
+        
+    except Exception as e:
+        return f"Desculpe, encontrei um erro ao gerar a resposta: {str(e)}."
+
+def format_sources(chunks):
+    """Formata informações das fontes para exibição."""
+    if not chunks:
+        return ""
+    
+    source_groups = {}
+    
+    for chunk in chunks:
+        source_type = chunk.get('source_type', 'unknown')
+        if source_type not in source_groups:
+            source_groups[source_type] = []
+        
+        source_info = {
+            'filename': chunk.get('source_filename', 'Desconhecido'),
+            'customer': chunk.get('customer_name', 'Desconhecido')
+        }
+        
+        if chunk.get('title'):
+            source_info['title'] = chunk['title']
+        
+        source_groups[source_type].append(source_info)
+    
+    # Formata as fontes
+    sources_text = "\n\n---\n**Fontes Utilizadas:**\n"
+    
+    for source_type, sources in source_groups.items():
+        if source_type == 'wiki_documentation':
+            sources_text += "\n📚 **Documentação Wiki:**\n"
+            for source in sources:
+                title = source.get('title', source['filename'])
+                sources_text += f"  - {title}\n"
         else:
-            with st.spinner("Analisando a base de conhecimento... 🧠"):
-                if index is not None and generative_model is not None:
-                    chunks = search_knowledge_base(prompt)
-                    response, sources = generate_response(prompt, chunks)
-                    
-                    st.markdown(response)
-                    
-                    if sources:
-                        with st.expander("Ver fontes utilizadas"):
-                            for source in sources:
-                                st.info(f"**Fonte:** `{source['metadata']['source_file']}`\n\n---\n\n{source.get('text_chunk', '')}")
-                    
-                    st.session_state.messages.append({"role": "assistant", "content": response, "sources": sources})
-                elif index is None:
-                     st.error("O sistema de busca não foi carregado.")
-                else:
-                     st.error("A chave de API do Gemini não foi configurada. Por favor, adicione-a.")
+            sources_text += f"\n💬 **Transcrições de Cliente ({sources[0]['customer']}):**\n"
+            for source in sources:
+                sources_text += f"  - {source['filename']}\n"
+    
+    return sources_text
 
+# Interface Streamlit
+st.set_page_config(
+    page_title="Chatbot RAG BeeStock WMS",
+    page_icon="🤖",
+    layout="wide"
+)
+
+st.title("🤖 Chatbot RAG BeeStock WMS")
+st.markdown("Faça perguntas sobre processos do BeeStock WMS baseado em nossa base de conhecimento.")
+
+# Carrega o sistema RAG
+with st.spinner("Carregando sistema RAG..."):
+    index, chunks_data, embedding_model = load_rag_system()
+
+if index is None or chunks_data is None or embedding_model is None:
+    st.stop()
+
+# Mostra informações da base de conhecimento
+with st.expander("📊 Informações da Base de Conhecimento"):
+    source_types = {}
+    customer_names = set()
+    
+    for chunk in chunks_data:
+        source_type = chunk.get('source_type', 'unknown')
+        source_types[source_type] = source_types.get(source_type, 0) + 1
+        
+        if chunk.get('customer_name') != 'Documentação Wiki':
+            customer_names.add(chunk.get('customer_name', 'Desconhecido'))
+    
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        st.write("**Tipos de Fonte:**")
+        for source_type, count in source_types.items():
+            if source_type == 'wiki_documentation':
+                st.write(f"- Documentação Wiki: {count} chunks")
+            elif source_type == 'customer_transcript':
+                st.write(f"- Transcrições de Cliente: {count} chunks")
+            else:
+                st.write(f"- {source_type}: {count} chunks")
+    
+    with col2:
+        if customer_names:
+            st.write("**Clientes:**")
+            for customer in sorted(customer_names):
+                st.write(f"- {customer}")
+
+# Interface de busca
+st.markdown("---")
+
+# Entrada da consulta
+query = st.text_input("💬 Faça sua pergunta:", placeholder="ex: Como consultar EAN?")
+
+# Opções de busca
+col1, col2 = st.columns([2, 1])
+
+with col1:
+    source_filter = st.selectbox(
+        "🔍 Filtrar por tipo de fonte:",
+        ["Todas as fontes", "Documentação Wiki", "Transcrições de Cliente"],
+        help="Escolha qual tipo de documento pesquisar"
+    )
+
+with col2:
+    k_results = st.slider("Número de resultados:", min_value=1, max_value=10, value=5)
+
+# Converte filtro para formato interno
+source_type_filter = None
+if source_filter == "Documentação Wiki":
+    source_type_filter = "wiki_documentation"
+elif source_filter == "Transcrições de Cliente":
+    source_type_filter = "customer_transcript"
+
+# Botão de busca
+if st.button("🔍 Buscar na Base de Conhecimento", type="primary"):
+    if query.strip():
+        with st.spinner("Buscando na base de conhecimento..."):
+            # Busca por chunks relevantes
+            relevant_chunks = search_knowledge_base(
+                query, index, chunks_data, embedding_model, 
+                k=k_results, source_type_filter=source_type_filter
+            )
+            
+            if relevant_chunks:
+                # Gera resposta
+                with st.spinner("Gerando resposta..."):
+                    answer = generate_answer(query, relevant_chunks)
+                
+                # Exibe resultados
+                st.markdown("---")
+                st.markdown("### 🤖 Resposta")
+                st.write(answer)
+                
+                # Mostra fontes
+                sources_info = format_sources(relevant_chunks)
+                st.markdown(sources_info)
+                
+                # Mostra chunks brutos para debug
+                with st.expander("🔍 Ver Chunks Recuperados"):
+                    for i, chunk in enumerate(relevant_chunks):
+                        st.markdown(f"**Chunk {i+1}** (de {chunk.get('source_filename', 'Desconhecido')})")
+                        st.text(chunk['text'][:500] + "..." if len(chunk['text']) > 500 else chunk['text'])
+                        st.markdown("---")
+            else:
+                st.warning("Nenhuma informação relevante encontrada. Tente reformular sua pergunta ou verificar diferentes tipos de fonte.")
+    else:
+        st.warning("Por favor, digite uma pergunta para buscar.")
+
+# Rodapé
+st.markdown("---")
+st.markdown("""
+**💡 Dicas:**
+- Tente diferentes formulações se não obtiver os resultados esperados
+- Use o filtro de tipo de fonte para focar em tipos específicos de documento
+- Verifique os chunks recuperados para ver exatamente quais informações foram encontradas
+""")
